@@ -55,7 +55,7 @@ def main():
         time.sleep(20)                       # let the new coins exist for a bit
         for m in mints:
             sc, js = quote(host_ok, SOL, m["mint"], 0.1e9)
-            line = f"- new coin {m['symbol'][:12]!r} age ~{int(time.time()) % 1000}s: buy 0.1 SOL → HTTP {sc}"
+            line = f"- new coin {(m.get('symbol') or '')[:12]!r} age ~{int(time.time()) % 1000}s: buy 0.1 SOL → HTTP {sc}"
             if sc == 200 and isinstance(js, dict):
                 route = [r["swapInfo"].get("label") for r in js.get("routePlan", [])]
                 line += f", out {js.get('outAmount')}, impact {js.get('priceImpactPct')}, route {route}"
@@ -87,4 +87,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except BaseException as e:
+        import traceback
+        os.makedirs(OUT, exist_ok=True)
+        with open(os.path.join(OUT, "probe_jup.md"), "w") as f:
+            f.write("# Probe 3 crashed\n\n```\n" + traceback.format_exc() + "\n```\n")
+        raise

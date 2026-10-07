@@ -34,8 +34,11 @@ def curve_address(mint):
     """The coin's bonding-curve account, derived from its mint (seeds "bonding-curve" + mint, pump.fun program).
     Not taken from any feed: a feed once reported a wallet here."""
     from solders.pubkey import Pubkey
-    return str(Pubkey.find_program_address([b"bonding-curve", bytes(Pubkey.from_string(mint))],
-                                           Pubkey.from_string(PUMP))[0])
+    try:
+        return str(Pubkey.find_program_address([b"bonding-curve", bytes(Pubkey.from_string(mint))],
+                                               Pubkey.from_string(PUMP))[0])
+    except Exception:
+        return None
 
 
 def read_curve(key, rpc=os.environ.get("SOLANA_RPC", "https://api.mainnet-beta.solana.com")):

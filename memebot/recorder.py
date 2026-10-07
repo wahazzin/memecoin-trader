@@ -93,7 +93,7 @@ class Store:
         h = time.strftime("%Y-%m-%d/%H", time.gmtime(ts))
         if self.hour is None:
             self.hour = h
-        elif h != self.hour and ts > time.time() - 120:     # only roll on live timestamps
+        elif h > self.hour and ts > time.time() - 120:      # forward only; late trades go in the open file
             self.flush()
             self.hour = h
 
@@ -104,7 +104,8 @@ class Store:
             return
         d = os.path.join(self.out, self.hour)
         os.makedirs(d, exist_ok=True)
-        part = time.strftime("%M%S")                       # several jobs may write the same hour
+        self.nflush = getattr(self, "nflush", 0) + 1       # unique per process: never overwrite a file
+        part = f"{os.environ.get('GITHUB_RUN_ID', 'local')}_{self.nflush:04d}_{time.strftime('%M%S')}"
         def write(name, rows):
             if rows:
                 pq.write_table(pa.Table.from_pylist(rows), os.path.join(d, f"{name}_{part}.parquet"),

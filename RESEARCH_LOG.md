@@ -28,3 +28,25 @@ take profit +50–100%, exit after ~15 min with no volume.
 **Decision:** build our own recorder on the free trade stream. Recording forward (instead of buying
 historical data) also removes survivorship bias and lookahead: we see every coin, including the
 ~99% that die, exactly as it looked at the time.
+
+## 2026-10-07 — Recorder live + first measurements
+
+**No paper-trading platform exists for pump.fun** (only browser extensions like DryFlip / GhostTrade for
+manual clicking, which also simulate on live prices). Owner decision: we build our own. Paper fills will
+use the live on-chain reserves at the moment of the order (pump.fun's price is a public formula), so a
+paper fill = what the real market would have given at that instant. No invented slippage numbers:
+delays and costs will be **measured** from our own recorded data (how fast prices move between seconds,
+real fees from the events).
+
+**Measured from the first hour of recording:**
+- ~41,000 trades in 11 minutes (~5.4M/day), ~440 new coins per 11 min.
+- **Real pump.fun fees, read from the trade events: 0.95% protocol + 0.30% creator = 1.25% per side,
+  2.5% per round trip** before priority fees. Every scalp has to beat that.
+- The free public Solana connection drops every 1–2 min and reconnects in ~2 s. Gaps are logged in
+  every hour's `status` file, never hidden. If gaps turn out to matter, a free Helius key is the fix.
+- Bug found and fixed: hour files flip-flopped at the hour boundary because of late trades and
+  overwrote each other. Fixed (forward-only roll, unique file names), recorder restarted.
+
+**Gemini "watch" tool works** (`tools/watch.py`, action `watch`): Gemini watches the actual video.
+First test (Setuh, ponzi video) caught on-screen facts the transcript can't: 5-second chart, every Axiom
+safety filter left off, 4.22 SOL balance, no trade history shown.

@@ -10,7 +10,7 @@ Owner decision 2026-10-07: project 3 starts now, because project 2 is live and o
 | 2 — Recorder | Record every new Pump.fun coin + its trades 24/7 (our own dataset, no survivorship) | Running unattended, data growing | 🔄 live since 2026-10-07 ~19:30 UTC; checking size + gaps over the first day |
 | 3 — Cost model | Real costs measured from transactions; fills from the exact curve formula / live Jupiter quotes | Formula = Jupiter within tolerance | ✅ 2026-10-07: costs measured (COST_FACTORS.md); formula = Jupiter to 0.0000% on 43 checks |
 | 4 — Filter test (M1) | Do the anti-bundle checks actually lower the rug rate? (alone, pre-registered) | Verdict | 📝 pre-registered + code validated 2026-10-07; runs after 14 days of data (~2026-10-21) |
-| 5 — Entry/exit test | "40–50% dip from local high" rule on filtered coins, after costs, vs random entry | Verdict | ⬜ |
+| 5 — Entry/exit test (M2) | "40–50% dip from local high" rule ALONE, after costs, vs random entry | Verdict | 📝 pre-registered + code validated 2026-10-08; runs with M1 after 14 days (~2026-10-21) |
 | 6 — Live paper bot | Forward paper test of pre-registered arms (M1 checks vs random control), real-time | 6–8 weeks of paper results | 🔄 live since 2026-10-08 (BOT_SPEC.md); first check-in report each week |
 | 7 — AI / social layer | Narrative/community quality via AI, tested alone | Verdict | ⬜ later |
 

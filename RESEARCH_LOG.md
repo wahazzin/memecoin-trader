@@ -92,3 +92,18 @@ of all checkpoint coins). Fills: live Jupiter quotes (worse of two, 2 s apart) +
 that Jupiter can't route are priced from the coin's on-chain curve (marked). Circuit breaker 15%/day/arm.
 Smoke tests found and fixed 3 bugs (see BOT_SPEC.md). Key observation: at the checkpoint, prices swing
 ±50% within 2 seconds, so stops fill far below −20% on dumps. Results only count after 6+ weeks.
+
+## 2026-10-08 — Gemini watched 17 of 19 Setuh videos; M2 pre-registered
+
+**What the screen adds** (Gemini notes, synthesized; Gemini itself made arithmetic errors, so any number
+used gets checked against the frame first): his own wallet or full trade history is **never** shown;
+P&L proof is cropped promo cards with referral links; on-screen realized losses −36%, −52%, −74% despite
+a "−20% stop"; on-screen bet sizes 50–100% of the account (he says 10–25%); filter values change between
+videos and even between screen and his own Discord card. **No live trade is provably a 40–50% dip entry**:
+that rule rests on hindsight charts only.
+
+**M2** (`research/M2_PREREG.md`): 40–50% dip from a local high ≥ 5× launch, first buy back in the band,
++100% / −20% (filled at the next real trade) / 15 min / 60 min, vs a random-entry control on the same coins.
+Code validated on synthetic data: planted effect → PASS; no effect → NO EVIDENCE. Lesson from the
+synthetic null: dip entries "beat random" even with no edge (random includes buying tops), so the
+absolute after-cost expectancy criterion is essential.

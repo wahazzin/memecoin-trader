@@ -1,0 +1,48 @@
+name: research (manual, read-only)
+
+# Research jobs only. No wallet, no private keys, no orders exist anywhere in this repo.
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "probe = read-only data-source feasibility check"
+        required: true
+        default: "probe"
+        type: choice
+        options: [probe]
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: code
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r code/requirements.txt
+      - name: Run
+        working-directory: code
+        run: |
+          case "${{ github.event.inputs.action }}" in
+            probe) python -m research.probe ;;
+          esac
+      - name: Save outputs to the research branch
+        if: always()
+        run: |
+          [ -d code/research/out ] || exit 0
+          url="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code --heads "$url" research-out >/dev/null 2>&1; then
+            git clone -q --depth 1 --branch research-out "$url" res
+          else
+            mkdir res && cd res && git init -q && git checkout -q -b research-out && git remote add origin "$url" && cd ..
+          fi
+          cp -r code/research/out/* res/ && cd res
+          git config user.name "memebot"; git config user.email "actions@github.com"
+          git add -A && git commit -q -m "${{ github.event.inputs.action }} $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
+          git push -q origin research-out

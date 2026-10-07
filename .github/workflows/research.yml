@@ -5,11 +5,11 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: "probe = read-only data-source feasibility check"
+        description: "probe = data-source check | probe_logs = free on-chain trade stream check"
         required: true
         default: "probe"
         type: choice
-        options: [probe]
+        options: [probe, probe_logs]
 
 permissions:
   contents: write
@@ -31,6 +31,7 @@ jobs:
         run: |
           case "${{ github.event.inputs.action }}" in
             probe) python -m research.probe ;;
+            probe_logs) python -m research.probe_logs ;;
           esac
       - name: Save outputs to the research branch
         if: always()

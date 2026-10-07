@@ -37,24 +37,34 @@ def pick_model(key):
             return (-1,)
         v = re.findall(r"(\d+)\.(\d+)", n)
         return (int(v[0][0]), int(v[0][1]), "preview" not in n) if v else (0,)
-    best = max(names, key=score) if names else "gemini-2.5-flash"
     print("models available:", ", ".join(sorted(names)[:40]))
     if not names:
         raise SystemExit(f"model list failed: {json.dumps(js)[:600]}")
-    return best
+    ranked = sorted((n for n in names if score(n) != (-1,)), key=score, reverse=True)
+    pros = sorted((n for n in names if "pro" in n and not any(x in n for x in ("image", "tts", "exp"))), reverse=True)
+    return ranked[:4] + pros[:2] + ["gemini-2.5-flash"]
 
 
 def watch(url, focus="all trading rules", out="research/out/watch"):
     key = os.environ["GEMINI_API_KEY"]
-    model = pick_model(key)
+    models = pick_model(key)
+    if isinstance(models, str):
+        models = [models]
     body = {"contents": [{"parts": [{"file_data": {"file_uri": url, "mime_type": "video/*"}},
                                     {"text": PROMPT.format(focus=focus)}]}],
             "generationConfig": {"mediaResolution": "MEDIA_RESOLUTION_LOW", "temperature": 0.2}}
-    for attempt in range(4):
-        r = requests.post(f"{API}/models/{model}:generateContent", params={"key": key}, json=body, timeout=900)
-        if r.status_code in (429, 500, 503):
-            print("retry", r.status_code, r.text[:300]); time.sleep(60); continue
-        break
+    tried = []
+    for attempt in range(3):
+        for model in dict.fromkeys(models):
+            r = requests.post(f"{API}/models/{model}:generateContent", params={"key": key}, json=body, timeout=900)
+            tried.append(f"{model}:{r.status_code}")
+            if r.status_code == 200:
+                break
+            print("failed", model, r.status_code, r.text[:200])
+        if r.status_code == 200:
+            break
+        time.sleep(45)
+    print("tried:", tried)
     js = r.json()
     if r.status_code != 200:
         raise SystemExit(f"Gemini error {r.status_code}: {json.dumps(js)[:800]}")

@@ -39,6 +39,8 @@ def pick_model(key):
         return (int(v[0][0]), int(v[0][1]), "preview" not in n) if v else (0,)
     best = max(names, key=score) if names else "gemini-2.5-flash"
     print("models available:", ", ".join(sorted(names)[:40]))
+    if not names:
+        raise SystemExit(f"model list failed: {json.dumps(js)[:600]}")
     return best
 
 
@@ -70,4 +72,11 @@ def watch(url, focus="all trading rules", out="research/out/watch"):
 
 if __name__ == "__main__":
     a = sys.argv[1:]
-    watch(a[0], a[1] if len(a) > 1 and a[1] else "all trading rules", a[2] if len(a) > 2 else "research/out/watch")
+    out_dir = a[2] if len(a) > 2 else "research/out/watch"
+    try:
+        watch(a[0], a[1] if len(a) > 1 and a[1] else "all trading rules", out_dir)
+    except BaseException as e:
+        os.makedirs(out_dir, exist_ok=True)
+        with open(os.path.join(out_dir, "ERROR.md"), "w") as f:
+            f.write(f"# watch failed\n\n{type(e).__name__}: {e}\n\nkey present: {bool(os.environ.get('GEMINI_API_KEY'))}\n")
+        raise

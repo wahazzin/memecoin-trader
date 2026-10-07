@@ -14,3 +14,17 @@ the biggest loss (−5.2 SOL) beat the biggest win (+3.8). His edge is mostly **
 no holder > 4%; top holders not funded from the same place at the same time and not holding equal
 SOL; no single dev-buy candle to ~10k; buy a 40–50% drop from a local high ≥ ~15k; stop −20%,
 take profit +50–100%, exit after ~15 min with no volume.
+
+## 2026-10-07 — Data probes (read-only, from GitHub's servers)
+
+| Source | Works? | What it gives |
+|---|---|---|
+| PumpPortal websocket | ✅ new coins (~45,000/day) + migrations (~1/min) | Trade stream needs an API key funded with 0.02 SOL → **not needed**, see next row |
+| **Solana public RPC `logsSubscribe` on the pump.fun program** | ✅ **free, no key** | **Every pump.fun trade** (~5.6M/day) decoded from TradeEvent: coin, buyer/seller wallet, SOL size, buy/sell, time, bonding-curve reserves (= exact price). ~11% of events decode as zero-size (to investigate in the recorder) |
+| GeckoTerminal | ✅ | 1-minute OHLCV for migrated (PumpSwap) pools, 1,000 candles per call |
+| DexScreener | ✅ | Token pairs incl. brand-new pump coins; "paid profile" feed |
+| pump.fun frontend API | ❌ 404 | Not needed |
+
+**Decision:** build our own recorder on the free trade stream. Recording forward (instead of buying
+historical data) also removes survivorship bias and lookahead: we see every coin, including the
+~99% that die, exactly as it looked at the time.

@@ -9,7 +9,13 @@ on:
         required: true
         default: "probe"
         type: choice
-        options: [probe, probe_logs]
+        options: [probe, probe_logs, watch]
+      url:
+        description: "watch: YouTube video URL"
+        required: false
+      focus:
+        description: "watch: what to focus on (optional)"
+        required: false
 
 permissions:
   contents: write
@@ -28,10 +34,13 @@ jobs:
       - run: pip install -r code/requirements.txt
       - name: Run
         working-directory: code
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           case "${{ github.event.inputs.action }}" in
             probe) python -m research.probe ;;
             probe_logs) python -m research.probe_logs ;;
+            watch) python tools/watch.py "${{ github.event.inputs.url }}" "${{ github.event.inputs.focus }}" research/out/watch ;;
           esac
       - name: Save outputs to the research branch
         if: always()

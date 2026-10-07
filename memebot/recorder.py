@@ -5,7 +5,7 @@ Sources:  Solana public RPC logsSubscribe on the pump.fun program -> every trade
           PumpPortal websocket -> every new coin (name, symbol, creator, dev buy) + migrations
 Output (one folder per UTC hour, parquet, zstd):
   creates.parquet   every new coin
-  trades.parquet    EVERY trade of coins up to 60 min old (tick data: scam checks, dip entries, exits)
+  trades.parquet    EVERY trade of coins up to 100 min old (tick data: scam checks, dip entries, exits)
   candles.parquet   1-minute candles for EVERY coin, any age (price in SOL, volume, buyers/sellers)
   events.parquet    curve completions / migrations
   status.json       uptime, reconnects, counts (gaps are logged, never hidden)
@@ -23,7 +23,7 @@ from memebot.decode import events as decode_events
 
 PUMP = "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
 RPC_WS = os.environ.get("SOLANA_WS", "wss://api.mainnet-beta.solana.com")
-TICK_MAX_AGE = 3600          # keep every trade for a coin's first 60 minutes
+TICK_MAX_AGE = 6000          # every trade for a coin's first 100 min (M1: checkpoint ≤ 40 min + 60 min follow-up)
 
 
 class Store:

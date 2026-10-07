@@ -42,7 +42,7 @@ def pick_model(key):
         raise SystemExit(f"model list failed: {json.dumps(js)[:600]}")
     ranked = sorted((n for n in names if score(n) != (-1,)), key=score, reverse=True)
     pros = sorted((n for n in names if "pro" in n and not any(x in n for x in ("image", "tts", "exp"))), reverse=True)
-    return ranked[:4] + pros[:2] + ["gemini-2.5-flash"]
+    return ranked[:4] + pros[:2] + ["gemini-3.8-flash"]
 
 
 def watch(url, focus="all trading rules", out="research/out/watch"):
@@ -65,6 +65,7 @@ def watch(url, focus="all trading rules", out="research/out/watch"):
             break
         time.sleep(45)
     print("tried:", tried)
+    os.environ["WATCH_TRIED"] = ", ".join(tried)
     js = r.json()
     if r.status_code != 200:
         raise SystemExit(f"Gemini error {r.status_code}: {json.dumps(js)[:800]}")
@@ -88,5 +89,5 @@ if __name__ == "__main__":
     except BaseException as e:
         os.makedirs(out_dir, exist_ok=True)
         with open(os.path.join(out_dir, "ERROR.md"), "w") as f:
-            f.write(f"# watch failed\n\n{type(e).__name__}: {e}\n\nkey present: {bool(os.environ.get('GEMINI_API_KEY'))}\n")
+            f.write(f"# watch failed\n\n{type(e).__name__}: {e}\n\nkey present: {bool(os.environ.get('GEMINI_API_KEY'))}\n\ntried: {os.environ.get('WATCH_TRIED')}\n")
         raise

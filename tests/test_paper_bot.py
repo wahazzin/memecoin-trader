@@ -105,3 +105,18 @@ class TestBot(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestFallback(unittest.TestCase):
+    def test_no_route_sell_uses_curve_formula_only_when_curve_is_live(self):
+        orig = paper.quote
+        try:
+            paper.quote = fake_quotes(None, None)
+            r = paper.sell("M", 1_000_000, sleep=NOSLEEP, curve_now=lambda: (40.0, 8e8, 0.0125, 5))
+            self.assertEqual((r["status"], r["source"]), ("FILLED", "curve_formula"))
+            self.assertGreater(r["proceeds_sol"], 0)
+            paper.quote = fake_quotes(None, None)
+            r = paper.sell("M", 1_000_000, sleep=NOSLEEP, curve_now=lambda: (40.0, 8e8, 0.0125, 300))
+            self.assertEqual(r["status"], "NO_ROUTE")                 # stale curve: stays stuck
+        finally:
+            paper.quote = orig

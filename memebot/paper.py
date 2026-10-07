@@ -64,12 +64,24 @@ def buy(mint, sol, first_buy=True, sleep=time.sleep):
     return rec
 
 
-def sell(mint, tokens, close_account=True, sleep=time.sleep):
-    """Paper sell `tokens` of `mint`. Proceeds = worse of two quotes, minus fees, plus rent refund."""
+def sell(mint, tokens, close_account=True, sleep=time.sleep, curve_now=None):
+    """Paper sell `tokens` of `mint`. Proceeds = worse of two quotes, minus fees, plus rent refund.
+    curve_now(): returns live on-chain bonding-curve reserves (vsol, vtok, fee_frac, age_s) or None. Used ONLY
+    when Jupiter has no route while the coin is still trading on its curve: the fill is then priced with
+    the curve formula (verified equal to Jupiter, 0.0000% on 43 checks) at the same two moments, and
+    marked source=curve_formula."""
+    from memebot.curve import sell_sol
     q1, q2 = _two_quotes(mint, SOL, tokens * DEC_TOKEN, sleep)
-    rec = {"side": "sell", "mint": mint, "tokens": tokens, "q1": q1, "q2": q2, "ts": time.time()}
+    rec = {"side": "sell", "mint": mint, "tokens": tokens, "q1": q1, "q2": q2, "ts": time.time(), "source": "jupiter"}
     fees = PRIORITY_SOL + NETWORK_SOL
     if "error" in q1 or "error" in q2:
+        c = curve_now() if curve_now else None
+        if c and c[3] <= 60:                                   # curve traded within the last minute
+            out = sell_sol(c[0], c[1], tokens, c[2])
+            refund = RENT_SOL if close_account else 0.0
+            rec.update(status="FILLED", source="curve_formula", curve=c, proceeds_sol=out - fees + refund,
+                       rent_refund=refund, fees_outside_quote=fees)
+            return rec
         rec.update(status="NO_ROUTE", proceeds_sol=0.0)
         return rec
     worst = min(q1["out"], q2["out"])

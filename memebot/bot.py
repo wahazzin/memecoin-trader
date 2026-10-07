@@ -60,6 +60,7 @@ class Bot:
         self.coins = {}                 # mint -> {created, creator, trades: [...], done}
         self.price = {}                 # mint -> last price (SOL per token, from on-chain events)
         self.last_trade = {}            # mint -> ts
+        self.curve = {}                 # mint -> (vsol, vtok, fee_frac) from the latest on-chain trade event
         self.busy = set()
         self.rng = random.Random()
 
@@ -73,6 +74,7 @@ class Bot:
         if price:
             self.price[mint] = price
             self.last_trade[mint] = t["ts"]
+            self.curve[mint] = (t["vsol"], t["vtok"], ((t.get("fee_bps") or 95) + (t.get("cfee_bps") or 30)) / 1e4)
         c = self.coins.get(mint)
         if c is None or c["done"] or price is None:
             return None
@@ -106,10 +108,16 @@ class Bot:
         return not d["halted"]
 
     def equity(self, arm):
+        """Cash + what the open positions would actually return if sold now (curve formula incl. fees and
+        price impact, minus the sell's fixed costs), not tokens x last price."""
+        from memebot.curve import sell_sol
         val = 0.0
         for mint, p in self.s.pos[arm].items():
-            pr = self.price.get(mint, p["entry_price"])
-            val += p["tokens"] * pr
+            c = self.curve.get(mint)
+            if c:
+                val += max(sell_sol(c[0], c[1], p["tokens"], c[2]) - paper.PRIORITY_SOL - paper.NETWORK_SOL, 0)
+            else:
+                val += p["cost"]                     # no live data yet (e.g. after restart): valued at cost
         return self.s.cash[arm] + val
 
     async def enter(self, arm, sig):
@@ -146,7 +154,10 @@ class Bot:
 
     async def exit(self, arm, mint, why):
         p = self.s.pos[arm][mint]
-        rec = await asyncio.to_thread(paper.sell, mint, p["tokens"], True)
+        def curve_now():
+            c = self.curve.get(mint)
+            return (c[0], c[1], c[2], time.time() - self.last_trade.get(mint, 0)) if c else None
+        rec = await asyncio.to_thread(paper.sell, mint, p["tokens"], True, time.sleep, curve_now)
         rec.update(arm=arm, why=why)
         if rec["status"] == "FILLED":
             pnl = rec["proceeds_sol"] - p["cost"]

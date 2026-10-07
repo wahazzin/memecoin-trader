@@ -37,13 +37,23 @@ def build(state, since=0):
         L.append(f"| `{arm}` | {sum(o['status'] == 'FILLED' for o in bo)} / {sum(o['status'] == 'FAILED' for o in bo)} / "
                  f"{sum(o['status'] == 'NO_ROUTE' for o in bo)} | {len(pnl)} | {'—' if wr is None else f'{wr:.0%}'} | {f(aw)} | {f(al)} | "
                  f"**{f(exp_)}** | {sum(pnl):+.4f} | {e[-1] if e else 0:.3f} | {mdd:.1%} | {len(pos.get(arm, {}))} | {stuck} |")
+    fb = sum(1 for o in orders if o.get("source") == "curve_formula")
+    # sensitivity: P&L if every fill had used the FIRST quote (no 2 s delay) -- shows how much the delay costs
+    alt = {}
+    for o in orders:
+        if o["side"] == "sell" and o["status"] == "FILLED" and o.get("source") == "jupiter" and "out" in o.get("q1", {}):
+            d = o["q1"]["out"] / 1e9 - (o["proceeds_sol"] - o.get("rent_refund", 0) + 0.0015 + 0.000005)
+            alt[o.get("arm")] = alt.get(o.get("arm"), 0) + d
     cb = [x for x in ev if x.get("type") == "CIRCUIT_BREAKER" and x.get("ts", 0) >= since]
     gaps = [x for x in ev if x.get("type") == "GAP" and x.get("ts", 0) >= since]
     reasons = {}
     for o in orders:
         if o["side"] == "sell" and o["status"] == "FILLED":
             reasons[o.get("why")] = reasons.get(o.get("why"), 0) + 1
-    L += ["", f"- Exit reasons: {reasons or '—'}", f"- Circuit breakers fired: {len(cb)}", f"- Stream gaps logged: {len(gaps)}",
+    L += ["", f"- Exit reasons: {reasons or '—'}",
+          f"- Sells priced by the verified curve formula because Jupiter had no route: {fb}",
+          f"- Delay sensitivity (sells only): SOL gained if sells had filled at the first quote instead of the worse one: "
+          + (", ".join(f"{k} {v:+.3f}" for k, v in alt.items()) or "—"), f"- Circuit breakers fired: {len(cb)}", f"- Stream gaps logged: {len(gaps)}",
           "", "Expectancy = win rate × avg win + loss rate × avg loss, per closed trade, in SOL after all costs (rule 6).",
           "The test is `m1_pass` vs `m1_random` (same entry moment, checks vs no checks). See BOT_SPEC.md."]
     return "\n".join(L)

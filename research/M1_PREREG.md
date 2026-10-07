@@ -75,3 +75,17 @@ Whether the PASS trade is profitable in absolute terms is reported, but profitab
 | One market regime | Chronological design/holdout; dates reported |
 | Recorder gaps | Coins born in a gap excluded; gap list published |
 | Fill realism | Formula verified vs Jupiter (0.0000% on 43 checks); next-trade fills; measured costs |
+
+## Amendment A1 (2026-10-07, before any recorded data was analysed)
+
+Found while validating the analysis code on synthetic data: on the bonding curve the price can't go
+below the launch price, and the checkpoint is 2.5× launch, so the lowest possible price after the
+checkpoint is ~40% of it. "Dead = price ≤ 20% of checkpoint" could never happen.
+**New definition: dead = price ≤ 50% of the checkpoint price within 60 min, before reaching +50%**
+(i.e. gave back most of the run toward the launch floor). Everything else unchanged.
+
+Also fixed before data: data for M1 starts with the recorder run of **2026-10-07 ~20:45 UTC** (first run
+with full signatures and 100-minute tick history). Earlier hours are excluded.
+
+Code validation (`python -m research.m1 --synthetic`): planted effect → CHECKS WORK in both splits;
+no effect → NO EVIDENCE. The analysis can detect a real effect and doesn't invent one.

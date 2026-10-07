@@ -9,7 +9,7 @@ on:
         required: true
         default: "probe"
         type: choice
-        options: [probe, probe_logs, probe_jup, measure_costs, check_formula, watch, watch_list]
+        options: [probe, probe_logs, probe_jup, measure_costs, check_formula, m1, watch, watch_list]
       url:
         description: "watch: YouTube video URL"
         required: false
@@ -42,6 +42,7 @@ jobs:
         working-directory: code
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           case "${{ github.event.inputs.action }}" in
             probe) python -m research.probe ;;
@@ -49,6 +50,7 @@ jobs:
             probe_jup) python -m research.probe_jup ;;
             measure_costs) python -m research.measure_costs ;;
             check_formula) python -m research.check_formula ;;
+            m1) python -m research.m1 ;;
             watch_list)
               for u in $(grep -v '^#' tools/watch_list.txt); do
                 id=$(echo "$u" | sed -E 's/.*v=([A-Za-z0-9_-]{11}).*/\1/')

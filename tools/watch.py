@@ -41,8 +41,23 @@ def pick_model(key):
     if not names:
         raise SystemExit(f"model list failed: {json.dumps(js)[:600]}")
     ranked = sorted((n for n in names if score(n) != (-1,)), key=score, reverse=True)
-    pros = sorted((n for n in names if "pro" in n and not any(x in n for x in ("image", "tts", "exp"))), reverse=True)
+    pros = sorted((n for n in names if n.startswith("gemini-") and "-pro" in n
+                   and not any(x in n for x in ("image", "tts", "exp", "audio"))), reverse=True)
     return ranked[:4] + pros[:2] + ["gemini-3.8-flash"]
+
+
+def diag(out):
+    """Text-only ping of each candidate model: tells overload apart from a video-input problem."""
+    key = os.environ["GEMINI_API_KEY"]
+    lines = []
+    for m in pick_model(key):
+        r = requests.post(f"{API}/models/{m}:generateContent", params={"key": key}, timeout=120,
+                          json={"contents": [{"parts": [{"text": "Reply with the single word OK."}]}]})
+        lines.append(f"- {m}: HTTP {r.status_code} {r.text[:160]!r}")
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(out, "diag.md"), "w") as f:
+        f.write("# Gemini text-only check\n\n" + "\n".join(lines) + "\n")
+    print("\n".join(lines))
 
 
 def watch(url, focus="all trading rules", out="research/out/watch"):
@@ -85,6 +100,8 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     out_dir = a[2] if len(a) > 2 else "research/out/watch"
     try:
+        if a[0] == "diag":
+            diag(out_dir); sys.exit(0)
         watch(a[0], a[1] if len(a) > 1 and a[1] else "all trading rules", out_dir)
     except BaseException as e:
         os.makedirs(out_dir, exist_ok=True)

@@ -58,4 +58,5 @@ jobs:
             fi
           done
           for h in data/*/*; do [ -d "$h" ] && upload "$h"; done
-          [ $handed -eq 1 ] || gh workflow run recorder.yml -R "$REPO"
+          # successor only after a long run (a crash loop would otherwise restart instantly; hourly cron retries)
+          [ $handed -eq 1 ] || { [ $((SECONDS - start)) -gt 3600 ] && gh workflow run recorder.yml -R "$REPO"; } || true

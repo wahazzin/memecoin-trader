@@ -33,21 +33,25 @@ jobs:
           if git ls-remote --exit-code --heads "$url" paper-state >/dev/null 2>&1; then
             git clone -q --depth 1 --branch paper-state "$url" state
           else
-            mkdir state && cd state && git init -q && git checkout -q -b paper-state && git remote add origin "$url"
+            mkdir state && git -C state init -q && git -C state checkout -q -b paper-state && git -C state remote add origin "$url"
           fi
-          cd state && git config user.name "memebot" && git config user.email "actions@github.com"
+          git -C state config user.name "memebot" && git -C state config user.email "actions@github.com"
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install -r code/requirements.txt
       - name: Run bot + save state every 5 min
+        id: run
         run: |
+          start=$SECONDS
           save() { ( cd code && python -m memebot.report --state ../state >/dev/null 2>&1 || true
                      cd ../state && git add -A && { git diff --cached --quiet || { git commit -q -m "paper state $(date -u +%Y-%m-%dT%H:%MZ)" && git push -q origin HEAD:paper-state; }; } ) || echo "save failed, retry next round"; }
           ( cd code && python -m memebot.bot --state ../state --minutes 325 ) &
           b=$!
           while kill -0 $b 2>/dev/null; do sleep 300; save; done
           save
+          # only a run that lasted > 1 hour may start its successor (no tight crash loops; the hourly cron retries)
+          [ $((SECONDS - start)) -gt 3600 ] && echo "ran_long=1" >> $GITHUB_OUTPUT || echo "short run: not starting a successor"
       - name: Start the next run
-        if: success() || failure()
+        if: (success() || failure()) && steps.run.outputs.ran_long == '1'
         run: gh workflow run paperbot.yml -R "${{ github.repository }}"

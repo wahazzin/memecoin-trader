@@ -48,7 +48,7 @@ def main():
     L.append(f"- fresh pump.fun coins captured: {len(mints)}")
     host_ok = None
     for h in HOSTS:
-        sc, js = quote(h, SOL, "EPjFWdd5AufqzSqLzh7JKwqjVwtJpTsxNw9dSLE6Dt1v", 1e8)   # SOL->USDC sanity check
+        sc, js = quote(h, SOL, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", 1e8)   # SOL->USDC sanity check
         L.append(f"- {h}: SOL→USDC HTTP {sc} {str(js)[:160]}")
         if sc == 200 and host_ok is None:
             host_ok = h
@@ -82,7 +82,7 @@ def main():
             time.sleep(1.2)
         n, ok, t = 0, 0, time.time()
         while time.time() - t < 30:
-            sc, _ = quote(host_ok, SOL, "EPjFWdd5AufqzSqLzh7JKwqjVwtJpTsxNw9dSLE6Dt1v", 1e8); n += 1; ok += sc == 200
+            sc, _ = quote(host_ok, SOL, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", 1e8); n += 1; ok += sc == 200
         L.append(f"- rate test: {ok}/{n} quotes OK in 30 s")
     with open(os.path.join(OUT, "probe_jup.md"), "w") as f:
         f.write("\n".join(L) + "\n")

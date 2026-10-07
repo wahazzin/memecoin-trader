@@ -71,3 +71,16 @@ pump.fun's own fees and price impact. Probe 3 (2026-10-07 20:01 UTC, read-only):
 **Decision:** every paper buy and sell = a live Jupiter quote at that exact moment for that exact size;
 the paper fill is the quote's output amount. The one thing no paper trading can show (Alpaca's
 included): whether a real order would have landed before competing bots. That stays stated, not modelled.
+
+## 2026-10-07 — Costs measured from real transactions; bonding-curve formula verified exactly
+
+**Costs** (`research/measure_costs.py`, 178 real trades split into every SOL paid): pump.fun + creator fee
+1.25% per side on standard coins; creator fee is 1–3% on ~2% of coins; priority fee median 0.00005 SOL
+(p90 0.0015–0.003); new-account rent ~0.002 SOL on 60–90% of first buys; ~1% "unexplained" on terminal
+users (terminal fees). All-in: ~4.5–5% round trip on 0.1 SOL, ~3% on 0.5 SOL. Details in COST_FACTORS.md.
+
+**Formula check** (`research/check_formula.py`, verdict rule fixed before running: median ≤ 0.1%, worst
+≤ 0.5%): our bonding-curve formula vs live Jupiter quotes on 43 coin/size pairs with unchanged reserves:
+**0.0000% difference, buy and sell, at 0.1 / 0.5 / 2 SOL. PASS.** Backtests on recorded data can price
+fills with the formula and get exactly what Jupiter would have quoted at that moment. (Coins that
+graduated to PumpSwap use a different pool; they need their own check before being backtested.)

@@ -65,9 +65,9 @@ def watch(url, focus="all trading rules", out="research/out/watch"):
     models = pick_model(key)
     if isinstance(models, str):
         models = [models]
-    body = {"contents": [{"parts": [{"file_data": {"file_uri": url, "mime_type": "video/*"}},
+    body = {"contents": [{"parts": [{"file_data": {"file_uri": url}},
                                     {"text": PROMPT.format(focus=focus)}]}],
-            "generationConfig": {"mediaResolution": "MEDIA_RESOLUTION_LOW", "temperature": 0.2}}
+            "generationConfig": {"temperature": 0.2}}
     tried = []
     for attempt in range(3):
         for model in dict.fromkeys(models):

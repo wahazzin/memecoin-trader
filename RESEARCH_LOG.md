@@ -50,3 +50,24 @@ real fees from the events).
 **Gemini "watch" tool works** (`tools/watch.py`, action `watch`): Gemini watches the actual video.
 First test (Setuh, ponzi video) caught on-screen facts the transcript can't: 5-second chart, every Axiom
 safety filter left off, 4.22 SOL balance, no trade history shown.
+
+## 2026-10-07 — Paper trading goes through Jupiter (a real trading API), not our own math
+
+Owner requirement: paper trades must come from a real platform, nothing assumed or modelled.
+Searched for a memecoin trading platform with an API + paper mode. Found: browser-only paper tools
+(PaperApe, MockApe, Meme Paper, Target, Aped) with **no bot API**; exchange testnets (Binance, Bybit,
+Hyperliquid) that don't list fresh memecoins. None fits.
+
+**Jupiter** (the swap router behind Axiom/Photon/Phantom swaps) has a free **quote API**: "swap X SOL
+into this coin right now → you get exactly Y tokens", routed through the real pools, including
+pump.fun's own fees and price impact. Probe 3 (2026-10-07 20:01 UTC, read-only):
+
+- ✅ quotes for **brand-new pump.fun coins (~6 min old)**, routed via "Pump.fun"; and for migrated coins
+  via "Pump.fun Amm".
+- Buying 0.1 SOL and selling straight back = **−3.1% round trip** on most coins (fees + impact), up to
+  −8% on thinly routed ones. Two coins had no sell route at that moment (a real-world risk too).
+- Rate: ~18 successful quotes/second from one runner, plenty.
+
+**Decision:** every paper buy and sell = a live Jupiter quote at that exact moment for that exact size;
+the paper fill is the quote's output amount. The one thing no paper trading can show (Alpaca's
+included): whether a real order would have landed before competing bots. That stays stated, not modelled.

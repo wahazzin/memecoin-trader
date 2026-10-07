@@ -29,8 +29,11 @@ async def new_mints(n=8, secs=90):
 
 
 def quote(host, inp, outp, amount, timeout=20):
-    r = requests.get(host, params={"inputMint": inp, "outputMint": outp, "amount": int(amount), "slippageBps": 500},
-                     timeout=timeout)
+    try:
+        r = requests.get(host, params={"inputMint": inp, "outputMint": outp, "amount": int(amount), "slippageBps": 500},
+                         timeout=timeout)
+    except Exception as e:
+        return None, f"{type(e).__name__}"
     try:
         js = r.json()
     except Exception:

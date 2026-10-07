@@ -9,7 +9,7 @@ on:
         required: true
         default: "probe"
         type: choice
-        options: [probe, probe_logs, watch]
+        options: [probe, probe_logs, watch, watch_list]
       url:
         description: "watch: YouTube video URL"
         required: false
@@ -23,7 +23,7 @@ permissions:
 jobs:
   research:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v5
         with:
@@ -32,6 +32,12 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r code/requirements.txt
+      - name: Restore earlier outputs (so finished videos are skipped)
+        run: |
+          url="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code --heads "$url" research-out >/dev/null 2>&1; then
+            git clone -q --depth 1 --branch research-out "$url" prev && mkdir -p code/research/out && cp -r prev/* code/research/out/ && rm -rf prev
+          fi
       - name: Run
         working-directory: code
         env:
@@ -40,6 +46,13 @@ jobs:
           case "${{ github.event.inputs.action }}" in
             probe) python -m research.probe ;;
             probe_logs) python -m research.probe_logs ;;
+            watch_list)
+              for u in $(grep -v '^#' tools/watch_list.txt); do
+                id=$(echo "$u" | sed -E 's/.*v=([A-Za-z0-9_-]{11}).*/\1/')
+                [ -f "research/out/watch/$id.md" ] && { echo "done: $id"; continue; }
+                python tools/watch.py "$u" "${{ github.event.inputs.focus }}" research/out/watch || echo "failed: $id (will retry next run)"
+                rm -f research/out/watch/ERROR.md; sleep 75
+              done ;;
             watch) python tools/watch.py "${{ github.event.inputs.url }}" "${{ github.event.inputs.focus }}" research/out/watch ;;
           esac
       - name: Save outputs to the research branch

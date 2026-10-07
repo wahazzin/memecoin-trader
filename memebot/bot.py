@@ -30,6 +30,14 @@ DAILY_LOSS_LIMIT = 0.15        # circuit breaker: an arm that loses 15% of its d
 CONTROL_RATE = 0.10
 
 
+def curve_address(mint):
+    """The coin's bonding-curve account, derived from its mint (seeds "bonding-curve" + mint, pump.fun program).
+    Not taken from any feed: a feed once reported a wallet here."""
+    from solders.pubkey import Pubkey
+    return str(Pubkey.find_program_address([b"bonding-curve", bytes(Pubkey.from_string(mint))],
+                                           Pubkey.from_string(PUMP))[0])
+
+
 def read_curve(key, rpc=os.environ.get("SOLANA_RPC", "https://api.mainnet-beta.solana.com")):
     import base64
     import struct
@@ -39,6 +47,8 @@ def read_curve(key, rpc=os.environ.get("SOLANA_RPC", "https://api.mainnet-beta.s
     try:
         r = requests.post(rpc, json={"jsonrpc": "2.0", "id": 1, "method": "getAccountInfo",
                                      "params": [key, {"encoding": "base64", "commitment": "confirmed"}]}, timeout=15).json()
+        if r["result"]["value"]["owner"] != PUMP:
+            return None                                   # not a pump.fun curve account
         raw = base64.b64decode(r["result"]["value"]["data"][0])
         vtok, vsol = struct.unpack_from("<QQ", raw, 8)
         return {"vtok": vtok / 1e6, "vsol": vsol / 1e9, "complete": bool(raw[48])}
@@ -83,7 +93,7 @@ class Bot:
     # ---------- market data ----------
     def on_create(self, m):
         self.coins[m["mint"]] = {"created": time.time(), "creator": m.get("traderPublicKey"), "trades": [], "done": False,
-                                 "curve_key": m.get("bondingCurveKey")}
+                                 "curve_key": curve_address(m["mint"])}
 
     def on_trade(self, t):
         mint = t["mint"]

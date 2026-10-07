@@ -120,3 +120,9 @@ class TestFallback(unittest.TestCase):
             self.assertEqual(r["status"], "NO_ROUTE")                 # stale curve: stays stuck
         finally:
             paper.quote = orig
+
+
+class TestCurveAddress(unittest.TestCase):
+    def test_derived_curve_matches_known_coin(self):
+        self.assertEqual(bot.curve_address("BuMa6muvh95x24wMQVyoi3hGpMHctNhXFEommnsmxjAe"),
+                         "F1nLwiMEsn8U6oqK1wbjRpEi7Y93XGy42wXFYzDc5pum")

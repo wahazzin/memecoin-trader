@@ -11,7 +11,7 @@ Owner decision 2026-10-07: project 3 starts now, because project 2 is live and o
 | 3 — Cost model | Real costs measured from transactions; fills from the exact curve formula / live Jupiter quotes | Formula = Jupiter within tolerance | ✅ 2026-10-07: costs measured (COST_FACTORS.md); formula = Jupiter to 0.0000% on 43 checks |
 | 4 — Filter test (M1) | Do the anti-bundle checks actually lower the rug rate? (alone, pre-registered) | Verdict | 📝 pre-registered + code validated 2026-10-07; runs after 14 days of data (~2026-10-21) |
 | 5 — Entry/exit test | "40–50% dip from local high" rule on filtered coins, after costs, vs random entry | Verdict | ⬜ |
-| 6 — Live paper bot | Only rules that passed, simulated in real time | 6–8 weeks of paper results | ⬜ |
+| 6 — Live paper bot | Forward paper test of pre-registered arms (M1 checks vs random control), real-time | 6–8 weeks of paper results | 🔄 live since 2026-10-08 (BOT_SPEC.md); first check-in report each week |
 | 7 — AI / social layer | Narrative/community quality via AI, tested alone | Verdict | ⬜ later |
 
 Real money is not on this roadmap.

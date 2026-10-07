@@ -20,6 +20,14 @@ The forward test is `m1_pass` vs `m1_random` (same entry moment). Judged on expe
 costs (rule 6), after at least 6 weeks of paper trading (rule 1), next to the M1 backtest verdict.
 Weekly check-in: `memebot/report.py` (trades, win rate, avg win vs loss, expectancy, drawdown, breakers).
 
+## Smoke tests before going live (2026-10-07/08, 4 runs × 15–20 min, throwaway state)
+Found and fixed: equity valued at last price instead of real sell value; positions stuck because Jupiter
+often has no sell route for fresh coins (now priced from the coin's on-chain curve, marked); one feed
+field gave a wallet instead of the curve address (curve address now derived from the mint and its owner
+verified). Last smoke: 26 buys, 21 sells, 0 stuck, circuit breaker fired correctly once.
+Observed: prices at the checkpoint move ±50% within 2 s; the −20% stop often fills far lower when a coin
+dumps. Smoke results are NOT evidence (minutes of data, thrown away).
+
 ## Known limits (stated, not hidden)
 - Being first vs competing bots can't be paper-tested (COST_FACTORS #17).
 - The 2-second delay is a fixed choice, not a measurement (a real landing time needs real transactions).

@@ -84,3 +84,11 @@ users (terminal fees). All-in: ~4.5–5% round trip on 0.1 SOL, ~3% on 0.5 SOL. 
 **0.0000% difference, buy and sell, at 0.1 / 0.5 / 2 SOL. PASS.** Backtests on recorded data can price
 fills with the formula and get exactly what Jupiter would have quoted at that moment. (Coins that
 graduated to PumpSwap use a different pool; they need their own check before being backtested.)
+
+## 2026-10-08 — Live paper bot v0.1 switched on (after 4 smoke tests)
+
+Spec: BOT_SPEC.md. Arms `m1_pass` (all Setuh checks pass at the M1 checkpoint) vs `m1_random` (random 10%
+of all checkpoint coins). Fills: live Jupiter quotes (worse of two, 2 s apart) + measured costs; sells
+that Jupiter can't route are priced from the coin's on-chain curve (marked). Circuit breaker 15%/day/arm.
+Smoke tests found and fixed 3 bugs (see BOT_SPEC.md). Key observation: at the checkpoint, prices swing
+±50% within 2 seconds, so stops fill far below −20% on dumps. Results only count after 6+ weeks.

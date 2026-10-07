@@ -30,6 +30,22 @@ DAILY_LOSS_LIMIT = 0.15        # circuit breaker: an arm that loses 15% of its d
 CONTROL_RATE = 0.10
 
 
+def read_curve(key, rpc=os.environ.get("SOLANA_RPC", "https://api.mainnet-beta.solana.com")):
+    import base64
+    import struct
+    import requests
+    if not key:
+        return None
+    try:
+        r = requests.post(rpc, json={"jsonrpc": "2.0", "id": 1, "method": "getAccountInfo",
+                                     "params": [key, {"encoding": "base64", "commitment": "confirmed"}]}, timeout=15).json()
+        raw = base64.b64decode(r["result"]["value"]["data"][0])
+        vtok, vsol = struct.unpack_from("<QQ", raw, 8)
+        return {"vtok": vtok / 1e6, "vsol": vsol / 1e9, "complete": bool(raw[48])}
+    except Exception:
+        return None
+
+
 class State:
     def __init__(self, d):
         self.d = d
@@ -66,7 +82,8 @@ class Bot:
 
     # ---------- market data ----------
     def on_create(self, m):
-        self.coins[m["mint"]] = {"created": time.time(), "creator": m.get("traderPublicKey"), "trades": [], "done": False}
+        self.coins[m["mint"]] = {"created": time.time(), "creator": m.get("traderPublicKey"), "trades": [], "done": False,
+                                 "curve_key": m.get("bondingCurveKey")}
 
     def on_trade(self, t):
         mint = t["mint"]
@@ -90,7 +107,8 @@ class Bot:
             chk = coin_checks(c["trades"], c["creator"])
             fee_bps = max((x.get("cfee_bps") or 0) for x in c["trades"])
             sig = {"mint": mint, "ts": t["ts"], "age_s": round(age), "checks": chk, "pass": all(chk.values()),
-                   "creator_fee_bps": fee_bps, "price": price}
+                   "creator_fee_bps": fee_bps, "price": price, "curve_key": c.get("curve_key"),
+                   "fee_frac": ((t.get("fee_bps") or 95) + (t.get("cfee_bps") or 30)) / 1e4}
             c["trades"] = []
             return sig
         return None
@@ -117,7 +135,7 @@ class Bot:
             if c:
                 val += max(sell_sol(c[0], c[1], p["tokens"], c[2]) - paper.PRIORITY_SOL - paper.NETWORK_SOL, 0)
             else:
-                val += p["cost"]                     # no live data yet (e.g. after restart): valued at cost
+                val += p.get("last_value", p["cost"])     # no stream data since restart: last known sell value
         return self.s.cash[arm] + val
 
     async def enter(self, arm, sig):
@@ -134,7 +152,8 @@ class Bot:
             entry_price = (SIZE / 1.0125) / rec["tokens"] if rec["tokens"] else sig["price"]   # SOL/token paid
             self.s.pos[arm][sig["mint"]] = {"tokens": rec["tokens"], "cost": rec["cost_sol"], "opened": time.time(),
                                             "entry_price": self.price.get(sig["mint"], sig["price"]),
-                                            "paid_price": entry_price}
+                                            "paid_price": entry_price, "curve_key": sig.get("curve_key"),
+                                            "fee_frac": sig.get("fee_frac", 0.0125)}
             self.s.known_accounts[arm].append(sig["mint"])
         elif rec["status"] == "FAILED":
             self.s.cash[arm] -= rec["cost_sol"]
@@ -155,8 +174,12 @@ class Bot:
     async def exit(self, arm, mint, why):
         p = self.s.pos[arm][mint]
         def curve_now():
-            c = self.curve.get(mint)
-            return (c[0], c[1], c[2], time.time() - self.last_trade.get(mint, 0)) if c else None
+            """Live reserves straight from the coin's bonding-curve account on the blockchain (same input Jupiter
+            uses). None if the curve is complete (coin graduated -> only Jupiter/PumpSwap can price it)."""
+            c = read_curve(p.get("curve_key"))
+            if c and not c["complete"]:
+                return (c["vsol"], c["vtok"], p.get("fee_frac", 0.0125), 0)
+            return None
         rec = await asyncio.to_thread(paper.sell, mint, p["tokens"], True, time.sleep, curve_now)
         rec.update(arm=arm, why=why)
         if rec["status"] == "FILLED":

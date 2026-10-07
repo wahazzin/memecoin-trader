@@ -9,7 +9,7 @@ on:
         required: true
         default: "probe"
         type: choice
-        options: [probe, probe_logs, probe_jup, watch, watch_list]
+        options: [probe, probe_logs, probe_jup, measure_costs, watch, watch_list]
       url:
         description: "watch: YouTube video URL"
         required: false
@@ -47,6 +47,7 @@ jobs:
             probe) python -m research.probe ;;
             probe_logs) python -m research.probe_logs ;;
             probe_jup) python -m research.probe_jup ;;
+            measure_costs) python -m research.measure_costs ;;
             watch_list)
               for u in $(grep -v '^#' tools/watch_list.txt); do
                 id=$(echo "$u" | sed -E 's/.*v=([A-Za-z0-9_-]{11}).*/\1/')

@@ -58,7 +58,7 @@ class Store:
         price = t["vsol"] / t["vtok"] if t["vtok"] else None
         age = self.age(t["mint"], t["ts"])
         if age is not None and age <= TICK_MAX_AGE:
-            self.trades.append({**t, "slot": slot, "sig": sig[:20], "price": price})
+            self.trades.append({**t, "slot": slot, "sig": sig, "price": price})   # full sig = audit trail
             self.stats["ticks"] += 1
         if price:
             k = (t["mint"], t["ts"] // 60 * 60)
@@ -80,7 +80,7 @@ class Store:
                              "dev_buy_sol": m.get("solAmount"), "dev_buy_tok": m.get("initialBuy"),
                              "vsol": m.get("vSolInBondingCurve"), "vtok": m.get("vTokensInBondingCurve"),
                              "mcap_sol": m.get("marketCapSol"), "pool": m.get("pool"),
-                             "mayhem": m.get("is_mayhem_mode"), "sig": (m.get("signature") or "")[:20]})
+                             "mayhem": m.get("is_mayhem_mode"), "sig": m.get("signature") or ""})
         self.stats["creates"] += 1
 
     def add_event(self, kind, d, ts=None):

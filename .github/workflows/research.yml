@@ -9,7 +9,7 @@ on:
         required: true
         default: "probe"
         type: choice
-        options: [probe, probe_logs, probe_jup, measure_costs, check_formula, m1, watch, watch_list]
+        options: [probe, probe_logs, probe_jup, measure_costs, check_formula, m1, bot_smoke, watch, watch_list]
       url:
         description: "watch: YouTube video URL"
         required: false
@@ -51,6 +51,7 @@ jobs:
             measure_costs) python -m research.measure_costs ;;
             check_formula) python -m research.check_formula ;;
             m1) python -m research.m1 ;;
+            bot_smoke) python -m memebot.bot --state research/out/bot_smoke --minutes 15; python -m memebot.report --state research/out/bot_smoke ;;
             watch_list)
               for u in $(grep -v '^#' tools/watch_list.txt); do
                 id=$(echo "$u" | sed -E 's/.*v=([A-Za-z0-9_-]{11}).*/\1/')

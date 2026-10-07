@@ -1,0 +1,61 @@
+name: recorder (24/7 pump.fun market data, read-only)
+
+# One job records for ~5h45m, uploading each finished UTC hour to the GitHub Release "data-YYYY-MM-DD".
+# ~10 minutes before it ends it starts its successor, so the two overlap (duplicates are removed by
+# transaction signature at analysis time) and there is no gap. The hourly cron restarts the chain if it
+# ever breaks; a guard stops more than 2 recorders running at once. No wallet, no keys, no trading.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 * * * *"
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Guard (max 2 recorders at once)
+        id: guard
+        run: |
+          n=$(gh api "repos/$REPO/actions/workflows/recorder.yml/runs?status=in_progress" --jq '.total_count')
+          echo "running: $n"
+          if [ "$n" -gt 2 ]; then echo "skip=1" >> $GITHUB_OUTPUT; else echo "skip=0" >> $GITHUB_OUTPUT; fi
+      - uses: actions/checkout@v5
+        if: steps.guard.outputs.skip == '0'
+      - uses: actions/setup-python@v6
+        if: steps.guard.outputs.skip == '0'
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+        if: steps.guard.outputs.skip == '0'
+      - name: Record + upload finished hours
+        if: steps.guard.outputs.skip == '0'
+        run: |
+          upload() {   # $1 = hour folder data/YYYY-MM-DD/HH
+            day=$(basename $(dirname "$1")); hh=$(basename "$1")
+            tag="data-$day"
+            gh release view "$tag" -R "$REPO" >/dev/null 2>&1 || gh release create "$tag" -R "$REPO" --title "$tag" --notes "pump.fun market recording, UTC $day" >/dev/null 2>&1 || true
+            f="rec_${day}_${hh}_${GITHUB_RUN_ID}_$(date +%H%M%S).tar"
+            tar -cf "$f" -C "$1" . && gh release upload "$tag" "$f" -R "$REPO" && rm -rf "$1" "$f"
+          }
+          python -m memebot.recorder --minutes 335 --out data &
+          rec=$!
+          start=$SECONDS; handed=0
+          while kill -0 $rec 2>/dev/null; do
+            sleep 300
+            cur="data/$(date -u +%Y-%m-%d)/$(date -u +%H)"
+            for h in data/*/*; do [ -d "$h" ] && [ "$h" != "$cur" ] && upload "$h"; done
+            if [ $handed -eq 0 ] && [ $((SECONDS - start)) -gt 19500 ]; then
+              gh workflow run recorder.yml -R "$REPO" && handed=1 && echo "successor started"
+            fi
+          done
+          for h in data/*/*; do [ -d "$h" ] && upload "$h"; done
+          [ $handed -eq 1 ] || gh workflow run recorder.yml -R "$REPO"

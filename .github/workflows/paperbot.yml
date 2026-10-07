@@ -1,0 +1,53 @@
+name: paper bot (live, paper only)
+
+# One job runs ~5h30m, saves state to the `paper-state` branch every 5 min, then starts its successor.
+# Only one bot at a time (concurrency group). Hourly cron restarts the chain if it breaks.
+# No wallet, no private keys, no real orders: fills are live Jupiter QUOTES only.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+concurrency:
+  group: paper-bot
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: code
+      - name: Get state
+        run: |
+          url="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code --heads "$url" paper-state >/dev/null 2>&1; then
+            git clone -q --depth 1 --branch paper-state "$url" state
+          else
+            mkdir state && cd state && git init -q && git checkout -q -b paper-state && git remote add origin "$url"
+          fi
+          cd state && git config user.name "memebot" && git config user.email "actions@github.com"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r code/requirements.txt
+      - name: Run bot + save state every 5 min
+        run: |
+          save() { ( cd code && python -m memebot.report --state ../state >/dev/null 2>&1 || true
+                     cd ../state && git add -A && { git diff --cached --quiet || { git commit -q -m "paper state $(date -u +%Y-%m-%dT%H:%MZ)" && git push -q origin HEAD:paper-state; }; } ) || echo "save failed, retry next round"; }
+          ( cd code && python -m memebot.bot --state ../state --minutes 325 ) &
+          b=$!
+          while kill -0 $b 2>/dev/null; do sleep 300; save; done
+          save
+      - name: Start the next run
+        if: success() || failure()
+        run: gh workflow run paperbot.yml -R "${{ github.repository }}"

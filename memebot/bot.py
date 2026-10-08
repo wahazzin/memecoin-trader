@@ -22,6 +22,7 @@ from memebot.decode import events as decode_events
 from research.m1 import coin_checks          # the SAME check code as the pre-registered M1 test
 
 PUMP = "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+AMM = "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"
 RPC_WS = os.environ.get("SOLANA_WS", "wss://api.mainnet-beta.solana.com")
 ARMS = {"m1_pass": {"bankroll": 20.0}, "m1_random": {"bankroll": 20.0}}
 SIZE = 0.5
@@ -91,6 +92,7 @@ class Bot:
         self.last_trade = {}            # mint -> ts
         self.curve = {}                 # mint -> (vsol, vtok, fee_frac) from the latest on-chain trade event
         self.busy = set()
+        self.pools = {}                 # PumpSwap pool -> mint, for coins we hold that graduated
         self.rng = random.Random()
 
     # ---------- market data ----------
@@ -99,12 +101,20 @@ class Bot:
                                  "curve_key": curve_address(m["mint"])}
 
     def on_trade(self, t):
+        from memebot.decode import is_sol_coin
         mint = t["mint"]
-        price = t["vsol"] / t["vtok"] if t["vtok"] else None
+        if not is_sol_coin(t):
+            c = self.coins.get(mint)
+            if c:
+                c["done"] = True; c["trades"] = []          # not priced in SOL: never traded by this bot
+            return None
+        price = t["vsol"] / t["vtok"] if t["vtok"] and t["vsol"] else None
         if price:
             self.price[mint] = price
             self.last_trade[mint] = t["ts"]
-            self.curve[mint] = (t["vsol"], t["vtok"], ((t.get("fee_bps") or 95) + (t.get("cfee_bps") or 30)) / 1e4)
+            fee = (t["fee_total_bps"] if t.get("fee_total_bps") is not None
+                   else (t.get("fee_bps") or 95) + (t.get("cfee_bps") or 30)) / 1e4
+            self.curve[mint] = (t["vsol"], t["vtok"], fee)
         c = self.coins.get(mint)
         if c is None or c["done"] or price is None:
             return None
@@ -267,12 +277,12 @@ class Bot:
 
 async def stream(bot, stop):
     import websockets
-    async def rpc():
+    async def rpc(program=PUMP):
         while time.time() < stop:
             try:
                 async with websockets.connect(RPC_WS, max_size=2 ** 24, ping_interval=20, ping_timeout=60) as ws:
                     await ws.send(json.dumps({"jsonrpc": "2.0", "id": 1, "method": "logsSubscribe",
-                                              "params": [{"mentions": [PUMP]}, {"commitment": "confirmed"}]}))
+                                              "params": [{"mentions": [program]}, {"commitment": "confirmed"}]}))
                     while time.time() < stop:
                         m = json.loads(await asyncio.wait_for(ws.recv(), timeout=60))
                         v = (m.get("params", {}).get("result", {}) or {}).get("value") or {}
@@ -283,6 +293,13 @@ async def stream(bot, stop):
                                 sig = bot.on_trade(d)
                                 if sig:
                                     asyncio.create_task(bot.handle_signal(sig))
+                            elif kind == "migrated":
+                                bot.pools[d["pool"]] = d["mint"]
+                            elif kind == "amm_trade" and d["pool"] in bot.pools:
+                                from memebot.decode import amm_row
+                                r = amm_row(d, bot.pools[d["pool"]])
+                                if r:
+                                    bot.on_trade(r)
             except Exception as e:
                 bot.s.log("events.jsonl", {"ts": time.time(), "type": "GAP", "source": "rpc", "error": f"{type(e).__name__}"})
                 await asyncio.sleep(2)
@@ -298,7 +315,7 @@ async def stream(bot, stop):
             except Exception as e:
                 bot.s.log("events.jsonl", {"ts": time.time(), "type": "GAP", "source": "pumpportal", "error": f"{type(e).__name__}"})
                 await asyncio.sleep(3)
-    await asyncio.gather(rpc(), pp(), bot.manage(stop), bot.snapshot(stop))
+    await asyncio.gather(rpc(), rpc(AMM), pp(), bot.manage(stop), bot.snapshot(stop))
 
 
 def main():

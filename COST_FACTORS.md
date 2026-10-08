@@ -25,6 +25,12 @@ A factor without a ✅ blocks going live. If we find a new factor, it gets added
 | 17 | Being first vs other bots | would a real order land before the competition? | **NOT coverable by any paper trading.** Only tiny real trades can show it, and only after the paper phase | ❌ stated, not modelled |
 | 18 | Tax (Sweden) | profit on crypto is taxed (capital gains) at go-live | Not a trading cost; must be in the go-live decision | 📌 go-live checklist |
 
+| 19 | **Fees after graduation (PumpSwap)** (added 2026-10-08, from pump.fun's official docs + live check) | once a coin graduates it trades on PumpSwap with fees that depend on market cap: right after graduation 1.20–1.25% (creator 0.95%), stepping down to 0.30% for big coins. Seen live: 0.30%, 1.00%, 1.05%, 1.10%, 1.20%, 1.25% | Paper: inside the Jupiter quote. Backtests: read from every PumpSwap trade event (lp + protocol + creator bps), never hard-coded | ✅ |
+| 20 | **Coins not priced in SOL** (added 2026-10-08) | some pump.fun coins are paired with other tokens (xStocks, USDC, other pump coins); ~1% of trades. Their "SOL price" fields are 0 | Excluded everywhere (bot, recorder prices, M1/M2). Was a live-bot bug: a 0 price could pass the checkpoint test. Fixed | ✅ excluded |
+| 21 | Buyback fee (added 2026-10-08) | shows as 50% "buyback" on many trades | **Not extra**: a share of the 0.95% protocol fee. Verified live: fee = exactly 95 bps of trade size on 2,849 trades | ✅ no extra cost |
+| 22 | Split final buy (synthetic migration) (added 2026-10-08) | a buy that finishes the curve can continue into the new pool, reported as a second event | Recorded (`post_complete_buy` events); none seen in the first checks | ✅ recorded |
+| 23 | Pump volume account rent (added 2026-10-08) | 0.0018444 SOL the first time a wallet ever trades on pump.fun (one-off per wallet) | Not per trade; added to the go-live checklist | 📌 one-off |
+
 ## Measured all-in overhead (2026-10-07, 178 real trades)
 
 On top of the 1.25% pump.fun + creator fee per side:

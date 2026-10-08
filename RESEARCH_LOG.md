@@ -118,3 +118,13 @@ Started recording **who funded each checkpoint coin's top 10 holders** (wallet a
 first funder, funding time) into `funding.jsonl`, for a later pre-registered test M1b. Recorded only, not
 used for trading. Weekly report snapshots now saved every Monday in `weekly/` on `paper-state`.
 Fixed: the backup cron could start a second recorder in parallel; now it only starts one when none runs.
+
+## 2026-10-08 — Owner: "are you sure there's nothing to add?" → found 3 real gaps (read pump.fun's official docs)
+
+Read all of pump.fun's public docs + IDLs and checked the open questions on live data (`research/probe_full.py`):
+- **Graduated coins were invisible**: after migration they trade on PumpSwap (a different program). Now recorded,
+  followed by the bot, and used by M1/M2 (amendment A2). PumpSwap pool reserves in events are BEFORE the trade
+  (13,306 of 13,306 consecutive pairs).
+- **Non-SOL coins (~1% of trades) had price 0** → could pass the live bot's checkpoint test (bug). Now excluded.
+- **Fees after graduation vary 0.30–1.25% by market cap** (COST_FACTORS #19). Buyback is part of the 0.95%, not extra (#21).
+Also: holder-reward and cashback coins exist (cost unchanged / rebate, conservative = ignore rebate).

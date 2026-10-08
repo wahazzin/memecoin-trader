@@ -22,6 +22,7 @@ from collections import defaultdict
 from memebot.decode import events as decode_events
 
 PUMP = "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+AMM = "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"     # PumpSwap: where coins trade after graduating
 RPC_WS = os.environ.get("SOLANA_WS", "wss://api.mainnet-beta.solana.com")
 TICK_MAX_AGE = 6000          # every trade for a coin's first 100 min (M1: checkpoint ≤ 40 min + 60 min follow-up)
 
@@ -34,6 +35,7 @@ class Store:
         self.created = {}        # mint -> create ts (coins born while we listen)
         self.first_seen = {}     # mint -> first trade ts (coins born before we started)
         self.seen_sigs = set()
+        self.pools = {}          # PumpSwap pool -> mint (from migration events of coins we track)
         self.stats = defaultdict(int)
         self.gaps = []
 
@@ -47,6 +49,15 @@ class Store:
             return None
         return ts - born
 
+    def add_amm(self, a, slot, sig):
+        from memebot.decode import amm_row
+        mint = self.pools.get(a["pool"])
+        if not mint:
+            return
+        r = amm_row(a, mint)
+        if r:
+            self.add_trade(r, slot, sig)
+
     def add_trade(self, t, slot, sig):
         key = hashlib.blake2b(sig.encode(), digest_size=8).hexdigest() + str(t["mint"][:6]) + str(t["sol"])
         if key in self.seen_sigs:
@@ -55,7 +66,7 @@ class Store:
         self.seen_sigs.add(key)
         self.roll(t["ts"])
         self.first_seen.setdefault(t["mint"], t["ts"])
-        price = t["vsol"] / t["vtok"] if t["vtok"] else None
+        price = t["vsol"] / t["vtok"] if t["vtok"] and t["vsol"] else None   # non-SOL coins: vsol 0 -> no price
         age = self.age(t["mint"], t["ts"])
         if age is not None and age <= TICK_MAX_AGE:
             self.trades.append({**t, "slot": slot, "sig": sig, "price": price})   # full sig = audit trail
@@ -129,17 +140,18 @@ class Store:
         self.first_seen = {k: v for k, v in self.first_seen.items() if v > cutoff}
         if len(self.seen_sigs) > 2_000_000:
             self.seen_sigs = set()
+        self.pools = {}          # PumpSwap pool -> mint (from migration events of coins we track)
 
 
-async def rpc_stream(store, stop):
+async def rpc_stream(store, stop, program=PUMP):
     import websockets
     while time.time() < stop:
         t_down = None
         try:
             async with websockets.connect(RPC_WS, max_size=2 ** 24, ping_interval=20, ping_timeout=60) as ws:
                 await ws.send(json.dumps({"jsonrpc": "2.0", "id": 1, "method": "logsSubscribe",
-                                          "params": [{"mentions": [PUMP]}, {"commitment": "confirmed"}]}))
-                store.stats["rpc_connects"] += 1
+                                          "params": [{"mentions": [program]}, {"commitment": "confirmed"}]}))
+                store.stats["rpc_connects" if program == PUMP else "amm_connects"] += 1
                 while time.time() < stop:
                     m = json.loads(await asyncio.wait_for(ws.recv(), timeout=60))
                     r = m.get("params", {}).get("result", {})
@@ -149,12 +161,20 @@ async def rpc_stream(store, stop):
                     for kind, d in decode_events(v.get("logs", [])):
                         if kind == "trade":
                             store.add_trade(d, slot, v.get("signature", ""))
-                        else:
+                        elif kind == "amm_trade":
+                            store.add_amm(d, slot, v.get("signature", ""))
+                        elif kind == "migrated":
+                            if d["mint"] in store.created:
+                                store.pools[d["pool"]] = d["mint"]
+                            store.add_event("migrated_to_pumpswap", d)
+                        elif kind == "postbuy":
+                            store.add_event("post_complete_buy", d)
+                        elif kind == "complete":
                             store.add_event("curve_complete", d)
         except Exception as e:
             t_down = int(time.time())
             store.stats["rpc_errors"] += 1
-            store.gaps.append({"source": "rpc", "at": t_down, "error": f"{type(e).__name__}: {str(e)[:120]}"})
+            store.gaps.append({"source": "rpc" if program == PUMP else "amm", "at": t_down, "error": f"{type(e).__name__}: {str(e)[:120]}"})
             print("rpc reconnect:", type(e).__name__, str(e)[:120], flush=True)
             await asyncio.sleep(2)
 
@@ -186,7 +206,7 @@ async def main_async(minutes, out):
         while time.time() < stop:
             await asyncio.sleep(30)
             store.roll(int(time.time()))
-    await asyncio.gather(rpc_stream(store, stop), pumpportal_stream(store, stop), ticker())
+    await asyncio.gather(rpc_stream(store, stop), rpc_stream(store, stop, AMM), pumpportal_stream(store, stop), ticker())
     store.flush(final=True)
 
 

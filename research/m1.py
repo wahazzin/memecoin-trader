@@ -70,7 +70,8 @@ def outcomes(after, p_cp, fee, cp_ts):
             exit_t = t; break
     else:
         exit_t = after[-1] if len(after) > 1 else e
-    proceeds = sell_value(exit_t["vsol"], exit_t["vtok"], tok, fee) - PRIO - NET + RENT   # rent refunded on close
+    xfee = exit_t["fee_total_bps"] / 1e4 if exit_t.get("fee_total_bps") is not None else fee
+    proceeds = sell_value(exit_t["vsol"], exit_t["vtok"], tok, xfee) - PRIO - NET + RENT   # rent refunded on close
     return dead, proceeds / cost_in - 1
 
 
@@ -88,6 +89,7 @@ def evaluate(coins):
         before, after = tr[:cp + 1], tr[cp + 1:]
         chk = coin_checks(before, c["creator"])
         fee = (max((t.get("fee_bps") or 95) for t in before) + max((t.get("cfee_bps") or 30) for t in before)) / 1e4
+        # (curve fee at entry; after graduation the exit uses the PumpSwap fee from the event -- see outcomes())
         dead, ret = outcomes(after, tr[cp]["price"], fee, tr[cp]["ts"])
         rows.append({"mint": c["mint"], "ts": tr[cp]["ts"], "pass": all(chk.values()), **chk, "dead": dead, "ret": ret})
     return rows
@@ -197,6 +199,11 @@ def from_recordings():
     tr, cr = d["trades"], d["creates"]
     gaps = sorted(g["at"] for g in d["gaps"])
     coins = []
+    if "quote_mint" in tr.columns:
+        from memebot.decode import SOL_MINTS
+        bad = set(tr.loc[tr.quote_mint.notna() & ~tr.quote_mint.isin(SOL_MINTS), "mint"])
+        tr = tr[~tr.mint.isin(bad)]                      # coins not priced in SOL are excluded (stated in prereg A2)
+    tr = tr[(tr.vsol > 0) & (tr.vtok > 0)]
     for mint, g in tr.groupby("mint"):
         c = cr[cr.mint == mint]
         if c.empty:

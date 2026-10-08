@@ -143,3 +143,23 @@ class TestFunding(unittest.TestCase):
         b.on_trade({"mint": "M", "ts": now + 1, "user": "dev", "buy": True, "sol": 0.2, "tok": 5e6, "vsol": 30.0, "vtok": 1e9})
         sig = b.on_trade({"mint": "M", "ts": now + 9, "user": "a", "buy": True, "sol": 1, "tok": 9e6, "vsol": 76.0, "vtok": 1e9})
         self.assertEqual(sig["top10"][0], "a")
+
+
+class TestPumpSwapAndQuote(unittest.TestCase):
+    def test_non_sol_coin_is_never_signalled(self):
+        b = bot.Bot(bot.State(tempfile.mkdtemp()))
+        now = time.time()
+        b.on_create({"mint": "M", "traderPublicKey": "dev"}); b.coins["M"]["created"] = now
+        t = {"mint": "M", "ts": now + 1, "user": "x", "buy": True, "sol": 0.0, "tok": 1e6, "vsol": 0.0, "vtok": 1e9,
+             "quote_mint": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX"}
+        self.assertIsNone(b.on_trade(t)); self.assertIsNone(b.on_trade({**t, "ts": now + 2}))
+        self.assertTrue(b.coins["M"]["done"])
+
+    def test_amm_row_uses_after_trade_effective_reserves(self):
+        from memebot.decode import amm_row
+        a = {"ts": 1, "pool": "P", "user": "u", "buy": True, "tok": 1000.0, "sol": 0.1, "pool_base_raw": 200_000_000_000,
+             "pool_quote_raw": 80_000_000_000, "vquote_raw": -5_000_000_000, "fee_bps_total": 125, "creator_bps": 95}
+        r = amm_row(a, "M")
+        self.assertAlmostEqual(r["vtok"], 200_000 - 1000.0)
+        self.assertAlmostEqual(r["vsol"], 75.0 + 0.1)          # 80 + (-5) effective, plus the buy
+        self.assertEqual(r["fee_total_bps"], 125)

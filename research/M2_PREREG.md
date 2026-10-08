@@ -67,3 +67,13 @@ checks is a later test (M3), only if both pass alone.
 | Stops filling at exactly −20% | Fill at next real trade after the trigger |
 | Regime | Chronological split, dates reported |
 | Survivorship | Coins recorded from birth, including the ones that die |
+
+
+## Amendment A2 (2026-10-08, before any recorded data was analysed)
+
+From pump.fun's official docs + a live check: (1) coins whose quote is not SOL (~1% of trades; their SOL
+reserve fields are 0) are **excluded**; (2) after a coin graduates, its trades on PumpSwap are now recorded
+and used for the follow-up/exit, priced from the pool's effective reserves after each trade and charged the
+PumpSwap fee shown in that trade's event (fees depend on market cap). Before this, a graduating coin would
+have looked like it stopped trading. Recorder change effective with the run started 2026-10-08 ~08:45 UTC.
+Code re-validated on synthetic data (planted effect → pass; none → no evidence).

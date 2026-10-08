@@ -18,6 +18,8 @@ PRIMARY = ("dip40_50", 2.0)
 
 
 def fee_of(t):
+    if t.get("fee_total_bps") is not None:                 # PumpSwap after graduation: fee tier from the event
+        return t["fee_total_bps"] / 1e4
     return ((t.get("fee_bps") or 95) + (t.get("cfee_bps") or 30)) / 1e4
 
 

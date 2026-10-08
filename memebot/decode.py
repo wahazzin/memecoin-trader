@@ -142,3 +142,24 @@ def events(logs):
             if v:
                 out.append((kind, v)); break
     return out
+
+
+def amm_row(a, mint):
+    """PumpSwap trade -> row like a curve trade. Event reserves are BEFORE the trade (verified on 13,306 pairs),
+    so the after-trade state is computed. Effective quote = pool quote + signed virtual quote (pump.fun docs)."""
+    base = a["pool_base_raw"] / 1e6
+    quote = (a["pool_quote_raw"] + a["vquote_raw"]) / 1e9
+    if a["buy"]:
+        base_after, quote_after = base - a["tok"], quote + a["sol"]
+    else:
+        base_after, quote_after = base + a["tok"], quote - a["sol"]
+    if base_after <= 0 or quote_after <= 0:
+        return None
+    return {"ts": a["ts"], "mint": mint, "user": a["user"], "buy": a["buy"], "sol": a["sol"], "tok": a["tok"],
+            "vsol": quote_after, "vtok": base_after, "fee_total_bps": a["fee_bps_total"], "fee_bps": None,
+            "cfee_bps": a["creator_bps"], "venue": "pumpswap", "pool": a["pool"]}
+
+
+def is_sol_coin(t):
+    q = t.get("quote_mint")
+    return q is None or q in SOL_MINTS

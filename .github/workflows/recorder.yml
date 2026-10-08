@@ -26,8 +26,12 @@ jobs:
         id: guard
         run: |
           n=$(gh api "repos/$REPO/actions/workflows/recorder.yml/runs?status=in_progress" --jq '.total_count')
-          echo "running: $n"
-          if [ "$n" -gt 2 ]; then echo "skip=1" >> $GITHUB_OUTPUT; else echo "skip=0" >> $GITHUB_OUTPUT; fi
+          echo "running (incl. this one): $n, event: ${{ github.event_name }}"
+          # cron is only a backup: it may start a recorder only if none is running. A dispatched successor may
+          # overlap its predecessor for the handover (2 running), never more.
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$n" -gt 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT
+          elif [ "$n" -gt 2 ]; then echo "skip=1" >> $GITHUB_OUTPUT
+          else echo "skip=0" >> $GITHUB_OUTPUT; fi
       - uses: actions/checkout@v5
         if: steps.guard.outputs.skip == '0'
       - uses: actions/setup-python@v6

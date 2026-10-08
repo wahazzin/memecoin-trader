@@ -59,6 +59,15 @@ jobs:
           save
           # only a run that lasted > 1 hour may start its successor (no tight crash loops; the hourly cron retries)
           [ $((SECONDS - start)) -gt 3600 ] && echo "ran_long=1" >> $GITHUB_OUTPUT || echo "short run: not starting a successor"
+      - name: Keep scheduled workflows alive (GitHub disables them after 60 days without repo activity)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for id in $(gh api "repos/${{ github.repository }}/actions/workflows" --jq '.workflows[] | select(.state=="disabled_inactivity") | .id'); do
+            gh api -X PUT "repos/${{ github.repository }}/actions/workflows/$id/enable" && echo "re-enabled workflow $id"
+          done
+
       - name: Start the next run
         if: (success() || failure()) && steps.run.outputs.ran_long == '1'
         run: gh workflow run paperbot.yml -R "${{ github.repository }}"

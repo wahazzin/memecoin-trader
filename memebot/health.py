@@ -60,7 +60,7 @@ def checks():
         # silent-failure check: the bot judges ~5 coins/minute. If pump.fun changes its program and our decoder
         # stops understanding trades, everything keeps "running" but no coin is ever judged.
         r = requests.get("https://raw.githubusercontent.com/wahazzin/memecoin-trader/paper-state/signals.jsonl",
-                         headers={"Range": "bytes=-4000"}, timeout=30)
+                         headers={"Range": "bytes=-4000", "Accept-Encoding": "identity"}, timeout=30)   # no gzip: a byte range of a gzipped file cannot be decoded
         last = [l for l in r.text.splitlines() if l.startswith("{")]
         ts = json.loads(last[-1])["ts"] if last else 0
         if time.time() - ts > 2 * 3600:

@@ -56,11 +56,7 @@ def checks():
             out.append(("recorder", f"Memecoin recorder hasn't uploaded data for {age / 3600:.1f} h (expected hourly)."))
     except Exception as e:
         out.append(("recorder", f"Couldn't read recorder uploads ({type(e).__name__})."))
-    try:
-        if running("wahazzin/crypto-ai-trader", "crypto_ai_loop.yml") == 0:
-            out.append(("crypto", "Crypto AI trader loop is not running (no active run)."))
-    except Exception as e:
-        out.append(("crypto", f"Couldn't check the crypto AI trader ({type(e).__name__})."))
+    # the crypto AI trader has its own health check posting to its own channel (crypto-ai-trader/health.yml)
     return out
 
 

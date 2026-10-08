@@ -24,6 +24,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
     steps:
       - uses: actions/checkout@v5
         with:

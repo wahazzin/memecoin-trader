@@ -14,15 +14,8 @@ FRESH_TX = 50          # a wallet with fewer than 50 transactions ever = "fresh"
 
 
 def rpc(method, params):
-    for i in range(3):
-        try:
-            r = requests.post(RPC, json={"jsonrpc": "2.0", "id": 1, "method": method, "params": params}, timeout=20)
-            if r.status_code == 429:
-                time.sleep(1 + i); continue
-            return r.json().get("result")
-        except Exception:
-            time.sleep(1)
-    return None
+    from memebot.rpc import call
+    return call(method, params)                          # public RPC, Helius fallback
 
 
 def wallet(addr):

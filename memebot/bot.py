@@ -49,11 +49,11 @@ def read_curve(key, rpc=os.environ.get("SOLANA_RPC", "https://api.mainnet-beta.s
     if not key:
         return None
     try:
-        r = requests.post(rpc, json={"jsonrpc": "2.0", "id": 1, "method": "getAccountInfo",
-                                     "params": [key, {"encoding": "base64", "commitment": "confirmed"}]}, timeout=15).json()
-        if r["result"]["value"]["owner"] != PUMP:
+        from memebot.rpc import call
+        res = call("getAccountInfo", [key, {"encoding": "base64", "commitment": "confirmed"}], timeout=15)
+        if res["value"]["owner"] != PUMP:
             return None                                   # not a pump.fun curve account
-        raw = base64.b64decode(r["result"]["value"]["data"][0])
+        raw = base64.b64decode(res["value"]["data"][0])
         vtok, vsol = struct.unpack_from("<QQ", raw, 8)
         return {"vtok": vtok / 1e6, "vsol": vsol / 1e9, "complete": bool(raw[48])}
     except Exception:
@@ -269,9 +269,10 @@ class Bot:
             await asyncio.sleep(300)
             cutoff = time.time() - 3 * 3600
             self.coins = {m: c for m, c in self.coins.items() if c["created"] > cutoff}
+            from memebot.rpc import STATS
             for arm in ARMS:
                 self.s.log("equity.jsonl", {"ts": time.time(), "arm": arm, "equity": self.equity(arm),
-                                            "cash": self.s.cash[arm], "open": len(self.s.pos[arm])})
+                                            "cash": self.s.cash[arm], "open": len(self.s.pos[arm]), "rpc": dict(STATS)})
             self.s.save()
 
 

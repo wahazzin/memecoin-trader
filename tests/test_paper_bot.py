@@ -163,3 +163,26 @@ class TestPumpSwapAndQuote(unittest.TestCase):
         self.assertAlmostEqual(r["vtok"], 200_000 - 1000.0)
         self.assertAlmostEqual(r["vsol"], 75.0 + 0.1)          # 80 + (-5) effective, plus the buy
         self.assertEqual(r["fee_total_bps"], 125)
+
+
+class TestRpcFallback(unittest.TestCase):
+    def test_falls_back_to_helius_and_never_without_key(self):
+        from memebot import rpc
+        calls = []
+        class R:
+            def __init__(s, code, js): s.status_code, s._js = code, js
+            def json(s): return s._js
+        def fake_post(url, json, timeout):
+            calls.append("helius" if "helius" in url else "public")
+            return R(429, {}) if "helius" not in url else R(200, {"result": 42})
+        orig = rpc.requests.post; rpc.requests.post = fake_post
+        try:
+            os.environ["HELIUS_API_KEY"] = "test"
+            self.assertEqual(rpc.call("getSlot", []), 42)
+            self.assertEqual(calls, ["public", "public", "helius"])
+            del os.environ["HELIUS_API_KEY"]; calls.clear()
+            self.assertIsNone(rpc.call("getSlot", []))
+            self.assertEqual(calls, ["public", "public"])
+        finally:
+            rpc.requests.post = orig
+            os.environ.pop("HELIUS_API_KEY", None)

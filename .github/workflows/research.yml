@@ -9,7 +9,7 @@ on:
         required: true
         default: "probe"
         type: choice
-        options: [probe, probe_logs, probe_jup, measure_costs, check_formula, m1, m2, bot_smoke, watch, watch_list]
+        options: [probe, probe_logs, probe_full, probe_jup, measure_costs, check_formula, m1, m2, bot_smoke, watch, watch_list]
       url:
         description: "watch: YouTube video URL"
         required: false
@@ -48,6 +48,7 @@ jobs:
             probe) python -m research.probe ;;
             probe_logs) python -m research.probe_logs ;;
             probe_jup) python -m research.probe_jup ;;
+            probe_full) python -m research.probe_full ;;
             measure_costs) python -m research.measure_costs ;;
             check_formula) python -m research.check_formula ;;
             m1) python -m research.m1 ;;

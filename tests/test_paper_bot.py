@@ -126,3 +126,20 @@ class TestCurveAddress(unittest.TestCase):
     def test_derived_curve_matches_known_coin(self):
         self.assertEqual(bot.curve_address("BuMa6muvh95x24wMQVyoi3hGpMHctNhXFEommnsmxjAe"),
                          "F1nLwiMEsn8U6oqK1wbjRpEi7Y93XGy42wXFYzDc5pum")
+
+
+class TestFunding(unittest.TestCase):
+    def test_summarize_finds_same_funder_cluster(self):
+        from memebot import funding
+        ws = [{"wallet": f"w{i}", "fresh": True, "funder": "CEX", "funded_at": 1000 + i * 5} for i in range(5)] + \
+             [{"wallet": "old", "fresh": False}, {"wallet": "x", "fresh": True, "funder": "other", "funded_at": 50}]
+        s = funding.summarize(ws)
+        self.assertEqual((s["n_fresh"], s["max_same_funder"], s["same_funder_window_s"]), (6, 5, 20))
+
+    def test_signal_carries_top_holders(self):
+        b = bot.Bot(bot.State(tempfile.mkdtemp()))
+        now = time.time()
+        b.on_create({"mint": "M", "traderPublicKey": "dev"}); b.coins["M"]["created"] = now
+        b.on_trade({"mint": "M", "ts": now + 1, "user": "dev", "buy": True, "sol": 0.2, "tok": 5e6, "vsol": 30.0, "vtok": 1e9})
+        sig = b.on_trade({"mint": "M", "ts": now + 9, "user": "a", "buy": True, "sol": 1, "tok": 9e6, "vsol": 76.0, "vtok": 1e9})
+        self.assertEqual(sig["top10"][0], "a")

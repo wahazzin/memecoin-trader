@@ -118,10 +118,14 @@ class Bot:
         if price >= 2.5 * launch:                      # M1 checkpoint
             c["done"] = True
             chk = coin_checks(c["trades"], c["creator"])
+            hold = defaultdict(float)
+            for x in c["trades"]:
+                hold[x["user"]] += x["tok"] if x["buy"] else -x["tok"]
+            top10 = [u for u, v in sorted(hold.items(), key=lambda kv: -kv[1])[:10] if v > 0]
             fee_bps = max((x.get("cfee_bps") or 0) for x in c["trades"])
             sig = {"mint": mint, "ts": t["ts"], "age_s": round(age), "checks": chk, "pass": all(chk.values()),
                    "creator_fee_bps": fee_bps, "price": price, "curve_key": c.get("curve_key"),
-                   "fee_frac": ((t.get("fee_bps") or 95) + (t.get("cfee_bps") or 30)) / 1e4}
+                   "fee_frac": ((t.get("fee_bps") or 95) + (t.get("cfee_bps") or 30)) / 1e4, "top10": top10}
             c["trades"] = []
             return sig
         return None
@@ -227,8 +231,18 @@ class Bot:
                         finally:
                             self.busy.discard((arm, mint))
 
+    async def record_funding(self, sig):
+        """M1b data: who funded the top holders. Recorded only; not used for trading until M1b is tested."""
+        from memebot import funding
+        try:
+            ws = [await asyncio.to_thread(funding.wallet, w) for w in sig.get("top10", [])]
+            self.s.log("funding.jsonl", {"mint": sig["mint"], "ts": sig["ts"], **funding.summarize(ws)})
+        except Exception as e:
+            self.s.log("events.jsonl", {"ts": time.time(), "type": "FUNDING_ERROR", "error": type(e).__name__})
+
     async def handle_signal(self, sig):
         self.s.log("signals.jsonl", sig)
+        asyncio.create_task(self.record_funding(sig))
         arms = []
         if sig["pass"]:
             arms.append("m1_pass")

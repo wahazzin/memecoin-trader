@@ -44,7 +44,12 @@ jobs:
         id: run
         run: |
           start=$SECONDS
-          save() { ( cd code && python -m memebot.report --state ../state >/dev/null 2>&1 || true
+          save() { ( cd code
+                     wk=$(date -u +%G-W%V); mkdir -p ../state/weekly
+                     if [ "$(date -u +%u)" = "1" ] && [ ! -f "../state/weekly/$wk.md" ]; then
+                       python -m memebot.report --state ../state --days 7 >/dev/null 2>&1 && cp ../state/REPORT.md "../state/weekly/$wk.md" || true
+                     fi
+                     python -m memebot.report --state ../state >/dev/null 2>&1 || true
                      cd ../state && git add -A && { git diff --cached --quiet || { git commit -q -m "paper state $(date -u +%Y-%m-%dT%H:%MZ)" && git push -q origin HEAD:paper-state; }; } ) || echo "save failed, retry next round"; }
           ( cd code && python -m memebot.bot --state ../state --minutes 325 ) &
           b=$!

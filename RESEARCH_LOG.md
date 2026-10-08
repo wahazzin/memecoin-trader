@@ -107,3 +107,14 @@ that rule rests on hindsight charts only.
 Code validated on synthetic data: planted effect → PASS; no effect → NO EVIDENCE. Lesson from the
 synthetic null: dip entries "beat random" even with no edge (random includes buying tops), so the
 absolute after-cost expectancy criterion is essential.
+
+## 2026-10-08 — First night of the paper bot + M1b data collection started
+
+Overnight (~10 h, NOT evidence): `m1_pass` 79 closed trades, 23% wins, expectancy −0.075 SOL/trade;
+`m1_random` 37 trades, 11% wins, −0.161 SOL/trade. Both arms hit the 15%/day circuit breaker (4 times in
+total). 53 sells had to be priced from the on-chain curve because Jupiter had no route.
+
+Started recording **who funded each checkpoint coin's top 10 holders** (wallet age, transaction count,
+first funder, funding time) into `funding.jsonl`, for a later pre-registered test M1b. Recorded only, not
+used for trading. Weekly report snapshots now saved every Monday in `weekly/` on `paper-state`.
+Fixed: the backup cron could start a second recorder in parallel; now it only starts one when none runs.

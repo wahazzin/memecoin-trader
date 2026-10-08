@@ -128,3 +128,12 @@ Read all of pump.fun's public docs + IDLs and checked the open questions on live
 - **Non-SOL coins (~1% of trades) had price 0** → could pass the live bot's checkpoint test (bug). Now excluded.
 - **Fees after graduation vary 0.30–1.25% by market cap** (COST_FACTORS #19). Buyback is part of the 0.95%, not extra (#21).
 Also: holder-reward and cashback coins exist (cost unchanged / rebate, conservative = ignore rebate).
+
+## 2026-10-08 — Storage plan (tripwire + what to do), written before it's needed
+
+The recorder adds ~250 MB/day to GitHub Releases (~7.5 GB/month). No published hard cap, but large repos can be
+flagged. **Tripwire:** the hourly health check alerts on Discord at **15 GB** (≈ early December 2026).
+**Plan when it fires (not before M1/M2 have run):** keep forever the 1-minute candles, creates, events and the
+full tick data of coins that reached the M1 checkpoint or M2's 5× qualification (what any test uses); compact
+the rest (ticks of coins that never got anywhere, ~90% of rows) into a yearly archive or delete it.
+Decided with the owner's rule: every limit gets an early-warning alarm, not a failure alarm.

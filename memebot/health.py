@@ -68,6 +68,25 @@ def checks():
                                    "(normally ~5 per minute). pump.fun may have changed its program or the data feed broke."))
     except Exception as e:
         out.append(("decoder", f"Couldn't read the bot's signals ({type(e).__name__})."))
+    try:
+        # early-warning tripwire on storage: the recorder adds ~250 MB/day of release files. GitHub has no
+        # published total cap for releases, but very large repos can get flagged. Warn at 15 GB (~2 months),
+        # well before it matters, with the projected date so there's time to compact old data.
+        total, page, sizes = 0, 1, []
+        while True:
+            rels = requests.get(f"{API}/repos/wahazzin/memecoin-trader/releases", headers=H,
+                                params={"per_page": 100, "page": page}, timeout=30).json()
+            if not rels:
+                break
+            for r in rels:
+                total += sum(a["size"] for a in r.get("assets", []))
+            page += 1
+        gb = total / 1e9
+        if gb > 15:
+            out.append(("storage", f"Memecoin recorder data is at {gb:.1f} GB (warning level 15 GB, ~250 MB/day). "
+                                   "Time to compact old data: ask Claude to run the storage plan in RESEARCH_LOG.md."))
+    except Exception as e:
+        out.append(("storage", f"Couldn't measure recorder storage ({type(e).__name__})."))
     # the crypto AI trader has its own health check posting to its own channel (crypto-ai-trader/health.yml)
     return out
 

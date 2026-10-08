@@ -1,0 +1,47 @@
+name: health check (alerts to Discord)
+
+# Every hour: are the recorder, the memecoin paper bot and the crypto AI trader alive and saving data?
+# Alerts only when something is wrong (and again every 6 h while it stays wrong). Manual run with
+# action=test sends a test message; action=message sends the given text (used by the weekly review).
+
+on:
+  schedule:
+    - cron: "52 * * * *"
+  workflow_dispatch:
+    inputs:
+      action:
+        type: choice
+        options: [check, test, message]
+        default: check
+      text:
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Test / message
+        if: github.event.inputs.action == 'test' || github.event.inputs.action == 'message'
+        env:
+          TEXT: ${{ github.event.inputs.text }}
+        run: |
+          if [ "${{ github.event.inputs.action }}" = "test" ]; then
+            python -m memebot.notify "✅ Test from your trading bots: Discord alerts work. You'll only hear from me when something breaks, plus a weekly review."
+          else
+            python -m memebot.notify "$TEXT"
+          fi
+      - name: Check
+        if: github.event.inputs.action != 'test' && github.event.inputs.action != 'message'
+        run: python -m memebot.health

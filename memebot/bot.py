@@ -140,6 +140,9 @@ class Bot:
             d["halted"] = True
             self.s.log("events.jsonl", {"ts": time.time(), "type": "CIRCUIT_BREAKER", "arm": arm,
                                         "equity": self.equity(arm), "day_start": d["start"]})
+            from memebot import notify
+            notify.send(f"🛑 Memecoin paper bot: circuit breaker on `{arm}` (lost >{DAILY_LOSS_LIMIT:.0%} today, "
+                        f"equity {self.equity(arm):.2f} SOL). It stops buying until 00:00 UTC. Paper only.")
         return not d["halted"]
 
     def equity(self, arm):

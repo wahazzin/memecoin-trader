@@ -56,6 +56,18 @@ def checks():
             out.append(("recorder", f"Memecoin recorder hasn't uploaded data for {age / 3600:.1f} h (expected hourly)."))
     except Exception as e:
         out.append(("recorder", f"Couldn't read recorder uploads ({type(e).__name__})."))
+    try:
+        # silent-failure check: the bot judges ~5 coins/minute. If pump.fun changes its program and our decoder
+        # stops understanding trades, everything keeps "running" but no coin is ever judged.
+        r = requests.get("https://raw.githubusercontent.com/wahazzin/memecoin-trader/paper-state/signals.jsonl",
+                         headers={"Range": "bytes=-4000"}, timeout=30)
+        last = [l for l in r.text.splitlines() if l.startswith("{")]
+        ts = json.loads(last[-1])["ts"] if last else 0
+        if time.time() - ts > 2 * 3600:
+            out.append(("decoder", f"Memecoin bot hasn't judged a single coin in {(time.time() - ts) / 3600:.1f} h "
+                                   "(normally ~5 per minute). pump.fun may have changed its program or the data feed broke."))
+    except Exception as e:
+        out.append(("decoder", f"Couldn't read the bot's signals ({type(e).__name__})."))
     # the crypto AI trader has its own health check posting to its own channel (crypto-ai-trader/health.yml)
     return out
 

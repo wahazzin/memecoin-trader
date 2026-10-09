@@ -3147,3 +3147,13 @@
 {"ts": 1791504818.0303724, "type": "GAP", "source": "rpc", "error": "ConnectionClosedError"}
 {"ts": 1791504861.8771625, "type": "GAP", "source": "rpc", "error": "ConnectionClosedError"}
 {"ts": 1791504946.0956275, "type": "GAP", "source": "rpc", "error": "ConnectionClosedError"}
+{"ts": 1791505109.051421, "type": "CIRCUIT_BREAKER", "arm": "m1_pass", "equity": 11.692428289084278, "day_start": 14.040764217955633}
+{"ts": 1791505109.3805509, "type": "SKIP", "arm": "m1_pass", "mint": "82zYGWiAH1gX1kc9Wrwqtsm2eqRTwm6mQ53C9V4rpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791505227.580016, "type": "SKIP", "arm": "m1_pass", "mint": "A7bp68hZeU5E3hSGigxfZJw42saHFLvvS6jCYgQBpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791505238.6215417, "type": "GAP", "source": "rpc", "error": "ConnectionClosedError"}
+{"ts": 1791505240.723649, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}
+{"ts": 1791505242.8067224, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}
+{"ts": 1791505244.9367893, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}
+{"ts": 1791505246.2279673, "type": "SKIP", "arm": "m1_pass", "mint": "6Mw5R73FZDTanxpsSqzrQtVQN5yQjr7vNcBGDtK929tU", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791505247.0724623, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}
+{"ts": 1791505249.1824818, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}

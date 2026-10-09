@@ -1,4 +1,33 @@
 {
- "m1_pass": {},
- "m1_random": {}
+ "m1_pass": {
+  "AtZDpxNpsMm1yaRRY1K93NJAaYHmK5wu4nUW44Bapump": {
+   "tokens": 5959272.103075,
+   "cost": 0.50354428,
+   "opened": 1791504183.5184333,
+   "entry_price": 8.2403995137785e-08,
+   "paid_price": 8.286702670264227e-08,
+   "curve_key": "FFEiErxUmQzervYz8zZUpgR3cPxHasbu4cA4pMzqwkPt",
+   "fee_frac": 0.0125
+  },
+  "7rpw36TNpVED594xcTvZ67GSds8Vv3PDJWpG46Q8pump": {
+   "tokens": 6326915.685524,
+   "cost": 0.50354428,
+   "opened": 1791504296.1425898,
+   "entry_price": 7.728661473643764e-08,
+   "paid_price": 7.80518004410435e-08,
+   "curve_key": "BT4oH3DaZcUK59XqQRaUXQ9Chs5T2qbuounTKcAepbbp",
+   "fee_frac": 0.0125
+  }
+ },
+ "m1_random": {
+  "7VrBTviiuLMF1eD7a3SmQyfNMxRCrDyPHXm7JRD2pump": {
+   "tokens": 6412204.857387,
+   "cost": 0.50354428,
+   "opened": 1791504156.3964827,
+   "entry_price": 7.625357352518127e-08,
+   "paid_price": 7.701362814772325e-08,
+   "curve_key": "B2Z162KQN3RyHnuEmQc8jVsL1kMggM8VJAgRKH5Crf5V",
+   "fee_frac": 0.0125
+  }
+ }
 }

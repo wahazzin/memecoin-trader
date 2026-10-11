@@ -8930,3 +8930,5 @@
 {"ts": 1791688918.3137057, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}
 {"ts": 1791688920.4670622, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}
 {"ts": 1791688922.5194597, "type": "GAP", "source": "rpc", "error": "InvalidStatusCode"}
+{"ts": 1791690765.4632075, "type": "CIRCUIT_BREAKER", "arm": "m1_random", "equity": 8.48172842357749, "day_start": 10.095442344522704}
+{"ts": 1791690765.9243488, "type": "SKIP", "arm": "m1_random", "mint": "9fHptcFRxsfBJQxcx724QFodK9wZyPPDQQ5G8t1Ypump", "why": "max_open/cash/circuit_breaker"}

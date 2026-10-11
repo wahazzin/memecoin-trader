@@ -8874,3 +8874,5 @@
 {"ts": 1791676528.1329534, "type": "SKIP", "arm": "m1_random", "mint": "BNUFUuYaSzZjGu6Z6wiLPSAqTJyi3z5KAbgvkdgtpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1791676603.4535687, "type": "SKIP", "arm": "m1_pass", "mint": "GThXho73Sw3JmQqguzVRsHhZrQC95nG6jKjHpiafpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1791676755.466033, "type": "SKIP", "arm": "m1_random", "mint": "9D6E7MBdja2F2pY9QHxYNccW8yE3TTW6WFDme438pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791679971.9443486, "type": "CIRCUIT_BREAKER", "arm": "m1_pass", "equity": 8.184143743659876, "day_start": 9.79629534423616}
+{"ts": 1791679972.306143, "type": "SKIP", "arm": "m1_pass", "mint": "EenYfvWhjJdM1MBcXWe9kAJZ2etSzM7qt6ki8Wx9pump", "why": "max_open/cash/circuit_breaker"}

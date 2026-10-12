@@ -12225,3 +12225,8 @@
 {"ts": 1791832868.5632994, "type": "SKIP", "arm": "m1_random", "mint": "EYL15Bt3wcQtidUoxtfJH3PXGWnoZUaNtdrQUbQCpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1791832928.2534761, "type": "SKIP", "arm": "m1_pass", "mint": "skdKu7npj4uXcCKMpuXtP3feLe6kUaTjtTvqWPjpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1791832985.9567616, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 158.6, "error": "ConnectionClosedError"}
+{"ts": 1791833247.7283747, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 259.8, "error": "ConnectionClosedError"}
+{"ts": 1791833348.6080673, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 98.9, "error": "ConnectionClosedError"}
+{"ts": 1791833375.1646333, "type": "SKIP", "arm": "m1_pass", "mint": "9FfdLJHkdKW2LW4GBBGzg28yXtgXaA62xRL5eFRZpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791833386.8721502, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 36.3, "error": "ConnectionClosedError"}
+{"ts": 1791833437.5020442, "type": "SKIP", "arm": "m1_random", "mint": "7wDJy9Wn5UFXwjtpgia945P29YKRq4cjuyn4hSempump", "why": "max_open/cash/circuit_breaker"}

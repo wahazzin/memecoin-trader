@@ -280,6 +280,7 @@ async def stream(bot, stop):
     import websockets
     async def rpc(program=PUMP):
         while time.time() < stop:
+            t_conn = time.time()
             try:
                 async with websockets.connect(RPC_WS, max_size=2 ** 24, ping_interval=20, ping_timeout=60) as ws:
                     await ws.send(json.dumps({"jsonrpc": "2.0", "id": 1, "method": "logsSubscribe",
@@ -302,7 +303,10 @@ async def stream(bot, stop):
                                 if r:
                                     bot.on_trade(r)
             except Exception as e:
-                bot.s.log("events.jsonl", {"ts": time.time(), "type": "GAP", "source": "rpc", "error": f"{type(e).__name__}"})
+                # which stream + how long the connection had lived (added 2026-10-12: ~1,000 GAPs/day, cause unknown)
+                bot.s.log("events.jsonl", {"ts": time.time(), "type": "GAP", "source": "rpc",
+                                           "stream": "pump" if program == PUMP else "amm",
+                                           "conn_s": round(time.time() - t_conn, 1), "error": f"{type(e).__name__}"})
                 await asyncio.sleep(2)
     async def pp():
         while time.time() < stop:

@@ -3,7 +3,7 @@ name: recorder (24/7 pump.fun market data, read-only)
 # One job records for ~5h45m, uploading each finished UTC hour to the GitHub Release "data-YYYY-MM-DD".
 # ~10 minutes before it ends it starts its successor, so the two overlap (duplicates are removed by
 # transaction signature at analysis time) and there is no gap. The hourly cron restarts the chain if it
-# ever breaks; a guard stops more than 2 recorders running at once. No wallet, no keys, no trading.
+# ever breaks; a guard (which never counts its own run) stops more than 2 recorders running at once. No wallet, no keys, no trading.
 
 on:
   workflow_dispatch:
@@ -25,12 +25,18 @@ jobs:
       - name: Guard (max 2 recorders at once)
         id: guard
         run: |
-          n=$(gh api "repos/$REPO/actions/workflows/recorder.yml/runs?status=in_progress" --jq '.total_count')
-          echo "running (incl. this one): $n, event: ${{ github.event_name }}"
+          # Count OTHER recorder runs (in progress or queued), never this one. Fixed 2026-10-12: the old guard counted
+          # "in_progress incl. this one" and expected this run to be listed; often it wasn't yet, so the hourly cron
+          # started a 2nd recorder next to a running one and BOTH chains kept handing over -> 2 recorders ~all day,
+          # ~2x the data uploaded (1.1-1.7 GB/day instead of ~0.6), duplicates removed only at analysis time.
+          others() { gh api "repos/$REPO/actions/workflows/recorder.yml/runs?status=$1&per_page=100" \
+                       --jq "[.workflow_runs[] | select(.id != ${GITHUB_RUN_ID})] | length"; }
+          n=$(( $(others in_progress) + $(others queued) ))
+          echo "other recorders running/queued: $n, event: ${{ github.event_name }}"
           # cron is only a backup: it may start a recorder only if none is running. A dispatched successor may
-          # overlap its predecessor for the handover (2 running), never more.
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$n" -gt 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT
-          elif [ "$n" -gt 2 ]; then echo "skip=1" >> $GITHUB_OUTPUT
+          # overlap its predecessor for the handover (1 other), never more -- so a duplicate chain dies out.
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$n" -ge 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT
+          elif [ "$n" -ge 2 ]; then echo "skip=1" >> $GITHUB_OUTPUT
           else echo "skip=0" >> $GITHUB_OUTPUT; fi
       - uses: actions/checkout@v5
         if: steps.guard.outputs.skip == '0'

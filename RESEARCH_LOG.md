@@ -137,3 +137,23 @@ flagged. **Tripwire:** the hourly health check alerts on Discord at **15 GB** (�
 full tick data of coins that reached the M1 checkpoint or M2's 5× qualification (what any test uses); compact
 the rest (ticks of coins that never got anywhere, ~90% of rows) into a yearly archive or delete it.
 Decided with the owner's rule: every limit gets an early-warning alarm, not a failure alarm.
+
+## 2026-10-12 — Weekly review (W42): duplicate recorders fixed; storage much faster than planned
+
+**Bug (fixed): two recorders ran side by side most of the week.** The guard counted "in-progress runs incl.
+this one" and expected its own run to be listed; often it was not yet, so the hourly backup cron started a second
+recorder next to a running one (e.g. 2026-10-11 01:13 next to the 22:38 run), and both chains kept handing over
+to successors. Data was uploaded twice for hours each day (duplicates are removed by signature at analysis, so
+M1/M2 are not biased, but storage doubled). The guard now counts only OTHER runs (in progress + queued): cron
+starts one only if none runs, a dispatched successor only if at most its predecessor runs, so an extra chain
+dies out by itself.
+
+**Storage is ~3-6x the plan.** Releases: 1.06 / 1.73 / 1.41 / 1.18 GB per day (10-08..10-11), ~5.9 GB total by
+10-12 07:00 UTC. A single recorder alone writes ~30-45 MB/hour (~0.8-1 GB/day), not the planned ~250 MB/day.
+At that rate the 15 GB tripwire fires around 2026-10-21/23, right when M1/M2 are due — the plan said "compact
+not before M1/M2 have run". Question raised to the owner in the weekly review; nothing deleted.
+
+**Diagnostics added:** paper-bot GAP events now record which stream (pump / amm) and how long the websocket had
+been connected (~1,000 ConnectionClosed GAPs/day, cause unknown). Helius fallback: `helius_ok` stayed 0 all
+week while `failed` RPC calls were ~15-20%, so the Helius key is most likely not set for the paper bot
+(question for the owner; credits used: 0 of 1M).

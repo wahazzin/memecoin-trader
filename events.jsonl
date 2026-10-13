@@ -13872,3 +13872,31 @@
 {"ts": 1791916313.0917814, "type": "SKIP", "arm": "m1_random", "mint": "6Js1dxtJmTyGv7jH9ztgiyhzJZLQCPdf6TWeEi3Hpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1791916366.9371588, "type": "SKIP", "arm": "m1_random", "mint": "F6z4utrEZKf3mx8Zsmfsj4yHyvkCqHLd8a1o4njQpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1791916429.9260833, "type": "SKIP", "arm": "m1_pass", "mint": "EWFc8UB7Bwguv2gFLqsPgLH9Qpwx8YYmYuxWaAYLpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791916568.372171, "type": "SKIP", "arm": "m1_random", "mint": "BTsNMAD3qTCWgtxykjbLpLLU9vcWUvvUncciUZMUpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791916595.6867383, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 546.5, "error": "ConnectionClosedError"}
+{"ts": 1791916597.776654, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916599.918903, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916601.4837346, "type": "SKIP", "arm": "m1_pass", "mint": "ABoTHaX5ENRbqaQ5PseyGrRksxttgeVgLWvUheuPpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791916602.0135689, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916604.0918818, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916606.167674, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916608.3059542, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916609.9576511, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 559.6, "error": "ConnectionClosedError"}
+{"ts": 1791916610.3774962, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916612.0335696, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916612.453244, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916614.1089733, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916614.534303, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916616.2157266, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916616.6071198, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916618.3246784, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916618.6967278, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916620.4726946, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916620.7762969, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916622.5897532, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916622.8534672, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791916715.2401376, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 90.6, "error": "ConnectionClosedError"}
+{"ts": 1791916715.6673882, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 90.8, "error": "ConnectionClosedError"}
+{"ts": 1791916717.817329, "type": "SKIP", "arm": "m1_pass", "mint": "QxQWtjdhsWzUdTnHHdMYai7SLLVLX1SJYHfnRTEpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791916719.4735973, "type": "SKIP", "arm": "m1_pass", "mint": "CS6Nd2HDB7PsDq87DQrXnGouVCxW2AMcW2aEzbFVpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791916727.1460996, "type": "SKIP", "arm": "m1_random", "mint": "9n7CCwUYJzqhb2c8xwSJ72W1nmB7NDi8GJVsM5S3pump", "why": "max_open/cash/circuit_breaker"}

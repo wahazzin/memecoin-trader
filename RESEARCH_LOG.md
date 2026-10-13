@@ -165,3 +165,13 @@ The losses come mostly from costs (fill delay median 6%, fees ~2.5% round trip) 
 below −20% (median −44%). With a shrinking bankroll the circuit breaker trips after a few stops, which
 starves the test of trades. Owner approved refilling paper cash to 20 SOL each ISO week, identical for
 both arms, logged and removed from drawdown in the report. No entry/exit/cost rule changed.
+
+## 2026-10-13: W1 pre-registered — do top wallets stay good, and can we copy them?
+
+Owner idea: watch hundreds of memecoin wallets and see whether copying the good ones works. The recorder
+already stores the wallet on every trade, so no new data collection is needed. Rules fixed in
+`research/W1_PREREG.md` BEFORE any wallet was ranked: top 50 wallets by design-period P&L, judged on a later
+holdout (W1a skill vs luck), then a copy test buying/selling 2 s after them at real reserves with all costs,
+vs copying random wallets (W1b). Code `research/w1.py` validated on synthetic data: planted persistent,
+copyable skill → W1a PASS + W1b PASS; no skill → NO EVIDENCE on both (also a unit test). Runs with M1/M2
+once 14 full days exist (~2026-10-21), research workflow action `w1`.

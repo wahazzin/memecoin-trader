@@ -97,6 +97,25 @@ class TestBot(unittest.TestCase):
         self.assertFalse(b.day_ok("m1_pass"))
         self.assertFalse(b.day_ok("m1_pass"))                      # stays halted the rest of the day
 
+    def test_weekly_topup_once_per_week_same_for_both_arms_and_report_removes_it(self):
+        from memebot import report
+        b = self.make()
+        for arm in bot.ARMS:
+            b.s.cash[arm] = 6.0
+        b.day_ok("m1_pass"); b.day_ok("m1_random")
+        self.assertAlmostEqual(b.s.cash["m1_pass"], 20.0)
+        self.assertAlmostEqual(b.s.cash["m1_random"], 20.0)
+        b.s.cash["m1_pass"] = 18.0
+        self.assertTrue(b.day_ok("m1_pass"))                      # deposit didn't count as day-start loss
+        self.assertAlmostEqual(b.s.cash["m1_pass"], 18.0)          # no second top-up in the same week
+        b.s.day["m1_pass"]["topup_week"] = "2000-W01"              # pretend a new week started
+        b.day_ok("m1_pass")
+        self.assertAlmostEqual(b.s.cash["m1_pass"], 20.0)
+        b.s.log("equity.jsonl", {"ts": time.time() + 1, "arm": "m1_pass", "equity": 20.0})
+        b.s.save()
+        txt = report.build(b.s.d)
+        self.assertIn("top-ups 16.00", txt)                         # 14 + 2, shown, not hidden
+
     def test_bot_has_no_signing_code(self):
         src = open(bot.__file__).read() + open(paper.__file__).read()
         for bad in ("sendTransaction", "private_key", "Keypair", "secret_key", "/swap/v1/swap"):

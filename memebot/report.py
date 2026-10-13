@@ -28,7 +28,10 @@ def build(state, since=0):
         aw = sum(wins) / len(wins) if wins else 0.0
         al = sum(losses) / len(losses) if losses else 0.0
         exp_ = (wr * aw + (1 - wr) * al) if wr is not None else None
-        e = [x["equity"] for x in eq if x["arm"] == arm]
+        # weekly top-ups (BOT_SPEC B1) are deposits, not profit: subtract them from the equity curve
+        tops = sorted((x["ts"], x["added_sol"]) for x in ev if x.get("type") == "TOP_UP" and x.get("arm") == arm)
+        dep = sum(a for _, a in tops)
+        e = [x["equity"] - sum(a for t, a in tops if t <= x["ts"]) for x in eq if x["arm"] == arm]
         peak, mdd = -1e9, 0.0
         for v in e:
             peak = max(peak, v); mdd = min(mdd, v / peak - 1)
@@ -36,7 +39,7 @@ def build(state, since=0):
         f = lambda x: "—" if x is None else f"{x:+.4f}"
         L.append(f"| `{arm}` | {sum(o['status'] == 'FILLED' for o in bo)} / {sum(o['status'] == 'FAILED' for o in bo)} / "
                  f"{sum(o['status'] == 'NO_ROUTE' for o in bo)} | {len(pnl)} | {'—' if wr is None else f'{wr:.0%}'} | {f(aw)} | {f(al)} | "
-                 f"**{f(exp_)}** | {sum(pnl):+.4f} | {e[-1] if e else 0:.3f} | {mdd:.1%} | {len(pos.get(arm, {}))} | {stuck} |")
+                 f"**{f(exp_)}** | {sum(pnl):+.4f} | {(e[-1] + dep) if e else 0:.3f} (top-ups {dep:.2f}) | {mdd:.1%} | {len(pos.get(arm, {}))} | {stuck} |")
     fb = sum(1 for o in orders if o.get("source") == "curve_formula")
     # sensitivity: P&L if every fill had used the FIRST quote (no 2 s delay) -- shows how much the delay costs
     alt = {}
@@ -54,7 +57,8 @@ def build(state, since=0):
           f"- Sells priced by the verified curve formula because Jupiter had no route: {fb}",
           f"- Delay sensitivity (sells only): SOL gained if sells had filled at the first quote instead of the worse one: "
           + (", ".join(f"{k} {v:+.3f}" for k, v in alt.items()) or "—"), f"- Circuit breakers fired: {len(cb)}", f"- Stream gaps logged: {len(gaps)}",
-          "", "Expectancy = win rate × avg win + loss rate × avg loss, per closed trade, in SOL after all costs (rule 6).",
+          "", "Equity now includes paper top-ups (BOT_SPEC B1); max drawdown is computed with top-ups removed.",
+          "Expectancy = win rate × avg win + loss rate × avg loss, per closed trade, in SOL after all costs (rule 6).",
           "The test is `m1_pass` vs `m1_random` (same entry moment, checks vs no checks). See BOT_SPEC.md."]
     return "\n".join(L)
 

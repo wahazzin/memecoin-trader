@@ -33,3 +33,20 @@ dumps. Smoke results are NOT evidence (minutes of data, thrown away).
 - The 2-second delay is a fixed choice, not a measurement (a real landing time needs real transactions).
 - After a coin graduates, its pump.fun trade stream stops; exits then fall to the 15-min/60-min rules and
   are filled by Jupiter via PumpSwap.
+
+## Amendment B1 (2026-10-13): weekly paper top-up
+
+**Why:** after ~6 days both arms were down ~70% (m1_pass 6.19 SOL, m1_random 5.90 SOL from 20). With a
+small bankroll the 15% daily circuit breaker trips after only a few stops, so the arms trade less and the
+forward test collects fewer trades. The thing being tested is **expectancy per trade** (m1_pass vs
+m1_random), which doesn't depend on bankroll size, so refilling paper money keeps the test collecting data
+without changing any rule. Owner approved 2026-10-13.
+
+**Rule:** once per ISO week (UTC), at the first check of the week, each arm's paper cash is topped up so
+its equity is back at 20 SOL. The first top-up happens as soon as this code runs (week 2026-W42). Both arms
+get the identical rule. Entry rules, checks, exits, sizes, costs and the circuit breaker are unchanged.
+A top-up is added to the day's start equity, so a deposit never hides or triggers a circuit breaker.
+
+**Honesty:** every top-up is logged (`TOP_UP` in events.jsonl). The report shows total top-ups per arm and
+computes max drawdown with them removed. Total P&L comes from closed trades only, so top-ups can't
+flatter it. Real money would never be "topped up" to hide losses: at go-live the bankroll is fixed.

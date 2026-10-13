@@ -141,7 +141,28 @@ class Bot:
         return None
 
     # ---------- trading ----------
+    def weekly_topup(self, arm):
+        """BOT_SPEC amendment B1 (2026-10-13): once per ISO week (UTC; first check of the week, and once right
+        when this code first runs), paper cash is added so the arm's equity is back at its starting bankroll.
+        Both arms get the identical rule. Every top-up is logged (TOP_UP in events.jsonl) and the report
+        subtracts them, so P&L, return and drawdown are never flattered by the refill. Expectancy per trade
+        (the actual test) doesn't depend on bankroll size."""
+        week = time.strftime("%G-W%V", time.gmtime())
+        d = self.s.day.setdefault(arm, {})
+        if d.get("topup_week") == week:
+            return 0.0
+        d["topup_week"] = week
+        add = max(ARMS[arm]["bankroll"] - self.equity(arm), 0.0)
+        if add > 0:
+            self.s.cash[arm] += add
+            if "start" in d:
+                d["start"] += add                 # a deposit is not a gain: circuit breaker unaffected
+            self.s.log("events.jsonl", {"ts": time.time(), "type": "TOP_UP", "arm": arm, "week": week,
+                                        "added_sol": add, "equity_after": self.equity(arm)})
+        return add
+
     def day_ok(self, arm):
+        self.weekly_topup(arm)
         today = time.strftime("%Y-%m-%d", time.gmtime())
         d = self.s.day.setdefault(arm, {})
         if d.get("date") != today:

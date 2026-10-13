@@ -157,3 +157,11 @@ not before M1/M2 have run". Question raised to the owner in the weekly review; n
 been connected (~1,000 ConnectionClosed GAPs/day, cause unknown). Helius fallback: `helius_ok` stayed 0 all
 week while `failed` RPC calls were ~15-20%, so the Helius key is most likely not set for the paper bot
 (question for the owner; credits used: 0 of 1M).
+
+## 2026-10-13: weekly paper top-up (BOT_SPEC amendment B1)
+
+Both arms ~−70% after 6 days (243 closed trades, expectancy −0.10 SOL/trade m1_pass vs −0.13 m1_random).
+The losses come mostly from costs (fill delay median 6%, fees ~2.5% round trip) and from stops filling far
+below −20% (median −44%). With a shrinking bankroll the circuit breaker trips after a few stops, which
+starves the test of trades. Owner approved refilling paper cash to 20 SOL each ISO week, identical for
+both arms, logged and removed from drawdown in the report. No entry/exit/cost rule changed.

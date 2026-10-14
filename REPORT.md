@@ -1,14 +1,14 @@
-# Paper bot check-in (2026-10-14 00:29 UTC)
+# Paper bot check-in (2026-10-14 00:34 UTC)
 
 > PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).
 
 | Arm | Buys filled / failed / no route | Closed | Win rate | Avg win | Avg loss | **Expectancy / trade** | Total P&L (SOL) | Equity now | Max drawdown | Open | Stuck |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| `m1_pass` | 141 / 21 / 1 | 141 | 23% | +0.2930 | -0.2170 | **-0.1012** | -14.2717 | 19.485 (top-ups 13.81) | -74.4% | 0 | 0 |
-| `m1_random` | 109 / 13 / 16 | 109 | 19% | +0.2298 | -0.2091 | **-0.1246** | -13.5770 | 20.493 (top-ups 14.10) | -70.7% | 0 | 0 |
+| `m1_pass` | 142 / 21 / 1 | 142 | 23% | +0.2964 | -0.2170 | **-0.0976** | -13.8656 | 19.485 (top-ups 13.81) | -74.4% | 0 | 0 |
+| `m1_random` | 110 / 13 / 16 | 110 | 20% | +0.2252 | -0.2091 | **-0.1223** | -13.4485 | 20.493 (top-ups 14.10) | -70.7% | 0 | 0 |
 
-- Exit reasons: {'take_profit': 56, 'stop_loss': 161, 'no_volume_15m': 33}
-- Sells priced by the verified curve formula because Jupiter had no route: 96
+- Exit reasons: {'take_profit': 58, 'stop_loss': 161, 'no_volume_15m': 33}
+- Sells priced by the verified curve formula because Jupiter had no route: 98
 - Delay sensitivity (sells only): SOL gained if sells had filled at the first quote instead of the worse one: m1_pass +0.463, m1_random +0.861
 - Circuit breakers fired: 14
 - Stream gaps logged: 6276

@@ -15307,3 +15307,16 @@
 {"ts": 1791995030.9113333, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
 {"ts": 1791995074.9158223, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 43.3, "error": "ConnectionClosedError"}
 {"ts": 1791995076.074211, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 43.2, "error": "ConnectionClosedError"}
+{"ts": 1791995386.5658598, "type": "SKIP", "arm": "m1_random", "mint": "6g3Lu3VHKebyHEMdnQRMxQJr8iWmJS8VDBJRaepHpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791995430.7724752, "type": "SKIP", "arm": "m1_pass", "mint": "83spqgeATc7QLynLb5jDVUounZK4iotT2CiZNZQapump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791995462.6883378, "type": "SKIP", "arm": "m1_pass", "mint": "DwAcmif6hXBp2KYcxhKReGfLGFrVisan3niKDkmepump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791995506.9064698, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 430.0, "error": "ConnectionClosedError"}
+{"ts": 1791995510.393364, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 432.3, "error": "ConnectionClosedError"}
+{"ts": 1791995512.568607, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode"}
+{"ts": 1791995515.1213522, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.6, "error": "InvalidStatusCode"}
+{"ts": 1791995517.3262343, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode"}
+{"ts": 1791995519.383345, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791995521.4450552, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791995523.5195024, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791995525.6014204, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1791995527.6533623, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}

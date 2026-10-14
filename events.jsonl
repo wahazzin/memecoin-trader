@@ -15178,3 +15178,15 @@
 {"ts": 1791992106.323706, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode"}
 {"ts": 1791992173.414204, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 256.8, "error": "ConnectionClosedError"}
 {"ts": 1791992173.478194, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 260.6, "error": "ConnectionClosedError"}
+{"ts": 1791992251.59272, "type": "SKIP", "arm": "m1_pass", "mint": "EoGBEeHkPsqTWWQvNsx1h8QSjvjYvzidL9Tu3GGSpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791992281.011134, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 105.6, "error": "ConnectionClosedError"}
+{"ts": 1791992281.212974, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 105.7, "error": "ConnectionClosedError"}
+{"ts": 1791992285.8880756, "type": "SKIP", "arm": "m1_pass", "mint": "FxHHYu3D9ZMCrPy63B3m3eGTJ2h9nF12SCvwptPSpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791992285.888132, "type": "SKIP", "arm": "m1_random", "mint": "FxHHYu3D9ZMCrPy63B3m3eGTJ2h9nF12SCvwptPSpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791992400.0856426, "type": "SKIP", "arm": "m1_random", "mint": "2BBHovh8W1EeBBHBT5NA7ZVQpoo59F6sx1fWVavWpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791992406.6606047, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 123.4, "error": "ConnectionClosedError"}
+{"ts": 1791992408.3776295, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 125.4, "error": "ConnectionClosedError"}
+{"ts": 1791992456.8670514, "type": "SKIP", "arm": "m1_pass", "mint": "8VaWQWiHfQ9rPJwVaxpuxEwvCFHmcaEWss4jtK4pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791992496.2115061, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 87.6, "error": "ConnectionClosedError"}
+{"ts": 1791992498.5850427, "type": "SKIP", "arm": "m1_pass", "mint": "CzqGHRt1mb6Eb7f3zi6AWTjcUjiTDHocLsH5gTuXpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1791992499.5831976, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 89.2, "error": "ConnectionClosedError"}

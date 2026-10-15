@@ -18348,3 +18348,15 @@
 {"ts": 1792104851.629217, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
 {"ts": 1792104868.965008, "type": "SKIP", "arm": "m1_pass", "mint": "9r3akcZEovDx6ybrS95eYoA447swAMkJtgWKiG91pump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792104893.707702, "type": "SKIP", "arm": "m1_random", "mint": "3BZFpWxcDMQQCEPvmv4ica96ur2rX6LPUQALNkpmqX9J", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792105193.1882699, "type": "SKIP", "arm": "m1_pass", "mint": "Hdy8DQijdha1rfwzKYBMTxnRSkxZbop2MC7gXdL9pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792105194.35995, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 342.1, "error": "ConnectionClosedError"}
+{"ts": 1792105202.0759506, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 348.4, "error": "ConnectionClosedError"}
+{"ts": 1792105204.1843727, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792105206.2878702, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792105208.425285, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792105210.5244925, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792105212.6303236, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792105214.7747128, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792105217.5923955, "type": "SKIP", "arm": "m1_pass", "mint": "2W3Nu7mQD7znMzf2vwTqdZ9q7uHkXdf6acgBttVkpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792105217.592435, "type": "SKIP", "arm": "m1_random", "mint": "2W3Nu7mQD7znMzf2vwTqdZ9q7uHkXdf6acgBttVkpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792105305.3613508, "type": "SKIP", "arm": "m1_pass", "mint": "BerTuH8Y4eNp2VBJ8ipnFXLPJ5ivvzFLQtedob5ypump", "why": "max_open/cash/circuit_breaker"}

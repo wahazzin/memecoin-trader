@@ -17430,3 +17430,15 @@
 {"ts": 1792079840.4215171, "type": "SKIP", "arm": "m1_random", "mint": "7d6VhPfZR4nRFhfXtPbKfR6zNrxditQsf3Wp3bs9pump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792079895.7562134, "type": "SKIP", "arm": "m1_pass", "mint": "ExHsYmzYKRj28PCjxDvvZr4dr7sjqY2iAghy8ncTpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792079976.8437452, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 167.4, "error": "ConnectionClosedError"}
+{"ts": 1792080015.55072, "type": "SKIP", "arm": "m1_random", "mint": "8oZkmg45GTi8LSziBQpXdaGekiGyMTVXnzYoVFGycm4n", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792080057.2512858, "type": "SKIP", "arm": "m1_pass", "mint": "8WWCczYwNBMv2P6vwmFNNWuYt1bNbGv9A528iMDtpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792080144.8999596, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 736.7, "error": "ConnectionClosedError"}
+{"ts": 1792080151.9429586, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 173.1, "error": "ConnectionClosedError"}
+{"ts": 1792080180.32411, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 26.4, "error": "ConnectionClosedError"}
+{"ts": 1792080185.7149317, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 38.8, "error": "ConnectionClosedError"}
+{"ts": 1792080195.9413376, "type": "SKIP", "arm": "m1_pass", "mint": "EDkFggUnHReFZL9PpZaPZdkPZqtHREFBNXt4YR7Lpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792080204.37683, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 22.1, "error": "ConnectionClosedError"}
+{"ts": 1792080230.856542, "type": "SKIP", "arm": "m1_pass", "mint": "ALaBXA39MXPujdCSvAfEGCS5eaqoYmpCEPbPfRSZpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792080266.8052888, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 60.4, "error": "ConnectionClosedError"}
+{"ts": 1792080284.7344718, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 97.0, "error": "ConnectionClosedError"}
+{"ts": 1792080306.322429, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 37.5, "error": "ConnectionClosedError"}

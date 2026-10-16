@@ -24742,3 +24742,15 @@
 {"ts": 1792182560.7227972, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 29.0, "error": "ConnectionClosedError"}
 {"ts": 1792182600.8393118, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 64.9, "error": "ConnectionClosedError"}
 {"ts": 1792182614.6572373, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 51.9, "error": "ConnectionClosedError"}
+{"ts": 1792182774.0624611, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 157.4, "error": "ConnectionClosedError"}
+{"ts": 1792182838.3612962, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 235.5, "error": "ConnectionClosedError"}
+{"ts": 1792182838.3629668, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 62.3, "error": "ConnectionClosedError"}
+{"ts": 1792182848.1638353, "type": "SKIP", "arm": "m1_pass", "mint": "6N8CRg1msA1JVEukKjkCN4FjzMRmzDmg42SVnqaVpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792182873.4155426, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 33.1, "error": "ConnectionClosedError"}
+{"ts": 1792182882.0810542, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 41.7, "error": "ConnectionClosedError"}
+{"ts": 1792182921.8057144, "type": "SKIP", "arm": "m1_pass", "mint": "DoJnVChKY6JPa1krjGtnRWfa8UkYCg8z768VA7Nbpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792182921.8057756, "type": "SKIP", "arm": "m1_random", "mint": "DoJnVChKY6JPa1krjGtnRWfa8UkYCg8z768VA7Nbpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792182971.6546738, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 96.2, "error": "ConnectionClosedError"}
+{"ts": 1792183002.690961, "type": "SKIP", "arm": "m1_random", "mint": "2uf46U9NZpXhNLkprWSSGgC3F5KCaGUMrqrW6qo6pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792183005.207289, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 31.6, "error": "ConnectionClosedError"}
+{"ts": 1792183009.2043881, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 125.1, "error": "ConnectionClosedError"}

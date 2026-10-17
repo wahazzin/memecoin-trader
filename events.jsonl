@@ -25413,3 +25413,5 @@
 {"ts": 1792207844.352314, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
 {"ts": 1792207846.5271478, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode"}
 {"ts": 1792207848.6557653, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792208497.3376575, "type": "CIRCUIT_BREAKER", "arm": "m1_random", "equity": 10.24522164628042, "day_start": 12.102737797844537}
+{"ts": 1792208497.675902, "type": "SKIP", "arm": "m1_random", "mint": "AMMwpxtafHSvftiKojTWqvUpbQrkXUdhYAzaf4jipump", "why": "max_open/cash/circuit_breaker"}

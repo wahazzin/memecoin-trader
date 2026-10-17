@@ -26409,3 +26409,23 @@
 {"ts": 1792256911.444786, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 36.2, "error": "ConnectionClosedError"}
 {"ts": 1792256917.0266285, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 41.2, "error": "ConnectionClosedError"}
 {"ts": 1792256954.035816, "type": "STOP"}
+{"ts": 1792256983.6604555, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
+{"ts": 1792257047.54416, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 63.9, "error": "ConnectionClosedError"}
+{"ts": 1792257047.7317147, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 64.1, "error": "ConnectionClosedError"}
+{"ts": 1792257073.251026, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 23.7, "error": "ConnectionClosedError"}
+{"ts": 1792257074.2517004, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 24.5, "error": "ConnectionClosedError"}
+{"ts": 1792257097.9184017, "type": "SKIP", "arm": "m1_pass", "mint": "AD835ZZzn1XHfc9PaGttSmdfjcCHQ6G4iqR1jnTNpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792257123.1560624, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 46.9, "error": "ConnectionClosedError"}
+{"ts": 1792257127.3891933, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 52.1, "error": "ConnectionClosedError"}
+{"ts": 1792257144.7184682, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 19.6, "error": "ConnectionClosedError"}
+{"ts": 1792257145.4793665, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 16.1, "error": "ConnectionClosedError"}
+{"ts": 1792257157.34713, "type": "SKIP", "arm": "m1_pass", "mint": "FCdoASVAbHUa5xyLHiUufmvtymYQZMYxdNVgEeynpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792257205.1293914, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 57.6, "error": "ConnectionClosedError"}
+{"ts": 1792257205.4153244, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 58.7, "error": "ConnectionClosedError"}
+{"ts": 1792257208.382678, "type": "SKIP", "arm": "m1_pass", "mint": "9UvH33eE7m6hYLTYVvzYNixw46NqKQh3AKUXjR4gpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792257250.2616594, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 43.1, "error": "ConnectionClosedError"}
+{"ts": 1792257250.3357353, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 42.9, "error": "ConnectionClosedError"}
+{"ts": 1792257267.6807234, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 15.4, "error": "ConnectionClosedError"}
+{"ts": 1792257268.036965, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 15.7, "error": "ConnectionClosedError"}
+{"ts": 1792257271.2536786, "type": "SKIP", "arm": "m1_pass", "mint": "B9hKtsiP6GnKio8b3cH7Njcq8wT5YwL2subi52p1pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792257271.253737, "type": "SKIP", "arm": "m1_random", "mint": "B9hKtsiP6GnKio8b3cH7Njcq8wT5YwL2subi52p1pump", "why": "max_open/cash/circuit_breaker"}

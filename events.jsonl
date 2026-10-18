@@ -28348,3 +28348,15 @@
 {"ts": 1792341827.5743098, "type": "SKIP", "arm": "m1_pass", "mint": "6xZXKoUcLKhmattesNvA1ci2GDtPFb8zobWQF7tYpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792341954.1133761, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 157.8, "error": "ConnectionClosedError"}
 {"ts": 1792341967.9427788, "type": "SKIP", "arm": "m1_pass", "mint": "9M6zdaKVaQhuSD8sBZL9TnykLqAmahVbhwUa6HKdpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342006.8879101, "type": "SKIP", "arm": "m1_pass", "mint": "AvX2L4YS3c6eWW8Pva53svTEp8ipyi8Mvnm1E8pspump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342014.4107444, "type": "SKIP", "arm": "m1_random", "mint": "FAbqjv2NqtrWWxux8VNww2An1oyhdunS55Fn2bx1GjUc", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342035.1247892, "type": "SKIP", "arm": "m1_pass", "mint": "AKwhUnDCYLJaTcNXzFHbwTTcrKwCg4VCPBgthBNipump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342099.038274, "type": "SKIP", "arm": "m1_pass", "mint": "BLtgCxyCc6vpKzjw3nV8opKa9HiLsqdRL7ZsXfLrpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342176.0084963, "type": "SKIP", "arm": "m1_pass", "mint": "FAbhYD4KsNqLWyVtMuDYeKRJgSQgT8FtyP5SXzGpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342176.0085702, "type": "SKIP", "arm": "m1_random", "mint": "FAbhYD4KsNqLWyVtMuDYeKRJgSQgT8FtyP5SXzGpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342267.3876717, "type": "SKIP", "arm": "m1_pass", "mint": "62jDhapV72t77zdcgHBpRWGMfAx4vWGLgHZygP19pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792342280.5792122, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 525.2, "error": "ConnectionClosedError"}
+{"ts": 1792342282.6988227, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792342284.8165038, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792342286.9361846, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792342289.060088, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}

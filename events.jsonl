@@ -27624,3 +27624,5 @@
 {"ts": 1792296015.326994, "type": "SKIP", "arm": "m1_pass", "mint": "GTyzuqL7qX1mMkFqBhbnCmhUaMiXK4sWDWSSJSZEpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792296040.6123736, "type": "SKIP", "arm": "m1_random", "mint": "HwZknGgvxUPQy54oepHwdTQJqFX2NrboqHgSEGUwbjMa", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792296051.2366607, "type": "STOP"}
+{"ts": 1792296115.8679855, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
+{"ts": 1792296261.4755945, "type": "SKIP", "arm": "m1_random", "mint": "8ncUYSeWtp48BL7MAxUfxSMKCS9YAtv3CbCnTzHupump", "why": "max_open/cash/circuit_breaker"}

@@ -27910,3 +27910,6 @@
 {"ts": 1792322625.2630885, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
 {"ts": 1792322627.3223252, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
 {"ts": 1792322629.3733048, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792322717.729934, "type": "SKIP", "arm": "m1_pass", "mint": "45Xk5RAmskgD8N5Ps925yvtYZfaQyUgkDTVe5Aszpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792322872.527362, "type": "SKIP", "arm": "m1_pass", "mint": "GkzQ2Y9Lo8QjcVu2mYwjX7dfH5h8AfudSDTCzqKtpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792322935.3193662, "type": "SKIP", "arm": "m1_pass", "mint": "Ctt7Y4Pa85acoTnwdtXKFDoXKWf7Da7nPd8Uy69apump", "why": "max_open/cash/circuit_breaker"}

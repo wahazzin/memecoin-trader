@@ -28829,3 +28829,15 @@
 {"ts": 1792356725.1368482, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 95.2, "error": "ConnectionClosedError"}
 {"ts": 1792356780.5347629, "type": "SKIP", "arm": "m1_random", "mint": "2DQD3JitCDoeEGp1uwm8Ht7UsDm9CmBZ9Mvjm7XApump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792356813.1297088, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 88.3, "error": "ConnectionClosedError"}
+{"ts": 1792357066.7051978, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 251.6, "error": "ConnectionClosedError"}
+{"ts": 1792357084.6550078, "type": "SKIP", "arm": "m1_random", "mint": "BxFukvctk1RE7tTeGp3qGvCd1LHD8fZoC9PcJpaQpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792357137.1702688, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 410.0, "error": "ConnectionClosedError"}
+{"ts": 1792357137.2082882, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 68.5, "error": "ConnectionClosedError"}
+{"ts": 1792357189.3029814, "type": "SKIP", "arm": "m1_random", "mint": "D7797UW4GgusRDhkjokT6zCLKhaQsNZbvyXa22iHpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792357203.654288, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 64.4, "error": "ConnectionClosedError"}
+{"ts": 1792357203.8988135, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 64.7, "error": "ConnectionClosedError"}
+{"ts": 1792357234.4374952, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 28.8, "error": "ConnectionClosedError"}
+{"ts": 1792357236.5307882, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 30.6, "error": "ConnectionClosedError"}
+{"ts": 1792357301.757066, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 65.3, "error": "ConnectionClosedError"}
+{"ts": 1792357309.0094147, "type": "SKIP", "arm": "m1_pass", "mint": "BYN7nLQAErCHtWrCNDkx3YKJfN4d5FFwNLJmUZYcpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792357314.1689286, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 75.6, "error": "ConnectionClosedError"}

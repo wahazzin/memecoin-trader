@@ -27254,3 +27254,19 @@
 {"ts": 1792281503.709436, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
 {"ts": 1792281505.8247044, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
 {"ts": 1792281944.6957195, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 436.9, "error": "ConnectionClosedError"}
+{"ts": 1792282279.5567293, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 809.7, "error": "ConnectionClosedError"}
+{"ts": 1792282281.6489758, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282283.7042472, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282285.7859666, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282287.86489, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282289.9225726, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282291.9781861, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282294.039203, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282296.130375, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282298.1857102, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282300.2373004, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode"}
+{"ts": 1792282302.2879672, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode"}
+{"ts": 1792282304.3460295, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282306.3986125, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792282318.9729283, "type": "CIRCUIT_BREAKER", "arm": "m1_pass", "equity": 8.304946936467962, "day_start": 10.082956912209173}
+{"ts": 1792282319.2505429, "type": "SKIP", "arm": "m1_pass", "mint": "Btd41Dh9A81eys13E2LVq9YbMMcg9bC2DE3sA3jZpump", "why": "max_open/cash/circuit_breaker"}

@@ -30471,3 +30471,15 @@
 {"ts": 1792417892.3544395, "type": "SKIP", "arm": "m1_random", "mint": "54uFPfTcybkLC3bc2i8KVwc3AiQkr42exJsq1rGepump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792417896.495594, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 58.8, "error": "ConnectionClosedError"}
 {"ts": 1792417986.7829044, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 88.3, "error": "ConnectionClosedError"}
+{"ts": 1792417992.2512538, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 100.4, "error": "ConnectionClosedError"}
+{"ts": 1792418012.7266524, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 23.9, "error": "ConnectionClosedError"}
+{"ts": 1792418018.5711875, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 24.3, "error": "ConnectionClosedError"}
+{"ts": 1792418032.7661335, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 18.0, "error": "ConnectionClosedError"}
+{"ts": 1792418106.6550405, "type": "SKIP", "arm": "m1_pass", "mint": "ARfkxBpDbPDgxpZZVBd9efkj8iWmKeNyz8t62xfrpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792418135.9240062, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 101.2, "error": "ConnectionClosedError"}
+{"ts": 1792418165.8247848, "type": "SKIP", "arm": "m1_pass", "mint": "5bcYvME5Ky6QkpizvVSWF2yPxM4sNpfLDxwpQJ1Jpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792418165.824852, "type": "SKIP", "arm": "m1_random", "mint": "5bcYvME5Ky6QkpizvVSWF2yPxM4sNpfLDxwpQJ1Jpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792418166.3590522, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 145.8, "error": "ConnectionClosedError"}
+{"ts": 1792418259.0265648, "type": "SKIP", "arm": "m1_pass", "mint": "2bEFSxmKXL7jasFhjMQ6Dv79jU1D8Zyi1baw8wxcpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792418290.6743145, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 152.7, "error": "ConnectionClosedError"}
+{"ts": 1792418292.0318851, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 123.7, "error": "ConnectionClosedError"}

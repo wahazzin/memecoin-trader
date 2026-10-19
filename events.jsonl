@@ -30270,3 +30270,4 @@
 {"ts": 1792412413.240251, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 53.5, "error": "ConnectionClosedError"}
 {"ts": 1792412539.8714902, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 154.8, "error": "ConnectionClosedError"}
 {"ts": 1792412626.4595952, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 211.2, "error": "ConnectionClosedError"}
+{"ts": 1792412802.2878063, "type": "SKIP", "arm": "m1_pass", "mint": "Qpr6HP5JFHQNJuje2YLyq52s18Q21LBdr7DkLuhpump", "why": "max_open/cash/circuit_breaker"}

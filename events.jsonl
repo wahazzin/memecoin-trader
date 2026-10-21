@@ -37274,3 +37274,15 @@
 {"ts": 1792604712.2939732, "type": "SKIP", "arm": "m1_pass", "mint": "AbZ2W1XECBJYigC5ytBrHipEAob5WbNbGvncCwaDpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792604714.981618, "type": "SKIP", "arm": "m1_pass", "mint": "FpJonzR5bpP98Csy9Zp3n1BmxtiqMKWtLAYip3qqpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792604807.5652072, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 182.7, "error": "ConnectionClosedError"}
+{"ts": 1792604915.2331922, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 105.7, "error": "ConnectionClosedError"}
+{"ts": 1792604918.8058257, "type": "SKIP", "arm": "m1_pass", "mint": "AQ9yX28bVxiTJxNcsGN5mcx6kSTZcgVqTMsxGUk5pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792604943.7021523, "type": "SKIP", "arm": "m1_pass", "mint": "ASaMQM3Amo4sqz45SFb2MQahva2sEZuQvJmphnCDpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792605036.3994365, "type": "SKIP", "arm": "m1_random", "mint": "9H5BxsbjgJbD9gi3UeaYXJNPfG4odCmFcAJ71i6ipump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792605112.7482343, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 195.5, "error": "ConnectionClosedError"}
+{"ts": 1792605116.9808407, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 473.6, "error": "ConnectionClosedError"}
+{"ts": 1792605119.0645375, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792605121.1538289, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792605123.2918024, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792605125.3782794, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792605127.469441, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}
+{"ts": 1792605129.5717514, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode"}

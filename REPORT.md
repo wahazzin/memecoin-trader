@@ -1,4 +1,4 @@
-# Paper bot check-in (2026-10-21 01:38 UTC)
+# Paper bot check-in (2026-10-21 01:43 UTC)
 
 > PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).
 
@@ -10,7 +10,7 @@
 - Exit reasons: {'take_profit': 157, 'stop_loss': 419, 'no_volume_15m': 54}
 - Sells priced by the verified curve formula because Jupiter had no route: 214
 - Delay sensitivity (sells only): SOL gained if sells had filled at the first quote instead of the worse one: m1_pass +1.257, m1_random +2.526
-- Circuit breakers fired: 28
+- Circuit breakers fired: 29
 - Stream gaps logged: 23019
 
 Equity now includes paper top-ups (BOT_SPEC B1); max drawdown is computed with top-ups removed.

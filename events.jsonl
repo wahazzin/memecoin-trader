@@ -40065,3 +40065,4 @@
 {"ts": 1792649594.7983286, "type": "STOP"}
 {"ts": 1792649743.260153, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
 {"ts": 1792649883.0053017, "type": "SKIP", "arm": "m1_pass", "mint": "4LK8ptAR12Wnvv4V24tVthXkGtNUVUqdXYaR7T8Jpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792650522.8052206, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 779.5, "error": "ConnectionClosedError"}

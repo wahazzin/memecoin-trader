@@ -43442,3 +43442,32 @@
 {"ts": 1792693674.7947586, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.6, "error": "TimeoutError"}
 {"ts": 1792693688.899085, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.1, "error": "TimeoutError"}
 {"ts": 1792693749.3865497, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 58.5, "error": "ConnectionClosedError"}
+{"ts": 1792693794.033011, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 42.6, "error": "ConnectionClosedError"}
+{"ts": 1792693800.4516494, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 345.7, "error": "ConnectionClosedError"}
+{"ts": 1792693803.7359183, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 1.3, "error": "InvalidMessage"}
+{"ts": 1792693803.744171, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 7.7, "error": "ConnectionClosedError"}
+{"ts": 1792693815.6908667, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 10.0, "error": "ConnectionClosedError"}
+{"ts": 1792693826.6032374, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 20.9, "error": "ConnectionClosedError"}
+{"ts": 1792693859.3837466, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 41.7, "error": "ConnectionClosedError"}
+{"ts": 1792693862.0674365, "type": "SKIP", "arm": "m1_pass", "mint": "Q1iJ6Nf8WUy1pohkYcx8SaPoHPKWeWDPuyZ2aq7pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792693900.755508, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 72.2, "error": "ConnectionClosedError"}
+{"ts": 1792693918.0180442, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 15.3, "error": "TimeoutError"}
+{"ts": 1792693930.8168197, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 10.8, "error": "TimeoutError"}
+{"ts": 1792693943.9741426, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 11.2, "error": "TimeoutError"}
+{"ts": 1792693947.898447, "type": "SKIP", "arm": "m1_random", "mint": "979ZfXZg2qFb7XgjMaRGQqDm7GNncHDBKZmCWvFXSFsW", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792693956.9712968, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 11.0, "error": "TimeoutError"}
+{"ts": 1792693971.0988855, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.1, "error": "TimeoutError"}
+{"ts": 1792693985.6290884, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.5, "error": "TimeoutError"}
+{"ts": 1792693999.988045, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.4, "error": "TimeoutError"}
+{"ts": 1792694017.3179212, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 15.3, "error": "TimeoutError"}
+{"ts": 1792694020.2407005, "type": "SKIP", "arm": "m1_pass", "mint": "3Z2pvQ1MYgg39iyRPzDrLnywJTas1nHZNkcce9fTpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792694020.240761, "type": "SKIP", "arm": "m1_random", "mint": "3Z2pvQ1MYgg39iyRPzDrLnywJTas1nHZNkcce9fTpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792694032.543798, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 13.2, "error": "TimeoutError"}
+{"ts": 1792694040.4860513, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 179.1, "error": "ConnectionClosedError"}
+{"ts": 1792694044.3245542, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 1.8, "error": "InvalidMessage"}
+{"ts": 1792694044.3400092, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 9.8, "error": "ConnectionClosedError"}
+{"ts": 1792694057.4515839, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 11.1, "error": "ConnectionClosedError"}
+{"ts": 1792694058.5563266, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 12.2, "error": "ConnectionClosedError"}
+{"ts": 1792694077.0726447, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 16.5, "error": "ConnectionClosedError"}
+{"ts": 1792694078.9198976, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 19.5, "error": "ConnectionClosedError"}
+{"ts": 1792694083.1008987, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 4.0, "error": "ConnectionClosedError"}

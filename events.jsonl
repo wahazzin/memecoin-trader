@@ -46678,3 +46678,15 @@
 {"ts": 1792785561.9735777, "type": "SKIP", "arm": "m1_pass", "mint": "26gt9pimRuoEvGkpJMt2QnftfCYHGM9WfPK89Sokpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792785598.7829058, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 38.8, "error": "ConnectionClosedError"}
 {"ts": 1792785599.7184646, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 44.3, "error": "ConnectionClosedError"}
+{"ts": 1792785660.2621765, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 59.5, "error": "ConnectionClosedError"}
+{"ts": 1792785666.9882596, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 65.3, "error": "ConnectionClosedError"}
+{"ts": 1792785684.3078337, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 22.0, "error": "ConnectionClosedError"}
+{"ts": 1792785693.708816, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 24.7, "error": "ConnectionClosedError"}
+{"ts": 1792785709.939915, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 23.6, "error": "ConnectionClosedError"}
+{"ts": 1792785753.4514916, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 57.7, "error": "ConnectionClosedError"}
+{"ts": 1792785757.6522985, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 45.7, "error": "ConnectionClosedError"}
+{"ts": 1792785775.968662, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 20.5, "error": "ConnectionClosedError"}
+{"ts": 1792785783.2712283, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 23.6, "error": "ConnectionClosedError"}
+{"ts": 1792785789.9449167, "type": "SKIP", "arm": "m1_random", "mint": "2EK5v9mWx4fKc2Mkkf7Wo3nCkdVNVhYRp1nFvga2pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792785880.021936, "type": "SKIP", "arm": "m1_pass", "mint": "9HtMCCnkeMiaCK4e4inkijjGghzqRq9ZyA1KBcP7pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792785902.7443817, "type": "SKIP", "arm": "m1_random", "mint": "EjemogGUzsdPN44eNMqrcLTkmT4A4rrnqfkuusYzpump", "why": "max_open/cash/circuit_breaker"}

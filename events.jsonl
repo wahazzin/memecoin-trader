@@ -45885,3 +45885,15 @@
 {"ts": 1792774286.607047, "type": "SKIP", "arm": "m1_random", "mint": "DScrtpcfGVrZdVMHKQe9aNdPq171rNiSMrqYENuZpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792774352.6427968, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 152.7, "error": "ConnectionClosedError"}
 {"ts": 1792774353.6558778, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 153.6, "error": "ConnectionClosedError"}
+{"ts": 1792774539.3591604, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 184.7, "error": "ConnectionClosedError"}
+{"ts": 1792774584.2859657, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 42.9, "error": "ConnectionClosedError"}
+{"ts": 1792774584.895412, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 229.2, "error": "ConnectionClosedError"}
+{"ts": 1792774609.5215902, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 22.6, "error": "ConnectionClosedError"}
+{"ts": 1792774610.7941756, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 24.5, "error": "ConnectionClosedError"}
+{"ts": 1792774647.3959923, "type": "SKIP", "arm": "m1_random", "mint": "9nHTCsjNR27RvcGpmUc2YTzS1qNqR2fxgC3p7K8tpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792774651.8763576, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 39.1, "error": "ConnectionClosedError"}
+{"ts": 1792774652.0628405, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 40.5, "error": "ConnectionClosedError"}
+{"ts": 1792774655.2024012, "type": "SKIP", "arm": "m1_pass", "mint": "ARXCxjApg7cA9xSMHg1HJwUn3HCzcai2yGXGaqRUpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792774763.454168, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 109.6, "error": "ConnectionClosedError"}
+{"ts": 1792774769.665299, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 115.6, "error": "ConnectionClosedError"}
+{"ts": 1792774770.8824174, "type": "SKIP", "arm": "m1_pass", "mint": "A3Gzirm1GcTTSGNujgMp4y6sJJ22x2brKxFdMk49pump", "why": "max_open/cash/circuit_breaker"}

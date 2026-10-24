@@ -1,4 +1,4 @@
-# Paper bot check-in (2026-10-24 16:31 UTC)
+# Paper bot check-in (2026-10-24 16:36 UTC)
 
 > PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).
 
@@ -11,7 +11,7 @@
 - Sells priced by the verified curve formula because Jupiter had no route: 230
 - Delay sensitivity (sells only): SOL gained if sells had filled at the first quote instead of the worse one: m1_pass +1.380, m1_random +3.135
 - Circuit breakers fired: 36
-- Stream gaps logged: 34719
+- Stream gaps logged: 34741
 
 Equity now includes paper top-ups (BOT_SPEC B1); max drawdown is computed with top-ups removed.
 Expectancy = win rate × avg win + loss rate × avg loss, per closed trade, in SOL after all costs (rule 6).

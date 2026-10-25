@@ -57325,3 +57325,15 @@
 {"ts": 1792963933.0370004, "type": "SKIP", "arm": "m1_random", "mint": "HXuupTsk19NUyJMLshMezwJJSK9QyhkGVtYCWNZKQyK2", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1792963939.7466063, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 120.7, "error": "ConnectionClosedError"}
 {"ts": 1792963940.300281, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 121.0, "error": "ConnectionClosedError"}
+{"ts": 1792963951.603794, "type": "SKIP", "arm": "m1_pass", "mint": "F8y5sq8zpEnaJ2A9VT8jdTL2SAwpkhPj1HdBYs7upump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792964002.1891105, "type": "SKIP", "arm": "m1_pass", "mint": "2UQgNdPeDseeJaP3higcB3YeqfwwinkjovVArVCtpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792964026.8900278, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 85.1, "error": "ConnectionClosedError"}
+{"ts": 1792964029.8427284, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 87.5, "error": "ConnectionClosedError"}
+{"ts": 1792964084.1358728, "type": "SKIP", "arm": "m1_pass", "mint": "E4ZXGoKzan2VEUrc7SZwDqFktVqBF4h5zpVD2MXsYrKo", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792964107.2337294, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 75.4, "error": "ConnectionClosedError"}
+{"ts": 1792964108.924222, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 80.0, "error": "ConnectionClosedError"}
+{"ts": 1792964189.7533793, "type": "SKIP", "arm": "m1_pass", "mint": "E8UTNNQh4XSd4GM2zimujvarF3vtxRSK6x4j47U4JPoo", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1792964195.6384287, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 84.7, "error": "ConnectionClosedError"}
+{"ts": 1792964197.0753574, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 87.8, "error": "ConnectionClosedError"}
+{"ts": 1792964224.8693378, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 27.2, "error": "ConnectionClosedError"}
+{"ts": 1792964229.1952236, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 30.1, "error": "ConnectionClosedError"}

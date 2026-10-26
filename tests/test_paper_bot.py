@@ -205,3 +205,34 @@ class TestRpcFallback(unittest.TestCase):
         finally:
             rpc.requests.post = orig
             os.environ.pop("HELIUS_API_KEY", None)
+
+
+class TestReconnectBackoff(unittest.TestCase):
+    """2026-10-26: streams retried every 2 s even when the RPC refused the handshake (reconnect storm)."""
+
+    def test_quick_failures_back_off_and_healthy_connection_resets(self):
+        from memebot.rpc import Backoff
+        b = Backoff()
+        self.assertEqual([b.next(0.1) for _ in range(6)], [2, 4, 8, 16, 30, 30])
+        self.assertEqual(b.next(17), 2)          # a working connection that dropped: fast retry as before
+        self.assertEqual(b.next(0.1), 2)
+
+    def test_status_code_of_refused_handshake(self):
+        from memebot.rpc import status_code
+        class E1(Exception):
+            status_code = 429
+        class R:
+            status_code = 503
+        class E2(Exception):
+            response = R()
+        self.assertEqual(status_code(E1()), 429)
+        self.assertEqual(status_code(E2()), 503)
+        self.assertIsNone(status_code(ValueError()))
+
+
+class TestReportDrawdown(unittest.TestCase):
+    def test_drawdown_in_sol_never_a_meaningless_percent(self):
+        from memebot.report import max_drawdown_sol
+        # top-up-free equity 20 -> 6 -> -10 (losses beyond the 20 SOL start, covered by top-ups)
+        self.assertAlmostEqual(max_drawdown_sol([20, 21, 6, -10, -5]), -31.0)
+        self.assertEqual(max_drawdown_sol([]), 0.0)

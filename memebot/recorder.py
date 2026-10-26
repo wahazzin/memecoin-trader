@@ -145,8 +145,11 @@ class Store:
 
 async def rpc_stream(store, stop, program=PUMP):
     import websockets
+    from memebot.rpc import Backoff
+    wait = Backoff()
     while time.time() < stop:
         t_down = None
+        t_conn = time.time()
         try:
             async with websockets.connect(RPC_WS, max_size=2 ** 24, ping_interval=20, ping_timeout=60) as ws:
                 await ws.send(json.dumps({"jsonrpc": "2.0", "id": 1, "method": "logsSubscribe",
@@ -176,12 +179,15 @@ async def rpc_stream(store, stop, program=PUMP):
             store.stats["rpc_errors"] += 1
             store.gaps.append({"source": "rpc" if program == PUMP else "amm", "at": t_down, "error": f"{type(e).__name__}: {str(e)[:120]}"})
             print("rpc reconnect:", type(e).__name__, str(e)[:120], flush=True)
-            await asyncio.sleep(2)
+            await asyncio.sleep(wait.next(time.time() - t_conn))
 
 
 async def pumpportal_stream(store, stop):
     import websockets
+    from memebot.rpc import Backoff
+    wait = Backoff(base_s=3.0)
     while time.time() < stop:
+        t_conn = time.time()
         try:
             async with websockets.connect("wss://pumpportal.fun/api/data", max_size=2 ** 22, ping_interval=20) as ws:
                 await ws.send(json.dumps({"method": "subscribeNewToken"}))
@@ -196,7 +202,7 @@ async def pumpportal_stream(store, stop):
         except Exception as e:
             store.stats["pp_errors"] += 1
             store.gaps.append({"source": "pumpportal", "at": int(time.time()), "error": f"{type(e).__name__}: {str(e)[:120]}"})
-            await asyncio.sleep(3)
+            await asyncio.sleep(wait.next(time.time() - t_conn))
 
 
 async def main_async(minutes, out):

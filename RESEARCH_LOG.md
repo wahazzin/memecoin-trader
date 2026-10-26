@@ -175,3 +175,24 @@ holdout (W1a skill vs luck), then a copy test buying/selling 2 s after them at r
 vs copying random wallets (W1b). Code `research/w1.py` validated on synthetic data: planted persistent,
 copyable skill → W1a PASS + W1b PASS; no skill → NO EVIDENCE on both (also a unit test). Runs with M1/M2
 once 14 full days exist (~2026-10-21), research workflow action `w1`.
+
+## 2026-10-26 — weekly review fixes (infrastructure/reporting only; no rule, arm or threshold changed)
+
+- **Reconnect storm.** Paper-bot stream GAPs grew from ~1,300/day (W42) to 2,500–6,300/day (10-19 … 10-25):
+  43,221 in total. About a third of the latest ones are `InvalidStatusCode` (the public RPC refused the websocket
+  handshake, HTTP 413 in the recorder's logs; PumpPortal HTTP 502), and both the paper bot and the recorder
+  retried every 2–3 s regardless. Now a connection that fails at once backs off 2 → 4 → … → 30 s; a connection
+  that had been working still reconnects after 2 s (no extra data lost). GAP events now carry the HTTP status.
+  `memebot/rpc.py` (Backoff, status_code), bot.py, recorder.py. Tests: test_paper_bot.py.
+- **PumpPortal outages (upstream, not a bug):** 2026-10-16 ~12–15 UTC and 2026-10-25 ~11:40–15 UTC every
+  connection was refused (HTTP 502) — the bot had 0 signals and the recorder recorded 0 new coins in those hours.
+  Coins born then are absent from the data (excluded by the M1/M2/W1 rules anyway).
+- **REPORT.md "Max drawdown -213.6%".** It was a percentage of the top-up-free equity, which goes below zero once
+  losses exceed the 20 SOL start, and weekly files always showed the all-time figure. Now in SOL, inside the
+  report window. `memebot/report.py`; test added.
+- **M1/M2/W1 due (14 full days reached 2026-10-21 20:45 UTC) but NOT run** — see reviews/2026-W44.md: (1) the
+  recorder logs a gap on every reconnect (hundreds per hour on most runners), and the pre-registered exclusion
+  ("life overlaps a recorder gap") as coded (`created-60 … created+6000` s) would drop almost every coin; (2) the
+  ~15.6 GB of recordings would not fit the runner's disk/RAM with the current all-in-memory loader. Running now
+  would most likely spend the one-time holdout on a data artifact. Question to Yassin; nothing pre-registered
+  was changed and no outcome was looked at.

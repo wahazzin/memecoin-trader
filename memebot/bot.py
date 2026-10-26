@@ -299,7 +299,9 @@ class Bot:
 
 async def stream(bot, stop):
     import websockets
+    from memebot.rpc import Backoff, status_code
     async def rpc(program=PUMP):
+        wait = Backoff()
         while time.time() < stop:
             t_conn = time.time()
             try:
@@ -325,12 +327,15 @@ async def stream(bot, stop):
                                     bot.on_trade(r)
             except Exception as e:
                 # which stream + how long the connection had lived (added 2026-10-12: ~1,000 GAPs/day, cause unknown)
+                conn_s = round(time.time() - t_conn, 1)
                 bot.s.log("events.jsonl", {"ts": time.time(), "type": "GAP", "source": "rpc",
                                            "stream": "pump" if program == PUMP else "amm",
-                                           "conn_s": round(time.time() - t_conn, 1), "error": f"{type(e).__name__}"})
-                await asyncio.sleep(2)
+                                           "conn_s": conn_s, "error": f"{type(e).__name__}", "http": status_code(e)})
+                await asyncio.sleep(wait.next(conn_s))
     async def pp():
+        wait = Backoff(base_s=3.0)
         while time.time() < stop:
+            t_conn = time.time()
             try:
                 async with websockets.connect("wss://pumpportal.fun/api/data", ping_interval=20) as ws:
                     await ws.send(json.dumps({"method": "subscribeNewToken"}))
@@ -339,8 +344,9 @@ async def stream(bot, stop):
                         if m.get("txType") == "create":
                             bot.on_create(m)
             except Exception as e:
-                bot.s.log("events.jsonl", {"ts": time.time(), "type": "GAP", "source": "pumpportal", "error": f"{type(e).__name__}"})
-                await asyncio.sleep(3)
+                bot.s.log("events.jsonl", {"ts": time.time(), "type": "GAP", "source": "pumpportal", "error": f"{type(e).__name__}",
+                                           "http": status_code(e)})
+                await asyncio.sleep(wait.next(time.time() - t_conn))
     await asyncio.gather(rpc(), rpc(AMM), pp(), bot.manage(stop), bot.snapshot(stop))
 
 

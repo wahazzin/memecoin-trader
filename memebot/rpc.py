@@ -34,3 +34,31 @@ def call(method, params, timeout=20):
             time.sleep(0.3)
     STATS["failed"] += 1
     return None
+
+
+class Backoff:
+    """Reconnect delay for the websocket streams (added 2026-10-26). They used to retry every 2 s no matter what;
+    when the public RPC started refusing the handshake (InvalidStatusCode, ~8,700 of 24,000 GAPs in W43, mostly in
+    busy US hours) that meant a reconnect storm that keeps the IP rate-limited. A connection that failed at once
+    (handshake refused, or lived < `healthy_s`) doubles the wait, up to `cap_s`; a connection that had been working
+    (median life ~17 s before a drop) reconnects after `base_s` as before, so normal drops lose no extra data."""
+
+    def __init__(self, base_s=2.0, cap_s=30.0, healthy_s=5.0):
+        self.base, self.cap, self.healthy, self.cur = base_s, cap_s, healthy_s, base_s
+
+    def next(self, conn_s):
+        if conn_s >= self.healthy:
+            self.cur = self.base
+            return self.base
+        d = self.cur
+        self.cur = min(self.cap, self.cur * 2)
+        return d
+
+
+def status_code(e):
+    """HTTP status of a refused websocket handshake (websockets 13: InvalidStatusCode.status_code; newer:
+    InvalidStatus.response.status_code), else None."""
+    c = getattr(e, "status_code", None)
+    if c is None:
+        c = getattr(getattr(e, "response", None), "status_code", None)
+    return c

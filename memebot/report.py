@@ -10,6 +10,15 @@ def read(path):
     return [json.loads(l) for l in open(path)] if os.path.exists(path) else []
 
 
+def max_drawdown_sol(values):
+    """Largest fall from a running peak, in SOL (<= 0)."""
+    peak, mdd = None, 0.0
+    for v in values:
+        peak = v if peak is None else max(peak, v)
+        mdd = min(mdd, v - peak)
+    return mdd
+
+
 def build(state, since=0):
     orders = [o for o in read(os.path.join(state, "orders.jsonl")) if o.get("ts", 0) >= since]
     eq = read(os.path.join(state, "equity.jsonl"))
@@ -17,7 +26,7 @@ def build(state, since=0):
     pos = json.load(open(os.path.join(state, "positions.json"))) if os.path.exists(os.path.join(state, "positions.json")) else {}
     L = [f"# Paper bot check-in ({time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime())})", "",
          "> PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).", "",
-         "| Arm | Buys filled / failed / no route | Closed | Win rate | Avg win | Avg loss | **Expectancy / trade** | Total P&L (SOL) | Equity now | Max drawdown | Open | Stuck |",
+         "| Arm | Buys filled / failed / no route | Closed | Win rate | Avg win | Avg loss | **Expectancy / trade** | Total P&L (SOL) | Equity now (all top-ups so far) | Max drawdown (SOL, top-ups removed) | Open | Stuck |",
          "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for arm in sorted({o.get("arm") for o in orders} | set(pos)):
         bo = [o for o in orders if o.get("arm") == arm and o["side"] == "buy"]
@@ -32,14 +41,15 @@ def build(state, since=0):
         tops = sorted((x["ts"], x["added_sol"]) for x in ev if x.get("type") == "TOP_UP" and x.get("arm") == arm)
         dep = sum(a for _, a in tops)
         e = [x["equity"] - sum(a for t, a in tops if t <= x["ts"]) for x in eq if x["arm"] == arm]
-        peak, mdd = -1e9, 0.0
-        for v in e:
-            peak = max(peak, v); mdd = min(mdd, v / peak - 1)
+        # max drawdown in SOL, inside the report window (fixed 2026-10-26: it was a % of the top-up-free equity,
+        # which goes below zero once losses exceed the 20 SOL start -> "-213.6%"; and weekly files showed the
+        # all-time figure)
+        mdd = max_drawdown_sol([v for x, v in zip((x for x in eq if x["arm"] == arm), e) if x.get("ts", 0) >= since])
         stuck = sum(1 for p in pos.get(arm, {}).values() if p.get("stuck_since"))
         f = lambda x: "—" if x is None else f"{x:+.4f}"
         L.append(f"| `{arm}` | {sum(o['status'] == 'FILLED' for o in bo)} / {sum(o['status'] == 'FAILED' for o in bo)} / "
                  f"{sum(o['status'] == 'NO_ROUTE' for o in bo)} | {len(pnl)} | {'—' if wr is None else f'{wr:.0%}'} | {f(aw)} | {f(al)} | "
-                 f"**{f(exp_)}** | {sum(pnl):+.4f} | {(e[-1] + dep) if e else 0:.3f} (top-ups {dep:.2f}) | {mdd:.1%} | {len(pos.get(arm, {}))} | {stuck} |")
+                 f"**{f(exp_)}** | {sum(pnl):+.4f} | {(e[-1] + dep) if e else 0:.3f} (top-ups {dep:.2f}) | {mdd:+.3f} | {len(pos.get(arm, {}))} | {stuck} |")
     fb = sum(1 for o in orders if o.get("source") == "curve_formula")
     # sensitivity: P&L if every fill had used the FIRST quote (no 2 s delay) -- shows how much the delay costs
     alt = {}

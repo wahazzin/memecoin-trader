@@ -59104,3 +59104,7 @@
 {"ts": 1793014902.323614, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 197.2, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793014949.0844336, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 243.8, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793015057.232359, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 152.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793015103.2831018, "type": "GAP", "source": "pumpportal", "error": "ConnectionClosedError", "http": null}
+{"ts": 1793015106.5622137, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1793015306.5549386, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 247.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793015310.7047877, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 359.6, "error": "ConnectionClosedError", "http": null}

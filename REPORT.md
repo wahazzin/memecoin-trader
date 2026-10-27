@@ -1,11 +1,11 @@
-# Paper bot check-in (2026-10-27 06:53 UTC)
+# Paper bot check-in (2026-10-27 06:58 UTC)
 
 > PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).
 
 | Arm | Buys filled / failed / no route | Closed | Win rate | Avg win | Avg loss | **Expectancy / trade** | Total P&L (SOL) | Equity now (all top-ups so far) | Max drawdown (SOL, top-ups removed) | Open | Stuck |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | `m1_pass` | 420 / 61 / 9 | 420 | 24% | +0.2657 | -0.2240 | **-0.1085** | -45.5884 | 14.161 (top-ups 39.90) | -46.101 | 0 | 0 |
-| `m1_random` | 386 / 44 / 38 | 386 | 22% | +0.2443 | -0.2171 | **-0.1167** | -45.0326 | 14.964 (top-ups 39.64) | -44.833 | 0 | 0 |
+| `m1_random` | 386 / 44 / 38 | 386 | 22% | +0.2443 | -0.2171 | **-0.1167** | -45.0326 | 14.494 (top-ups 39.64) | -45.303 | 0 | 0 |
 
 - Exit reasons: {'take_profit': 197, 'stop_loss': 539, 'no_volume_15m': 70}
 - Sells priced by the verified curve formula because Jupiter had no route: 273

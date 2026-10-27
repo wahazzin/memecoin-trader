@@ -63335,3 +63335,14 @@
 {"ts": 1793062906.290748, "type": "SKIP", "arm": "m1_pass", "mint": "D7qpVDLzdzjgdUhz9CBE9o6HqRjc9DcuXaLTDZPypump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793062979.6198356, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 184.7, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793062982.6774638, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 175.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063066.830604, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 85.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063079.290746, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 94.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063173.9348629, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 105.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063174.6119626, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 93.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063209.628854, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 33.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063211.3273206, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 35.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063251.889132, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 38.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063252.488163, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 40.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793063268.975525, "type": "SKIP", "arm": "m1_pass", "mint": "HfQzuY491WueAAmQ5kFPhnCwb3YDWQxNoimzCPtjpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793063269.869144, "type": "SKIP", "arm": "m1_pass", "mint": "FtYD2YT33NbwcxESN9faSzqhbzdsTNikrD6DhybVpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793063286.3785744, "type": "SKIP", "arm": "m1_pass", "mint": "2RWrzajdEqM6oiXG9ZSnxvwf3C89ieo33P4wxk2mWxue", "why": "max_open/cash/circuit_breaker"}

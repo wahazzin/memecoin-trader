@@ -66756,3 +66756,7 @@
 {"ts": 1793149223.173415, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793149280.549733, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 122.8, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793149313.3030355, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 60.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793149675.2539926, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 392.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793149718.2628767, "type": "CIRCUIT_BREAKER", "arm": "m1_pass", "equity": 11.833431252533925, "day_start": 14.16089317117399}
+{"ts": 1793149718.6288111, "type": "SKIP", "arm": "m1_pass", "mint": "H1Bj9Au1DWc5ipDt1UFaL5dqDxZ1SQVtb5Tos73Bpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793149773.076015, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 95.8, "error": "ConnectionClosedError", "http": null}

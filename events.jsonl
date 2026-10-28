@@ -69428,3 +69428,14 @@
 {"ts": 1793222942.121293, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 29.1, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793222989.5143824, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 45.4, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793222990.3741913, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 72.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223041.1750224, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 49.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223041.2340453, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 48.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223054.4132345, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 11.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223055.3128648, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223071.3627565, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 14.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223074.2852821, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 17.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223091.6081796, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 18.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223092.571792, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 16.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793223127.4576385, "type": "SKIP", "arm": "m1_pass", "mint": "2pkh3HdLDqPwUv4XZqxVwKpNuCMREd26pUTAxCNNpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793223143.823164, "type": "SKIP", "arm": "m1_pass", "mint": "5YY9RqZviTZSffxFkZKRdBWXtC3LD8VHVChUL2MsG9rZ", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793223215.057259, "type": "SKIP", "arm": "m1_pass", "mint": "8F8TiytVd4QdBtnhL28B2uWi955eyLtFbAsEMjCyxLma", "why": "max_open/cash/circuit_breaker"}

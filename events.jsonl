@@ -69723,3 +69723,14 @@
 {"ts": 1793228494.5502303, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 74.4, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793228524.2475786, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 39.7, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793228555.232373, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 58.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793228602.8929095, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 76.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793228618.7656875, "type": "SKIP", "arm": "m1_pass", "mint": "8buNgYU7c5MQDsFZu55snttN2UHKHvBVHyzYmLDypump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793228661.8629982, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 104.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793228662.7040308, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 57.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793228677.5500805, "type": "SKIP", "arm": "m1_random", "mint": "DsUHyQiRs4qnReG9C9g3rzxpgxSsvH3uZJKHjmJtpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793228694.2411115, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 29.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793228695.2023542, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 31.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793228720.636432, "type": "SKIP", "arm": "m1_random", "mint": "2pcpCbYYADqL51r8HGMcRHaNUfNSgkzJEkx3vLf2pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793228756.2018108, "type": "SKIP", "arm": "m1_pass", "mint": "EXctb9WviNnzwpWnUWDLmucGv8F8Dt3W5W88dc2ipump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793228780.14943, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 82.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793228783.090423, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 86.8, "error": "ConnectionClosedError", "http": null}

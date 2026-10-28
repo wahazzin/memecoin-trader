@@ -1,4 +1,4 @@
-# Paper bot check-in (2026-10-28 10:17 UTC)
+# Paper bot check-in (2026-10-28 10:23 UTC)
 
 > PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).
 

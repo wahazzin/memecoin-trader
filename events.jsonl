@@ -66857,3 +66857,4 @@
 {"ts": 1793157972.604146, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793157974.640582, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793158877.987649, "type": "SKIP", "arm": "m1_random", "mint": "D8EWEo7Mf5eRGhEogjhSjwMmK5GBuFUfVYTLaGg7pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793159619.7378173, "type": "SKIP", "arm": "m1_random", "mint": "CbpWbi7fLnrivazdqWUXSbdhtmj34FDs2QxYHRmipump", "why": "max_open/cash/circuit_breaker"}

@@ -70335,3 +70335,14 @@
 {"ts": 1793244017.530048, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 20.4, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793244051.2077417, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 45.4, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793244068.8380675, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 49.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244073.4398813, "type": "SKIP", "arm": "m1_pass", "mint": "48n3kWRVywTJnuXiFM2oq8xTxBQBvjDT8295r57kpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793244087.2192955, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 34.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244106.7570353, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 35.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244132.8793557, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 43.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244177.6410894, "type": "SKIP", "arm": "m1_pass", "mint": "Fdomi7yHu2jXZ3TvY4bKnkWsj5vqyZKMRoJUGzWzpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793244188.7800434, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 80.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244191.2938786, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 56.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244277.5753837, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 86.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244299.8201518, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 106.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244315.800969, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 36.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793244379.0077837, "type": "SKIP", "arm": "m1_pass", "mint": "7CEy7sxbSwWJPSdehAAUvFHEpF1EvnnjU2nFTe7dpump", "why": "max_open/cash/circuit_breaker"}

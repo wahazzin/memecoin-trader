@@ -70733,3 +70733,6 @@
 {"ts": 1793280710.490044, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793280737.1502128, "type": "SKIP", "arm": "m1_pass", "mint": "38sqvtYHVL7q9VvZcFskk8KpMuAwKukj9GKdzT3Jb6x4", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793280854.407017, "type": "SKIP", "arm": "m1_pass", "mint": "6bNxW1TzjVQz7VNa7JD8Xs9Fky8RmoPFRx2QNnRjYvFN", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793280927.7349288, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 201.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793281109.3480296, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 179.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793281225.7253437, "type": "STOP"}

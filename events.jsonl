@@ -75804,3 +75804,4 @@
 {"ts": 1793339164.574246, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 581.4, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793339898.0476394, "type": "STOP"}
 {"ts": 1793340190.9021494, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
+{"ts": 1793340777.1101239, "type": "SKIP", "arm": "m1_pass", "mint": "6cQRH6FaXr2mD1PQtczx7CbakNjhFqRh7Zu5ZPc5pump", "why": "max_open/cash/circuit_breaker"}

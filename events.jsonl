@@ -76067,3 +76067,14 @@
 {"ts": 1793375635.7773032, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 50.5, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793375696.3646734, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 58.6, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793375756.2731268, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 57.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793375882.039072, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 123.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793375885.7054994, "type": "SKIP", "arm": "m1_pass", "mint": "31nMuN5DwNhcV796KP8Ur5JD9E6mLdu8vQhu2W5Ypump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793375924.3515272, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 40.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793375933.3514752, "type": "SKIP", "arm": "m1_pass", "mint": "H15UcM6kYecPDmSerDaNWzVtgRkGshUuCpiaJ4mgpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793375933.5461624, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 296.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793376001.562603, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 66.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793376012.6059375, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 86.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793376043.3119142, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 28.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793376047.1801636, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 43.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793376049.3423674, "type": "SKIP", "arm": "m1_random", "mint": "sCJJLEMNQ5taBZfQHLd8hyJYDXY7DcCxgLFS478pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793376092.195741, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 43.0, "error": "ConnectionClosedError", "http": null}

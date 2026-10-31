@@ -77261,3 +77261,15 @@
 {"ts": 1793450759.5732956, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793450767.6776342, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793450783.7386506, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793450835.414856, "type": "SKIP", "arm": "m1_pass", "mint": "G4ia9NSaVpiMyo99SM4NUPDXnfnuaBpc4tfBFbZMpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793450912.046857, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 98.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793451043.1345315, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 554.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793451044.55288, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 130.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793451045.1715422, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793451046.660444, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793451047.2815404, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793451048.7085443, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793451051.3172717, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793451052.7743924, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793451059.368144, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793451060.8259811, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}

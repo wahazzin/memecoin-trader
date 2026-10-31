@@ -77303,3 +77303,4 @@
 {"ts": 1793453246.1963701, "type": "SKIP", "arm": "m1_random", "mint": "6DKhjpTd82ao54wkJGW11RbYdrujvv3W6D2xVSUspump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793453248.8385482, "type": "SKIP", "arm": "m1_pass", "mint": "2DWGRZuLGEWWc7DMUa6fAHsGyJAoYD3JGrNwMKaVpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793453248.8386233, "type": "SKIP", "arm": "m1_random", "mint": "2DWGRZuLGEWWc7DMUa6fAHsGyJAoYD3JGrNwMKaVpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793453447.5282354, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 494.6, "error": "ConnectionClosedError", "http": null}

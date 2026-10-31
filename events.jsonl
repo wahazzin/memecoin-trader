@@ -77970,3 +77970,6 @@
 {"ts": 1793490160.6760275, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793490176.8435326, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793490341.5838246, "type": "SKIP", "arm": "m1_pass", "mint": "CP4dkkFVajQyvGzWx9CEktxhYcuSC7upuUCb43uopump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793490525.8562768, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 388.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793490577.1260734, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 49.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793490721.6156688, "type": "SKIP", "arm": "m1_pass", "mint": "BnS6Fj8GibwySc8icWEP8HPLoVwnQUeqHn1yj5pGpump", "why": "max_open/cash/circuit_breaker"}

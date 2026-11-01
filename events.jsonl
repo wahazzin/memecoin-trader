@@ -79846,3 +79846,15 @@
 {"ts": 1793559583.6736004, "type": "SKIP", "arm": "m1_pass", "mint": "FGjXrEYpPiuZmPGzjoMsPCFqYk3LKzX7dom2d3z7pump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793559682.3477845, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 230.8, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793559755.81972, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 71.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793559854.763279, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 96.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793559969.1856756, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 702.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793559971.368869, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793559973.5262444, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793559977.72792, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793559983.4407754, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 126.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793559985.6047893, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793559985.813893, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793559987.6930993, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793559991.8678513, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793559999.9919283, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793560001.8987973, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}

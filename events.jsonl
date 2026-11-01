@@ -78604,3 +78604,14 @@
 {"ts": 1793543266.6705616, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 57.5, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793543276.309878, "type": "SKIP", "arm": "m1_pass", "mint": "AnjNg3cWERVp1o4LeaX1HGMPuKstwoMBENrEgZQVSJd2", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793543276.309906, "type": "SKIP", "arm": "m1_random", "mint": "AnjNg3cWERVp1o4LeaX1HGMPuKstwoMBENrEgZQVSJd2", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793543369.3022203, "type": "SKIP", "arm": "m1_pass", "mint": "CbVskEV8fAoRpJiTgSfN45sJpaim7u2L4RWrimmfpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793543385.54216, "type": "SKIP", "arm": "m1_pass", "mint": "31Pvqgrb5wFAjMPnXtiXYEZkc6S8f8wMBmuHsAjhpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793543514.392908, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 245.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793543516.4873545, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 247.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793543582.401464, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 66.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793543586.987642, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 68.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793543606.1061153, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 21.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793543606.6495001, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 17.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793543630.0945897, "type": "SKIP", "arm": "m1_pass", "mint": "J9aqzgaqJPcv36GEfGmMVs8UaN8CqBLwsHu7CuqMpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793543632.9541957, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 24.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793543643.0595953, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 34.4, "error": "ConnectionClosedError", "http": null}

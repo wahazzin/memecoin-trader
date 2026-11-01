@@ -78182,3 +78182,5 @@
 {"ts": 1793500776.9690404, "type": "SKIP", "arm": "m1_pass", "mint": "FFeeYHjatHvRgbG6Cjrb6KaDACJbvDje1cVYjvsApump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793500827.421105, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 320.0, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793500830.3873935, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 323.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793501063.0771708, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 233.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793501096.1708956, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 263.8, "error": "ConnectionClosedError", "http": null}

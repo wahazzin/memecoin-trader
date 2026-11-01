@@ -78231,3 +78231,15 @@
 {"ts": 1793505819.126873, "type": "SKIP", "arm": "m1_pass", "mint": "818FnW9cn4Yj6t2vRezWXeegCvthehSZ7cL36SUTpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793505884.0272074, "type": "SKIP", "arm": "m1_pass", "mint": "DrKADGVjaYbnoTUiAzfDYNkQ51qVhuWjJviiE3bYpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793506107.7209892, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 1248.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793506290.879228, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 181.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793506291.6407986, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 745.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793506293.0119107, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506293.8431497, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506295.337597, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.3, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506295.9797866, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506299.4385984, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506300.1403775, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506307.5641303, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506308.2585495, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506323.7200513, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793506324.368528, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}

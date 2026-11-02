@@ -80699,3 +80699,14 @@
 {"ts": 1793623536.6360698, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793623540.7163248, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793623548.7848077, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793623876.0860448, "type": "SKIP", "arm": "m1_random", "mint": "H1A7FG5FCbJvF8SggXKG4FoViB71dcrkckHxotDpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793623933.4528372, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 368.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793623936.7725835, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 420.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793623964.4969726, "type": "SKIP", "arm": "m1_pass", "mint": "9ZTSgyKwV3GkdCkAn9y6A4igZEydP1rNi2GhPumKpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793624008.4318662, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 69.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793624009.191204, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 73.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793624038.708861, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 28.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793624045.9095016, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 34.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793624048.6438296, "type": "SKIP", "arm": "m1_pass", "mint": "J7y9AKMBc4CemxX92d94RbywbxTN3vm8zL1Hg3RUpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793624055.7792785, "type": "SKIP", "arm": "m1_pass", "mint": "FEF1RSSXiFam9M67QkAEYvG6dNGeWb6ED4KxzXmypump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793624138.7442293, "type": "SKIP", "arm": "m1_pass", "mint": "2pam2VeaiR5sGKdckFFw6cAxPM3Xfqd9EL8qW1UYpump", "why": "max_open/cash/circuit_breaker"}

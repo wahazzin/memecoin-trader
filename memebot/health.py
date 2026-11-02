@@ -87,11 +87,23 @@ def checks():
         gb = total / 1e9
         if gb > 15:
             out.append(("storage", f"Memecoin recorder data is at {gb:.1f} GB (warning level 15 GB, ~250 MB/day). "
-                                   "Time to compact old data: ask Claude to run the storage plan in RESEARCH_LOG.md."))
+                                   "Nothing to do yet: old data is only compacted AFTER the M1/M2/W1 tests have run on it "
+                                   "(storage plan in RESEARCH_LOG.md). Reminder repeats weekly."))
     except Exception as e:
         out.append(("storage", f"Couldn't measure recorder storage ({type(e).__name__})."))
     # the crypto AI trader has its own health check posting to its own channel (crypto-ai-trader/health.yml)
     return out
+
+
+# How often an UNCHANGED problem is re-sent to Discord. Outages: every 6 h. Storage grows slowly and is not urgent
+# (no money, no data at risk; compaction waits for M1/M2/W1): once a week. Added 2026-11-02 after the storage
+# warning was re-sent every 6 h since 2026-10-27 (~17 identical pings).
+REPEAT_S = {"storage": 7 * 86400}
+DEFAULT_REPEAT_S = 6 * 3600
+
+
+def alert_due(key, last, now):
+    return now - last.get(key, 0) > REPEAT_S.get(key, DEFAULT_REPEAT_S)
 
 
 def main():
@@ -108,7 +120,7 @@ def main():
     now = time.time()
     sent = []
     for key, msg in problems:
-        if now - last.get(key, 0) > 6 * 3600:
+        if alert_due(key, last, now):
             notify.send(f"⚠️ {msg} Paper only, no money at risk. I'll look into it when you next open the chat.")
             last[key] = now; sent.append(key)
     for key in list(last):

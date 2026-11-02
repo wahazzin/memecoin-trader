@@ -196,3 +196,12 @@ once 14 full days exist (~2026-10-21), research workflow action `w1`.
   ~15.6 GB of recordings would not fit the runner's disk/RAM with the current all-in-memory loader. Running now
   would most likely spend the one-time holdout on a data artifact. Question to Yassin; nothing pre-registered
   was changed and no outcome was looked at.
+
+## 2026-11-02 — Weekly review (W45): storage warning repeated every 6 h (alerting only)
+
+The health check's 15 GB storage warning fired on 2026-10-27 and, like an outage alert, was re-sent every 6 hours
+(~17 identical Discord pings by 11-02), each telling Yassin to "ask Claude to run the storage plan" — which
+contradicts the plan itself (compact only after M1/M2/W1 have run on the raw data). Storage is not urgent (GitHub
+publishes no total cap for release files; nothing is lost while it grows). The storage reminder now repeats once a
+week and says there is nothing to do yet; outage alerts still repeat every 6 h. Releases total 16.7 GB on 11-02
+(~0.25–0.6 GB/day). memebot/health.py only; test tests/test_health_alerts.py. No rule, arm or threshold changed.

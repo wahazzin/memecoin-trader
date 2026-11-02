@@ -80470,3 +80470,7 @@
 {"ts": 1793605544.6313882, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793605548.7106385, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793605556.8060722, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793605572.9257343, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793605582.5558436, "type": "SKIP", "arm": "m1_pass", "mint": "4LnHNpSEtg75yzjXXE8Ujacc2UehKHyEU2Rn4kaypump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793605672.173525, "type": "SKIP", "arm": "m1_random", "mint": "4AbLDMhZBHkS3mMJKX3rReEFhnYvXnkrERb1FDgRpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793605703.186914, "type": "SKIP", "arm": "m1_pass", "mint": "EvUwJFqfTS6r7qSUuWWVKJ7adNFd7arEg75HCSDBpump", "why": "max_open/cash/circuit_breaker"}

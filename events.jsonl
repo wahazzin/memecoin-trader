@@ -80444,3 +80444,5 @@
 {"ts": 1793600326.946177, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793600335.0492637, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793600351.179972, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793600666.6502998, "type": "SKIP", "arm": "m1_pass", "mint": "vH3v9nAkiaUiqEqTqYoHkbxn2JXe3xeHJL4Yx74pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793600693.382011, "type": "SKIP", "arm": "m1_pass", "mint": "e1n11KGgtYxM8fj88BffByKRM8D1DMXUbu7E4Napump", "why": "max_open/cash/circuit_breaker"}

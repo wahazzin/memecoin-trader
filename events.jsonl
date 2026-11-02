@@ -80678,3 +80678,4 @@
 {"ts": 1793621633.8057332, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 147.1, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793621682.1276019, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 46.6, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793621687.4325726, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 51.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793621989.312876, "type": "SKIP", "arm": "m1_pass", "mint": "DAgDY8XBtYywUKCHkBjKCJxCvty6FKpamg6bFF4Jpump", "why": "max_open/cash/circuit_breaker"}

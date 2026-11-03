@@ -85893,3 +85893,16 @@
 {"ts": 1793712092.349622, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793712096.556209, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793712104.7136097, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712176.590337, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 55.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793712176.9969094, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 3959.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793712178.8299534, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712179.2221298, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712181.001776, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712181.373241, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712185.1610713, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712185.5776224, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712193.3281898, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712193.7547858, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793712271.0708916, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 61.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793712357.618486, "type": "SKIP", "arm": "m1_pass", "mint": "5J75xqkj6A9toKgsuCxYMnNu7xLnjtvFpHTUkTfRpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793712411.5100908, "type": "SKIP", "arm": "m1_pass", "mint": "tKJJaMtzLGBy7ZtSh55ZougGWSb4bMpe46CpNgzpump", "why": "max_open/cash/circuit_breaker"}

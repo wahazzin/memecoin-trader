@@ -85733,3 +85733,4 @@
 {"ts": 1793698538.866843, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793698555.0509324, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793698636.8282547, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 51.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793698968.964846, "type": "SKIP", "arm": "m1_pass", "mint": "4R8U6DMFDuqrRiL6xkmjaoWk5mAaZKUU1TkaF1Azpump", "why": "max_open/cash/circuit_breaker"}

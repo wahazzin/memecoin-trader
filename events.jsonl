@@ -90768,3 +90768,14 @@
 {"ts": 1793819367.5842342, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 25.8, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793819393.9226248, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 31.2, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793819419.4281733, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 49.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819482.1274803, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 60.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819513.7226677, "type": "SKIP", "arm": "m1_pass", "mint": "HvCX2rEDHRD6Y9y8QbSsM314qyNc2TtSBrAdWwHUpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793819513.7227242, "type": "SKIP", "arm": "m1_random", "mint": "HvCX2rEDHRD6Y9y8QbSsM314qyNc2TtSBrAdWwHUpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1793819514.37085, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 118.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819522.2285066, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 38.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819584.9492958, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 60.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819618.044967, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 101.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819656.6175659, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 69.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819728.656522, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 108.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819732.5148404, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 73.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793819745.6810384, "type": "SKIP", "arm": "m1_random", "mint": "DCepUYTgm7kkrGNCwZDGWVhBTqfZcyYsME7DAm52RjwG", "why": "max_open/cash/circuit_breaker"}

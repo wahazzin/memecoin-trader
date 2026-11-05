@@ -91860,3 +91860,6 @@
 {"ts": 1793858869.8530624, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793858884.5405095, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793858885.9056156, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1793858954.9418209, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 39.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793858984.045074, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 69.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793859086.3719158, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 129.4, "error": "ConnectionClosedError", "http": null}

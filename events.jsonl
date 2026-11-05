@@ -91808,3 +91808,6 @@
 {"ts": 1793853053.5591602, "type": "START", "open": {"m1_pass": 0, "m1_random": 1}}
 {"ts": 1793853234.372772, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 180.8, "error": "ConnectionClosedError", "http": null}
 {"ts": 1793853234.790154, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 181.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793853482.1910236, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 245.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793853486.073253, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 249.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793853592.2444012, "type": "SKIP", "arm": "m1_pass", "mint": "FqiAE6Jctvod6NHrgQpCSHxoec42hEtXi9dC6xWcpump", "why": "max_open/cash/circuit_breaker"}

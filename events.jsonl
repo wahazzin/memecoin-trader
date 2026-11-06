@@ -95120,3 +95120,4 @@
 {"ts": 1793950251.330475, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1793950383.0140471, "type": "SKIP", "arm": "m1_pass", "mint": "pr6Zj9pY4P2jk1xnhYgdLcdcwE5vdAYTwYecVgMpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1793950391.610882, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 110.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1793950667.878933, "type": "SKIP", "arm": "m1_pass", "mint": "AxjyJ7ZbHmYD8BXA3d8jh8q34MYJVGKHXaimAHc7ab5A", "why": "max_open/cash/circuit_breaker"}

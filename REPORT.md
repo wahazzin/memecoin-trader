@@ -1,15 +1,15 @@
-# Paper bot check-in (2026-11-06 04:23 UTC)
+# Paper bot check-in (2026-11-06 04:29 UTC)
 
 > PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).
 
 | Arm | Buys filled / failed / no route | Closed | Win rate | Avg win | Avg loss | **Expectancy / trade** | Total P&L (SOL) | Equity now (all top-ups so far) | Max drawdown (SOL, top-ups removed) | Open | Stuck |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | `m1_pass` | 598 / 95 / 16 | 598 | 22% | +0.2673 | -0.2190 | **-0.1100** | -65.7860 | 8.227 (top-ups 54.23) | -66.368 | 0 | 0 |
-| `m1_random` | 662 / 76 / 82 | 662 | 24% | +0.2550 | -0.2116 | **-0.0981** | -64.9267 | 8.858 (top-ups 53.97) | -65.270 | 0 | 0 |
+| `m1_random` | 663 / 76 / 82 | 663 | 24% | +0.2550 | -0.2112 | **-0.0980** | -64.9779 | 8.858 (top-ups 53.97) | -65.270 | 0 | 0 |
 
-- Exit reasons: {'take_profit': 312, 'stop_loss': 826, 'no_volume_15m': 122}
+- Exit reasons: {'take_profit': 312, 'stop_loss': 827, 'no_volume_15m': 122}
 - Sells priced by the verified curve formula because Jupiter had no route: 478
-- Delay sensitivity (sells only): SOL gained if sells had filled at the first quote instead of the worse one: m1_pass +2.082, m1_random +4.759
+- Delay sensitivity (sells only): SOL gained if sells had filled at the first quote instead of the worse one: m1_pass +2.082, m1_random +4.767
 - Circuit breakers fired: 61
 - Stream gaps logged: 74305
 

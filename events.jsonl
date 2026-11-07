@@ -97211,3 +97211,4 @@
 {"ts": 1794021164.2027383, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794021335.1516023, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 166.4, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794021340.9588194, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 146.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794021401.5216277, "type": "SKIP", "arm": "m1_pass", "mint": "EmbBuQ6KGKaztMeq3S42EE3qTvgGTyh997fHjcEdpump", "why": "max_open/cash/circuit_breaker"}

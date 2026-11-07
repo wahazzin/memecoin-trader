@@ -97106,3 +97106,7 @@
 {"ts": 1794014460.6789098, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
 {"ts": 1794014488.0808632, "type": "CIRCUIT_BREAKER", "arm": "m1_pass", "equity": 6.873381290799157, "day_start": 8.226733480061524}
 {"ts": 1794014488.3470855, "type": "SKIP", "arm": "m1_pass", "mint": "BsFf4pkQGssgyBQYmnSecbRqLeEpMZygtTvT5Hu4pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794014519.8042688, "type": "SKIP", "arm": "m1_pass", "mint": "6mFgpUMNTJ2Qnusg5FJLHwRQiwHZpxAH3tiRTbx2pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794014644.760515, "type": "SKIP", "arm": "m1_pass", "mint": "CKTBcjXHhTEtiFDWQYqaUJLpnfhtedqTEhEvD82Wpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794014709.2731252, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 711.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794014784.94439, "type": "SKIP", "arm": "m1_pass", "mint": "7HJdoixgP3UAZGXWQEUaM5CENpspw3PDhfkVDwu9pump", "why": "max_open/cash/circuit_breaker"}

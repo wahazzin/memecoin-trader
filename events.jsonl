@@ -97195,3 +97195,4 @@
 {"ts": 1794019212.1034076, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794019352.708022, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 110.6, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794019515.8727574, "type": "SKIP", "arm": "m1_pass", "mint": "8hFxbFcptwqKjUzd1fSo8pbhJEuD4TKVh4p3XWUipump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794019888.994408, "type": "SKIP", "arm": "m1_pass", "mint": "5UxbNmxPj5xNqJ4TxHFy84LXp9TnyJgoZvL7FYUVpump", "why": "max_open/cash/circuit_breaker"}

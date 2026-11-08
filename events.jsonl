@@ -99290,3 +99290,5 @@
 {"ts": 1794172955.5123305, "type": "SKIP", "arm": "m1_pass", "mint": "51cZoHfqD8KkrEfm4y3MvCsgsg6NBk3vwoSuVuNapump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794173139.3391442, "type": "SKIP", "arm": "m1_pass", "mint": "5bsYbpRazim6sPXQK9bqNsBxmGELFpGCAGNMTxB4pump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794173174.7409139, "type": "SKIP", "arm": "m1_pass", "mint": "2FcTqg5hM1BzXQ6fRa4zp4YVQhrf5YGhAg7RPnbs7LBT", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794173404.4183903, "type": "GAP", "source": "pumpportal", "error": "ConnectionClosedError", "http": null}
+{"ts": 1794173410.109279, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}

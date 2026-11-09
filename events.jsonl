@@ -101622,3 +101622,14 @@
 {"ts": 1794268054.389493, "type": "SKIP", "arm": "m1_pass", "mint": "87LAdJAkN9hAvyuB8bt1ZGz2ytHwLaS3R3y4qsmVpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794268161.4125378, "type": "SKIP", "arm": "m1_pass", "mint": "GzC1AwKdQ26qz1TuTC4vpfL8jMLoTggRouNuXPULpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794268250.6360524, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 407.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794268312.4523451, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 59.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794268377.9826293, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 1257.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794268380.2071855, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794268382.3654683, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794268386.539582, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794268394.6779506, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794268410.9447904, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.3, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794268457.2714007, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 142.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794268465.4719417, "type": "SKIP", "arm": "m1_pass", "mint": "EqLy2UEXhLDDfmKkqdUE27n5jLzT6ayvH2UW6Avwpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794268504.2298672, "type": "SKIP", "arm": "m1_random", "mint": "6xV5QaKKx5nXWEaB7F8F6YSyWxQut7BMJG1vY33hL422", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794268576.5827346, "type": "SKIP", "arm": "m1_pass", "mint": "6eSe72k6gVeopnmrtoCdAV7K8cyj7hqsiyGrNdfkpump", "why": "max_open/cash/circuit_breaker"}

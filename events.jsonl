@@ -99526,3 +99526,7 @@
 {"ts": 1794191398.970506, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794191407.6184077, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.6, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794191423.7408257, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794193126.9438028, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 1673.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794193129.1591878, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794193131.2972465, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794193239.763624, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 104.5, "error": "ConnectionClosedError", "http": null}

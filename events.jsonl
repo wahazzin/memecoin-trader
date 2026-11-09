@@ -99445,3 +99445,5 @@
 {"ts": 1794183339.698557, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794183570.0044184, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 200.7, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794183572.3281703, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 202.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794184342.8660848, "type": "TOP_UP", "arm": "m1_pass", "week": "2026-W46", "added_sol": 14.311602274424057, "equity_after": 20.0}
+{"ts": 1794184345.0710979, "type": "TOP_UP", "arm": "m1_random", "week": "2026-W46", "added_sol": 14.052465858746007, "equity_after": 20.0}

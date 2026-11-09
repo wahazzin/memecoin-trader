@@ -99443,3 +99443,5 @@
 {"ts": 1794183323.6259809, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794183339.3456156, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794183339.698557, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794183570.0044184, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 200.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794183572.3281703, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 202.6, "error": "ConnectionClosedError", "http": null}

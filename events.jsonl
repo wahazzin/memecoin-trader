@@ -99703,3 +99703,15 @@
 {"ts": 1794227308.1292896, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794227344.1642268, "type": "SKIP", "arm": "m1_random", "mint": "C5DGsoYTGVuKw9s55YrZtT1t4ppCrbtvws7qiYGFpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794227527.6771548, "type": "SKIP", "arm": "m1_pass", "mint": "72XPxu4oNQPePkw51MFG6qAEtC2yQXcsDeGRCByPpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794227679.1661718, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 356.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794227680.2362592, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 356.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794227681.292401, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227682.3618083, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227683.4001951, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227684.521697, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227687.566736, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227688.6440074, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227695.708979, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227696.7703478, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227814.220724, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 101.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794227816.1722627, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 104.5, "error": "ConnectionClosedError", "http": null}

@@ -205,3 +205,17 @@ contradicts the plan itself (compact only after M1/M2/W1 have run on the raw dat
 publishes no total cap for release files; nothing is lost while it grows). The storage reminder now repeats once a
 week and says there is nothing to do yet; outage alerts still repeat every 6 h. Releases total 16.7 GB on 11-02
 (~0.25–0.6 GB/day). memebot/health.py only; test tests/test_health_alerts.py. No rule, arm or threshold changed.
+
+## 2026-11-09 — Weekly review (W46): two infrastructure fixes (alerting + recorder upload; no rule, arm or threshold changed)
+
+1. **False "couldn't read the bot's signals" alert every 6 h since ~2026-11-04 22:00 UTC** (~12 pings). Cause:
+   raw.githubusercontent.com now answers suffix byte ranges (`Range: bytes=-4000`) with 501 "Unsupported client
+   range"; the decoder (coins-judged) check was blind meanwhile (the bot judged coins in all 168 hours of the week, so
+   nothing was missed). Fix: `memebot/health.py` `tail_text()` asks for the file length (HEAD, no gzip) and then an
+   explicit range `bytes=START-` of the last 20 KB (one signal line can be ~0.8 KB). Test: tests/test_health_tail.py.
+2. **One failed upload killed the recorder → hours 15–17 UTC of 2026-11-05 lost.** `gh release upload` got an HTTP 404
+   from uploads.github.com at 16:02; because Actions runs the step with `bash -e` and `upload` was the last command of an
+   `&&` list, the whole step exited and the recorder was killed (next start: cron at 18:57). Fix in recorder.yml: a
+   failed upload keeps the hour folder and retries it on the next 5-min pass (final uploads retried 3×); double uploads
+   are harmless (duplicates removed by transaction signature at analysis time). Test: tests/test_recorder_upload.py
+   (fails on the old workflow).

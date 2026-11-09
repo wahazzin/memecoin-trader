@@ -35,6 +35,22 @@ def _utc(t):
     return calendar.timegm(time.strptime(t, "%Y-%m-%dT%H:%M:%SZ"))
 
 
+def tail_text(url, nbytes, head=requests.head, get=requests.get):
+    """Last ~nbytes of a raw.githubusercontent file. Since ~2026-11-06 raw.githubusercontent answers SUFFIX ranges
+    ("bytes=-4000") with 501 "Unsupported client range" (false "couldn't read the bot's signals" alerts every 6 h).
+    Explicit ranges ("bytes=START-") still work, so ask for the length first (HEAD, no gzip), then the tail."""
+    h = {"Accept-Encoding": "identity"}       # no gzip: a byte range of a gzipped file cannot be decoded
+    rh = head(url, headers=h, timeout=30, allow_redirects=True)
+    rh.raise_for_status()
+    size = int(rh.headers.get("Content-Length", 0) or 0)
+    if size <= nbytes:
+        r = get(url, headers=h, timeout=30)
+    else:
+        r = get(url, headers={**h, "Range": f"bytes={size - nbytes}-"}, timeout=30)
+    r.raise_for_status()
+    return r.text
+
+
 def running(repo, wf):
     js = requests.get(f"{API}/repos/{repo}/actions/workflows/{wf}/runs", headers=H, params={"status": "in_progress"}, timeout=30).json()
     return js.get("total_count", 0)
@@ -60,17 +76,14 @@ def checks():
         # silent-failure check: the bot judges ~5 coins/minute. If pump.fun changes its program and our decoder
         # stops understanding trades, everything keeps "running" but no coin is ever judged.
         url = "https://raw.githubusercontent.com/wahazzin/memecoin-trader/paper-state/signals.jsonl"
-        r = requests.get(url, headers={"Range": "bytes=-4000", "Accept-Encoding": "identity"}, timeout=30)   # no gzip: a byte range of a gzipped file cannot be decoded
-        if r.status_code == 416:                       # file smaller than the range: read it whole
-            r = requests.get(url, headers={"Accept-Encoding": "identity"}, timeout=30)
-        r.raise_for_status()
-        last = [l for l in r.text.splitlines() if l.startswith("{")]
+        text = tail_text(url, 20000)
+        last = [l for l in text.splitlines() if l.startswith("{") and l.endswith("}")]
         ts = json.loads(last[-1])["ts"] if last else 0
         if time.time() - ts > 2 * 3600:
             out.append(("decoder", f"Memecoin bot hasn't judged a single coin in {(time.time() - ts) / 3600:.1f} h "
                                    "(normally ~5 per minute). pump.fun may have changed its program or the data feed broke."))
     except Exception as e:
-        out.append(("decoder", f"Couldn't read the bot's signals ({type(e).__name__})."))
+        out.append(("decoder", f"Couldn't read the bot's signals ({type(e).__name__}: {str(e)[:120]})."))
     try:
         # early-warning tripwire on storage: the recorder adds ~250 MB/day of release files. GitHub has no
         # published total cap for releases, but very large repos can get flagged. Warn at 15 GB (~2 months),

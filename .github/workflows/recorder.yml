@@ -54,7 +54,16 @@ jobs:
             tag="data-$day"
             gh release view "$tag" -R "$REPO" >/dev/null 2>&1 || gh release create "$tag" -R "$REPO" --title "$tag" --notes "pump.fun market recording, UTC $day" >/dev/null 2>&1 || true
             f="rec_${day}_${hh}_${GITHUB_RUN_ID}_$(date +%H%M%S).tar"
-            tar -cf "$f" -C "$1" . && gh release upload "$tag" "$f" -R "$REPO" && rm -rf "$1" "$f"
+            # A failed upload must NOT end the job (fixed 2026-11-09): Actions runs this with `bash -e`, and `upload` is the
+            # last command of an && list, so one transient error (HTTP 404 from uploads.github.com on 2026-11-05 16:02)
+            # killed the recorder and lost hours 15-17. Now the hour folder is kept and retried on the next pass;
+            # a double upload is harmless (duplicates are removed by transaction signature at analysis time).
+            if tar -cf "$f" -C "$1" . && gh release upload "$tag" "$f" -R "$REPO"; then
+              rm -rf "$1" "$f"
+            else
+              rm -f "$f"; echo "upload of $1 failed; kept, will retry"
+            fi
+            return 0
           }
           python -m memebot.recorder --minutes 335 --out data &
           rec=$!
@@ -67,6 +76,9 @@ jobs:
               gh workflow run recorder.yml -R "$REPO" && handed=1 && echo "successor started"
             fi
           done
-          for h in data/*/*; do [ -d "$h" ] && upload "$h"; done
+          for try in 1 2 3; do                       # final uploads: retry leftovers up to 3x
+            for h in data/*/*; do [ -d "$h" ] && upload "$h"; done
+            ls -d data/*/* >/dev/null 2>&1 || break; sleep 30
+          done
           # successor only after a long run (a crash loop would otherwise restart instantly; hourly cron retries)
           [ $handed -eq 1 ] || { [ $((SECONDS - start)) -gt 3600 ] && gh workflow run recorder.yml -R "$REPO"; } || true

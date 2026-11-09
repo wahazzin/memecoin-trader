@@ -1,10 +1,10 @@
-# Paper bot check-in (2026-11-09 02:43 UTC)
+# Paper bot check-in (2026-11-09 02:48 UTC)
 
 > PAPER ONLY. Fills = live Jupiter quotes (worse of two, 2 s apart) + measured costs (COST_FACTORS.md).
 
 | Arm | Buys filled / failed / no route | Closed | Win rate | Avg win | Avg loss | **Expectancy / trade** | Total P&L (SOL) | Equity now (all top-ups so far) | Max drawdown (SOL, top-ups removed) | Open | Stuck |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| `m1_pass` | 642 / 103 / 17 | 641 | 23% | +0.2610 | -0.2191 | **-0.1097** | -70.3419 | 17.964 (top-ups 68.54) | -70.942 | 1 | 0 |
+| `m1_pass` | 642 / 103 / 17 | 641 | 23% | +0.2610 | -0.2191 | **-0.1097** | -70.3419 | 17.940 (top-ups 68.54) | -70.966 | 1 | 0 |
 | `m1_random` | 690 / 80 / 92 | 690 | 24% | +0.2522 | -0.2103 | **-0.0990** | -68.3346 | 19.496 (top-ups 68.02) | -68.684 | 0 | 0 |
 
 - Exit reasons: {'take_profit': 324, 'stop_loss': 875, 'no_volume_15m': 132}

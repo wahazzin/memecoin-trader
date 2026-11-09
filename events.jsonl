@@ -101508,3 +101508,14 @@
 {"ts": 1794262885.1702085, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 38.5, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794262887.0193405, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 40.0, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794262927.4947138, "type": "SKIP", "arm": "m1_pass", "mint": "2JtT9eWpP3arWTDDgWFbcdWdq31XupWow5nVoBEipump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794263009.2776904, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 120.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263019.911087, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 132.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263038.7246828, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 27.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263065.0667279, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 43.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263070.208985, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 29.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263115.7925193, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 43.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263117.8299131, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 50.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263175.921953, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 56.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263187.2165265, "type": "SKIP", "arm": "m1_pass", "mint": "AZXyq8uoKoUAyry7dV9eNefwEYXBV9eZhYZDqjRGpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794263190.6025097, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 72.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794263247.8207312, "type": "SKIP", "arm": "m1_pass", "mint": "HeybuqN2JtwzARYFQzHpB2kiyUJyTu9R8dAQKW4Fpump", "why": "max_open/cash/circuit_breaker"}

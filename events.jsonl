@@ -99701,3 +99701,5 @@
 {"ts": 1794227300.0446756, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794227306.6524677, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794227308.1292896, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794227344.1642268, "type": "SKIP", "arm": "m1_random", "mint": "C5DGsoYTGVuKw9s55YrZtT1t4ppCrbtvws7qiYGFpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794227527.6771548, "type": "SKIP", "arm": "m1_pass", "mint": "72XPxu4oNQPePkw51MFG6qAEtC2yQXcsDeGRCByPpump", "why": "max_open/cash/circuit_breaker"}

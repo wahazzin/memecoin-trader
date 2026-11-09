@@ -99670,3 +99670,5 @@
 {"ts": 1794221177.7250366, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794221193.9415329, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794221277.4792583, "type": "SKIP", "arm": "m1_pass", "mint": "5pHXhZ3jLdFDFcwFU1tydwEXhrjnBMfu93Fm5GEYpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794221956.2689497, "type": "CIRCUIT_BREAKER", "arm": "m1_random", "equity": 16.723177650261828, "day_start": 20.0}
+{"ts": 1794221956.8050203, "type": "SKIP", "arm": "m1_random", "mint": "95MyULpGEPbCKrNFvNFEc1y7DANpQBJVLHji8RoZDDbD", "why": "max_open/cash/circuit_breaker"}

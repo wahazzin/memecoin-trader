@@ -99626,3 +99626,4 @@
 {"ts": 1794209476.6945472, "type": "GAP", "source": "pumpportal", "error": "ConnectionClosedError", "http": null}
 {"ts": 1794209481.615471, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
 {"ts": 1794209882.0087078, "type": "GAP", "source": "pumpportal", "error": "TimeoutError", "http": null}
+{"ts": 1794210432.3807042, "type": "SKIP", "arm": "m1_pass", "mint": "84kGWRFkfChKAY3SiL4VuFeCsg8eZuEq5q8fKBjUpump", "why": "max_open/cash/circuit_breaker"}

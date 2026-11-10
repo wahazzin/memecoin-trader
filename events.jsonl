@@ -102032,3 +102032,5 @@
 {"ts": 1794316133.7422588, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 138.2, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794316134.845456, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 129.1, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794316180.562889, "type": "SKIP", "arm": "m1_pass", "mint": "2cJpxCvWedB6f3iRzChruqfzVEx6FzkUFSdJtpKjpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794316478.3144367, "type": "SKIP", "arm": "m1_pass", "mint": "A8oG7Zq3tEgquTKYnXUu2jjDRc2ooRJLN8DxHsnpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794316655.1538005, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 518.3, "error": "ConnectionClosedError", "http": null}

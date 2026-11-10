@@ -102549,3 +102549,14 @@
 {"ts": 1794329504.0556047, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.3, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794329506.1847634, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794329510.3041532, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794329542.964436, "type": "SKIP", "arm": "m1_pass", "mint": "3FtZQoNHvk4B7M81mdEjbKu52ocGmVav3EKuep25pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794329563.5852668, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 45.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794329614.2637796, "type": "SKIP", "arm": "m1_pass", "mint": "7ctZsXatQjPfchBt4L9Uxg41umHaFHnn38cgcTDVpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794329634.342576, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 68.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794329663.466021, "type": "SKIP", "arm": "m1_pass", "mint": "QGnUUvZtavCFWmKy5b3X4J8HMFCdKWAwkteMNvSpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794329696.3311026, "type": "SKIP", "arm": "m1_pass", "mint": "Hs5YmLJc53yYHon4A3kkUfeRhHUw7ogRMwwYHtkapump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794329752.0677605, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 115.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794329753.5867908, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 236.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794329816.6420891, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 62.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794329818.4172125, "type": "SKIP", "arm": "m1_random", "mint": "4DgFNRNuCc4Ay3mrjCXKS5oBm6xdC4VWn9YrsZEzpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794329834.3897333, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 78.8, "error": "ConnectionClosedError", "http": null}

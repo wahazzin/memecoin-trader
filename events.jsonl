@@ -104442,3 +104442,14 @@
 {"ts": 1794413121.0012774, "type": "SKIP", "arm": "m1_pass", "mint": "28tj2oi2zwy9pJ215KwGdruPMkaBhoEHbt1vdK3apump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794413231.9837244, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 198.2, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794413251.2550313, "type": "SKIP", "arm": "m1_pass", "mint": "6K8KuXLg4J1GGroHUfeW45jkD1Dj6S7gChC71j2Qpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794413274.6768138, "type": "SKIP", "arm": "m1_random", "mint": "5cUNpUCZHk6krmXAZT6sJeet2KtQC2Xjye6eWaEnpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794413332.77231, "type": "SKIP", "arm": "m1_pass", "mint": "9N1HjaXSMA3S2bDurHxccPnQhwy5zxSKRVvGNZZmpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794413332.7723565, "type": "SKIP", "arm": "m1_random", "mint": "9N1HjaXSMA3S2bDurHxccPnQhwy5zxSKRVvGNZZmpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794413336.7341979, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 102.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794413338.3309557, "type": "SKIP", "arm": "m1_pass", "mint": "2U95X472FVViNX1rpaB4Kzjv6tK5AmFcGNsuYcHfBfdE", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794413386.0448334, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 47.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794413431.1235805, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 43.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794413507.8323462, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 589.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794413511.5122058, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 78.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794413565.0810046, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 51.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794413566.2396379, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 56.4, "error": "ConnectionClosedError", "http": null}

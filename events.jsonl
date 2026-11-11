@@ -104032,3 +104032,7 @@
 {"ts": 1794365039.1961443, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
 {"ts": 1794365075.2372553, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 233.0, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794365149.6609883, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 363.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794365215.3078005, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 138.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794365272.9876518, "type": "SKIP", "arm": "m1_pass", "mint": "9ESr7zwrvUHXyABPme5f1AKtDYZsJD75UTAvKtPEpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794365313.4208715, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 96.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794365406.9208548, "type": "SKIP", "arm": "m1_pass", "mint": "7bBciwjXzWBuzsPgRS2FTmPy7HUuRJ83Uj6NmwLWpump", "why": "max_open/cash/circuit_breaker"}

@@ -105596,3 +105596,6 @@
 {"ts": 1794481252.3360229, "type": "SKIP", "arm": "m1_pass", "mint": "FCi5niuxGbsU5ydL6CgFf2vbueVZj4iKFmMFE9cspump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794481527.6905234, "type": "SKIP", "arm": "m1_pass", "mint": "DZEMoyYxYuQCKJwq1Z7VtDrQxxCHD8xrYkcy6kcPpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794481961.799248, "type": "STOP"}
+{"ts": 1794482120.8256302, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
+{"ts": 1794482236.9190125, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 116.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794482263.372973, "type": "SKIP", "arm": "m1_pass", "mint": "EzpRmTZ3M9y4zN491xCzJkppvMzPuAhAYwweGiNupump", "why": "max_open/cash/circuit_breaker"}

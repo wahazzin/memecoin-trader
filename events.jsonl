@@ -108877,3 +108877,4 @@
 {"ts": 1794560674.7413793, "type": "STOP"}
 {"ts": 1794560880.4677212, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
 {"ts": 1794561163.3940656, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 282.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794561288.7096746, "type": "SKIP", "arm": "m1_pass", "mint": "GbkrULf4YMEe9hvWfgHbJpTkCTFnNDJkokFa4GLGpump", "why": "max_open/cash/circuit_breaker"}

@@ -112132,3 +112132,14 @@
 {"ts": 1794688781.0623155, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 262.9, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794688788.112304, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 195.0, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794688994.1564696, "type": "SKIP", "arm": "m1_pass", "mint": "F13HpjMUgB1o2P68tVLQdG1j9GBSJWZvzEVhEchPpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794689077.0446515, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 286.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794689077.8062348, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 294.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794689079.093406, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794689079.8482945, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794689081.2150464, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794689081.9712465, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794689085.6050763, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.4, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794689101.9770284, "type": "SKIP", "arm": "m1_pass", "mint": "8wPMCHA6yZMtQRUv58zPA8K11UgRdH4m8jm4mRbopump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794689192.070886, "type": "SKIP", "arm": "m1_pass", "mint": "GXK3f9CpiYRxerL66ZLY3uybUuTPpNDgcbPLeKZcpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794689321.5437834, "type": "SKIP", "arm": "m1_pass", "mint": "EUrZdRMdUQ38M2hLQtmubJk57j7Cji4LenTia4TFpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794689345.3806884, "type": "SKIP", "arm": "m1_pass", "mint": "5Yts78B96ezWYbi7b4N4PfXwaZ6WTb4ppjDqMZEPpump", "why": "max_open/cash/circuit_breaker"}

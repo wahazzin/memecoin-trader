@@ -110746,3 +110746,4 @@
 {"ts": 1794619220.153644, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794619395.0738225, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 158.9, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794619628.0021493, "type": "SKIP", "arm": "m1_pass", "mint": "ANQQ8tTBqXJ2dv8TpkwBpwk6LieG2YXeqprmBfDEpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794619827.3499646, "type": "STOP"}

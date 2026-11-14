@@ -110919,3 +110919,15 @@
 {"ts": 1794629441.3385463, "type": "SKIP", "arm": "m1_pass", "mint": "8zBXbpPuKrTcJ8vTnrgtsR2LaJ5v6k48TdUaLVoCpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794629845.2234588, "type": "SKIP", "arm": "m1_pass", "mint": "4X7Vxeq8DTvHjEEVRWsPuqq3T433A9wVg2oyFq7ypump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794629886.4531767, "type": "SKIP", "arm": "m1_pass", "mint": "E7w2j9TVfb46iZRgWGdjYwsg4x8HD8VyRxdgrF8T5jEW", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794630366.9814396, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 1602.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794630369.0718672, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630371.1262538, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630375.196055, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630376.206496, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 1277.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794630378.316121, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630380.3715103, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630383.3782291, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630384.414121, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630392.4595735, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.0, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630399.4879332, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794630408.520636, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}

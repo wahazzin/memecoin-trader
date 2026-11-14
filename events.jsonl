@@ -111367,3 +111367,14 @@
 {"ts": 1794671432.3174694, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 141.9, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794671504.7035108, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 72.7, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794671510.9406884, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 76.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671549.183637, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 42.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671552.883752, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 39.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671578.4878564, "type": "SKIP", "arm": "m1_random", "mint": "8QYvskUhq7VaZX2PwJaMKT2Lua1Kr9w4yva2fi1Bpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794671624.8345556, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 70.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671628.731465, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 77.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671653.7570317, "type": "SKIP", "arm": "m1_pass", "mint": "99U8Ddu8CtLHyVZLKYmVaek79FFFHLP98yA8gEDspump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794671653.7570736, "type": "SKIP", "arm": "m1_random", "mint": "99U8Ddu8CtLHyVZLKYmVaek79FFFHLP98yA8gEDspump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794671701.1679027, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 70.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671708.0980206, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 81.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671789.3373857, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 79.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794671798.2021918, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 95.0, "error": "ConnectionClosedError", "http": null}

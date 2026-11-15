@@ -112680,3 +112680,6 @@
 {"ts": 1794709112.644684, "type": "SKIP", "arm": "m1_pass", "mint": "BiiD1zczbQcKyGhFzpsH7yscJSrambkVsuRhPSNJpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794709495.6562777, "type": "SKIP", "arm": "m1_pass", "mint": "3HFtDCRpMCbbZ7fb4UXTqPsYfk58RLjpG8UEjd8Hpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794710467.2647352, "type": "SKIP", "arm": "m1_pass", "mint": "5rkYSbkgfpaYTKKrKVnnFmHgYfCmA6aTfe5bWCYUpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794710814.2199056, "type": "SKIP", "arm": "m1_pass", "mint": "2P9KSBstHTS7E6yGvxCPBn8dBGY8NrYktVtooRwopump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794710984.143221, "type": "GAP", "source": "pumpportal", "error": "ConnectionClosedError", "http": null}
+{"ts": 1794710987.8050122, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}

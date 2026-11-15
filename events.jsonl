@@ -113586,3 +113586,29 @@
 {"ts": 1794773416.1113648, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794773416.127073, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1794773460.682376, "type": "SKIP", "arm": "m1_pass", "mint": "GVGjbK9p3kHBY7XQzvUg5TCsUwgMxUzYfAd67Yepump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794773479.7788868, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 33.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773480.3050492, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 34.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773497.0238676, "type": "SKIP", "arm": "m1_pass", "mint": "28UcmTJg9kGHdpoC8tHfoZGA3R42BCxXWZr8Q93rpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794773608.5788043, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 126.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773610.088983, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 128.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773628.6606052, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 18.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773633.662876, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 21.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773653.3784564, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 22.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773659.1636157, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 23.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773676.4047868, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 21.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773681.7560155, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 20.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773690.8826065, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773697.3948174, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 13.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773704.1070154, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 11.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773706.5554216, "type": "SKIP", "arm": "m1_random", "mint": "8yTX3wDX9M895TTzc1rEdvLad3ML9Bvbq5jQ6xgSpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794773709.6222067, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 10.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773719.0106096, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773728.5388024, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 16.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773735.8247643, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 14.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773748.3670278, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 17.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773751.5270076, "type": "SKIP", "arm": "m1_pass", "mint": "7dJ3mCFLmzo2fntUqYG2cw8GbMUkdnZREAkCoFz8pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794773755.2984288, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 17.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773761.7605524, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 11.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773769.5900652, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773780.088057, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 16.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794773784.5015745, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.9, "error": "ConnectionClosedError", "http": null}

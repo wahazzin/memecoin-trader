@@ -114803,3 +114803,4 @@
 {"ts": 1794802491.0380726, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 43.6, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794802543.0486684, "type": "SKIP", "arm": "m1_pass", "mint": "5Wg1dqiKZLg7DUeku8Gk4p4ngF3iGdVLw9NfdEpapump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794802960.6896763, "type": "GAP", "source": "pumpportal", "error": "TimeoutError", "http": null}
+{"ts": 1794803205.801608, "type": "SKIP", "arm": "m1_pass", "mint": "3ZCtg4up5rQQokp8K9y2WBRLnB5yH41oENt9KdHXpump", "why": "max_open/cash/circuit_breaker"}

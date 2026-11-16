@@ -114993,3 +114993,14 @@
 {"ts": 1794825294.8430374, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 24.8, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794825295.3171003, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 18.3, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794825298.0934188, "type": "SKIP", "arm": "m1_pass", "mint": "5wkKt3EfUBb8EUP4zkxfue5RpfwpTXcugY6kGtoypump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794825424.9184504, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 127.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794825512.8619115, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 85.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794825515.2135165, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 218.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794825552.7978246, "type": "SKIP", "arm": "m1_pass", "mint": "2v1242AkGptGDBbU2qQAU9ptJZv3aXgNy32pCdFnpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794825589.714275, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 74.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794825619.262433, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 102.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794825624.0929646, "type": "SKIP", "arm": "m1_pass", "mint": "6Kuk1Kt8PeoRMUYbRdHUs7k7rKTHqffYQbZLac7Npump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794825624.0930002, "type": "CIRCUIT_BREAKER", "arm": "m1_random", "equity": 16.891011749062063, "day_start": 20.0}
+{"ts": 1794825624.4369698, "type": "SKIP", "arm": "m1_random", "mint": "6Kuk1Kt8PeoRMUYbRdHUs7k7rKTHqffYQbZLac7Npump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794825641.4180245, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 49.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794825643.9981415, "type": "SKIP", "arm": "m1_pass", "mint": "BKAP6pd7HWhePR7uJdrKPuEYmpAf49Fu4gwAErwKpump", "why": "max_open/cash/circuit_breaker"}

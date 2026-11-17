@@ -117920,3 +117920,16 @@
 {"ts": 1794891709.6313412, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 83.1, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794891711.1496756, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 517.0, "error": "ConnectionClosedError", "http": null}
 {"ts": 1794891862.0209234, "type": "SKIP", "arm": "m1_pass", "mint": "644QBCYSeKwmwRCXtcXFFp1XQJi5mx3KWHQpmjHwpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794892193.5715673, "type": "SKIP", "arm": "m1_pass", "mint": "zUqy5ZXutjMHdaYzFS1K2M3WvEnQtcbpra617T8pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794892208.3503182, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 496.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794892209.9232833, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 496.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794892210.4406986, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892212.0672367, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892212.5411906, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892214.1575065, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892216.6396508, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892218.2475739, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892224.8030434, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892226.3394516, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1794892299.858117, "type": "CIRCUIT_BREAKER", "arm": "m1_random", "equity": 14.211030466044127, "day_start": 16.891011749062063}
+{"ts": 1794892301.073781, "type": "SKIP", "arm": "m1_random", "mint": "2PPGiL3Ch3GhAchuf6tPREJ5GgdUC8payepN1HJepump", "why": "max_open/cash/circuit_breaker"}

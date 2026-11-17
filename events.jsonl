@@ -117623,3 +117623,14 @@
 {"ts": 1794882403.8569643, "type": "SKIP", "arm": "m1_pass", "mint": "3JfTLyrwgkL3JzvAYPPEbmNjK2tc3mjmb4WoaUi1pump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794882403.866469, "type": "SKIP", "arm": "m1_pass", "mint": "74kVcDwjRDiHpimN3CnUU8b6n2AhHQdEEdjJtCoqpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1794882524.2033682, "type": "SKIP", "arm": "m1_pass", "mint": "6nPBcRmXLcWXZAZnguTScURgL5w6LhMpZWuSm4S2pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794882619.2572925, "type": "SKIP", "arm": "m1_pass", "mint": "3y2ADUyxeb5dHFWw943Do5dgwmsvc6K4LkoLdLyYpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794882682.426396, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 286.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794882682.4591022, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 290.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794882723.645268, "type": "SKIP", "arm": "m1_pass", "mint": "EoFWcmqxRBprDd9jcWuZ1nJAmF2r7pwbCNEXNA1Hpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794882732.4078374, "type": "SKIP", "arm": "m1_pass", "mint": "ATcMKRHWWQWsjFfZXaH1C9YdzewVqYijWS2h6in4pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794882753.8593874, "type": "SKIP", "arm": "m1_pass", "mint": "2oRqQpnqfLyMpZp4KY2ghh75nLrnxNWEBNwx9srypump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794882776.4226718, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 92.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794882776.493641, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 92.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794882832.1457543, "type": "SKIP", "arm": "m1_pass", "mint": "HoXfv127TBRfe64AQgpCe81zWU9bokzTYsiLVjkcpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1794882855.9771838, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 77.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1794882860.2449152, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 81.8, "error": "ConnectionClosedError", "http": null}

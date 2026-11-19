@@ -122017,3 +122017,8 @@
 {"ts": 1795069078.4974077, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1795069084.6431143, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
 {"ts": 1795069086.6422575, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1795069239.7368693, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 137.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795069259.9516225, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 159.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795069289.2968361, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 47.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795069291.627432, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 29.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795069353.9500048, "type": "SKIP", "arm": "m1_pass", "mint": "BQEJdmHJFuZviaFbDHQodL22TEHP2ChcduJ3QpsBpump", "why": "max_open/cash/circuit_breaker"}

@@ -124923,3 +124923,4 @@
 {"ts": 1795161161.6548886, "type": "GAP", "source": "pumpportal", "error": "ConnectionClosedError", "http": null}
 {"ts": 1795161166.0038772, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
 {"ts": 1795161323.976317, "type": "SKIP", "arm": "m1_pass", "mint": "CWs85hZZ4hm6gLqwMzk5vtoh7KDMhebQYkfuD1KEpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795161519.913356, "type": "SKIP", "arm": "m1_pass", "mint": "EZHwthi86uii3miCSMDrUBK89LPqAJgCmLfEreKLEykL", "why": "max_open/cash/circuit_breaker"}

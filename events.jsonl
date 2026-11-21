@@ -128178,3 +128178,14 @@
 {"ts": 1795281301.7897615, "type": "SKIP", "arm": "m1_pass", "mint": "EtcfPSVcKqx1xuBULnqmo5C5T1ahUooR52seZ5r3pump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1795281357.0009735, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 74.9, "error": "ConnectionClosedError", "http": null}
 {"ts": 1795281357.2692301, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 75.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281430.214957, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 70.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281437.181702, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 78.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281539.3389091, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 107.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281541.1108284, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 101.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281570.9365191, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 29.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281577.937164, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 34.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281627.3801837, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 54.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281629.7359004, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 49.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795281631.520947, "type": "SKIP", "arm": "m1_pass", "mint": "EMgPAse4WvenKJkJKUvuADEz5U49XhFM1jRy3pwGpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795281642.4575944, "type": "SKIP", "arm": "m1_pass", "mint": "4jzdxNH3KZqs9jg4VX8VATAztsLwRy6d3AtHpU8Tpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795281642.4576342, "type": "SKIP", "arm": "m1_random", "mint": "4jzdxNH3KZqs9jg4VX8VATAztsLwRy6d3AtHpU8Tpump", "why": "max_open/cash/circuit_breaker"}

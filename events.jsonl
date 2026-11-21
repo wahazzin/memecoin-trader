@@ -127598,3 +127598,7 @@
 {"ts": 1795225942.2110047, "type": "CIRCUIT_BREAKER", "arm": "m1_random", "equity": 7.01573820079995, "day_start": 8.47574586342354}
 {"ts": 1795225942.8999512, "type": "SKIP", "arm": "m1_random", "mint": "9uhkZfKhksHwCAfiTqKvymeaSDy2Q8D2rnXHuNmVpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1795226170.127251, "type": "SKIP", "arm": "m1_random", "mint": "7DvGdEsQyudyRBjhVNLryZosBzbM8JX2Y9qHTESypump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795226417.3897326, "type": "CIRCUIT_BREAKER", "arm": "m1_pass", "equity": 6.9123666221505795, "day_start": 8.206641235580216}
+{"ts": 1795226417.795374, "type": "SKIP", "arm": "m1_pass", "mint": "8ZWBhCwHGFTmm8KiEXoU1yT8FYDbexG8vuLufYYLpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795226417.7956321, "type": "SKIP", "arm": "m1_random", "mint": "8ZWBhCwHGFTmm8KiEXoU1yT8FYDbexG8vuLufYYLpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795226457.129041, "type": "SKIP", "arm": "m1_pass", "mint": "BYaLTKBnBLTqJhzraVmzoQ2pEb2D6nbgANJ7WzgKpump", "why": "max_open/cash/circuit_breaker"}

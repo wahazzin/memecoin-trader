@@ -68,3 +68,9 @@ Sell records carry `exit_ref`.
 UTC** (first full UTC day on which every running bot has the B2 code). The 6-week minimum (rule 1) counts again
 from that date → earliest judgement ≈ 2027-01-05. Trades before B2 stay in the log and are reported separately;
 they are never merged into the B2 numbers. `memebot/report.py` adds a "Since amendment B2" table.
+
+**Data-feed fix shipped with B2 (same date):** new coins were taken only from PumpPortal. A live check
+(research/probe_create, 2026-11-23 08:06–08:09 UTC) decoded **48** new coins from pump.fun's own on-chain
+CreateEvents vs **12** from PumpPortal (11 in both; creator and symbol agreed 11/11). So the bot (and recorder) saw
+only a fraction of new coins, and nothing at all while PumpPortal was down (2026-11-20 10:37–16:00 UTC). From B2
+on, both sources are used (first one wins). Same feed for both arms; non-SOL coins are still skipped.

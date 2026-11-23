@@ -97,6 +97,8 @@ class Bot:
 
     # ---------- market data ----------
     def on_create(self, m):
+        if m["mint"] in self.coins:                    # seen already from the other source (chain / PumpPortal)
+            return
         self.coins[m["mint"]] = {"created": time.time(), "creator": m.get("traderPublicKey"), "trades": [], "done": False,
                                  "curve_key": curve_address(m["mint"])}
 
@@ -322,6 +324,8 @@ async def stream(bot, stop):
                                 sig = bot.on_trade(d)
                                 if sig:
                                     asyncio.create_task(bot.handle_signal(sig))
+                            elif kind == "create":       # 2026-11-23: on-chain creates (PumpPortal was the only source)
+                                bot.on_create({"mint": d["mint"], "traderPublicKey": d["user"]})
                             elif kind == "migrated":
                                 bot.pools[d["pool"]] = d["mint"]
                             elif kind == "amm_trade" and d["pool"] in bot.pools:

@@ -235,3 +235,13 @@ data window 2026-10-07 20:45 → 2026-11-22. Validated: tests/test_stream.py (st
 synthetic data; outage rule; missing values). Data-quality finding: November recordings have many holes, incl.
 ~5.4 h with almost no curve trades on 2026-11-20 10:37–16:00 UTC and ~6 h on 2026-11-05, which the health check
 did not catch (it only checks that uploads happen, not what is in them).
+
+## 2026-11-23 — New-coin feed: PumpPortal sees only ~1 in 4 new coins; on-chain creates added
+
+`research/probe_create` (180 s live): 48 new coins from pump.fun's on-chain CreateEvent vs 12 from PumpPortal (11 in
+both, creator + symbol agree 11/11). PumpPortal was the only create source for recorder and paper bot, so both have
+been seeing only a fraction of new coins (likely part of the "activity drop" since October), and nothing while
+PumpPortal was down (2026-11-20 10:37–16:00 UTC: hourly files with no coins/trades, no alert). Fix: decode CreateEvent
+from the RPC log stream (memebot/decode.create), used by recorder and bot alongside PumpPortal (first source wins;
+recorder stats `creates_chain` / `creates_pumpportal`). New health alert for near-empty recorder files. M1/M2/W1 data
+window (to 2026-11-22) is unaffected: it uses what was recorded. Paper bot: covered by B2's restart (2026-11-24).

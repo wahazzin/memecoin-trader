@@ -82,10 +82,12 @@ class Store:
             c[8].add(t["user"])
         self.stats["trades"] += 1
 
-    def add_create(self, m):
+    def add_create(self, m, source="pumpportal"):
         ts = int(time.time())
         self.roll(ts)
-        self.created.setdefault(m["mint"], ts)
+        if m.get("mint") in self.created:            # already known from the other source (chain / PumpPortal)
+            return
+        self.created[m["mint"]] = ts
         self.creates.append({"ts": ts, "mint": m.get("mint"), "name": m.get("name"), "symbol": m.get("symbol"),
                              "uri": m.get("uri"), "creator": m.get("traderPublicKey"),
                              "dev_buy_sol": m.get("solAmount"), "dev_buy_tok": m.get("initialBuy"),
@@ -93,6 +95,7 @@ class Store:
                              "mcap_sol": m.get("marketCapSol"), "pool": m.get("pool"),
                              "mayhem": m.get("is_mayhem_mode"), "sig": m.get("signature") or ""})
         self.stats["creates"] += 1
+        self.stats["creates_" + source] = self.stats.get("creates_" + source, 0) + 1
 
     def add_event(self, kind, d, ts=None):
         ts = ts or int(time.time())
@@ -174,6 +177,14 @@ async def rpc_stream(store, stop, program=PUMP):
                             store.add_event("post_complete_buy", d)
                         elif kind == "complete":
                             store.add_event("curve_complete", d)
+                        elif kind == "create":
+                            # 2026-11-23: on-chain creates too. Until now PumpPortal was the ONLY source of new coins;
+                            # when it was down (2026-11-20 10:37-16:00 UTC) the recorder kept running but recorded
+                            # no new coins and therefore no trades, for hours, without any alert.
+                            store.add_create({"mint": d["mint"], "name": d["name"], "symbol": d["symbol"],
+                                              "uri": d["uri"], "traderPublicKey": d["user"],
+                                              "vSolInBondingCurve": d["vsol"], "vTokensInBondingCurve": d["vtok"],
+                                              "signature": v.get("signature", "")}, source="chain")
         except Exception as e:
             t_down = int(time.time())
             store.stats["rpc_errors"] += 1

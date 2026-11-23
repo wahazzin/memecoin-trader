@@ -51,6 +51,25 @@ def tail_text(url, nbytes, head=requests.head, get=requests.get):
     return r.text
 
 
+def recent_asset_sizes(repo, n=51):
+    rels = requests.get(f"{API}/repos/{repo}/releases", headers=H, params={"per_page": 4}, timeout=30).json()
+    assets = sorted((a["created_at"], a["size"]) for r in rels for a in r.get("assets", []))
+    return [sz for _, sz in assets[-n:]]
+
+
+def small_uploads(sizes, k=3, frac=0.25):
+    """sizes oldest->newest. Message if the k newest are all below frac x the median of the earlier ones."""
+    if len(sizes) < k + 12:
+        return None
+    base = sorted(sizes[:-k])[len(sizes[:-k]) // 2]
+    new = sizes[-k:]
+    if base > 0 and all(x < frac * base for x in new):
+        return (f"Memecoin recorder is uploading almost empty files: last {k} hours "
+                f"{', '.join(f'{x / 1e6:.2f}' for x in new)} MB vs normal ~{base / 1e6:.1f} MB. "
+                "A data feed (probably the new-coin feed) is down, so coins and trades aren't being recorded.")
+    return None
+
+
 def running(repo, wf):
     js = requests.get(f"{API}/repos/{repo}/actions/workflows/{wf}/runs", headers=H, params={"status": "in_progress"}, timeout=30).json()
     return js.get("total_count", 0)
@@ -72,6 +91,16 @@ def checks():
             out.append(("recorder", f"Memecoin recorder hasn't uploaded data for {age / 3600:.1f} h (expected hourly)."))
     except Exception as e:
         out.append(("recorder", f"Couldn't read recorder uploads ({type(e).__name__})."))
+    try:
+        # content check (added 2026-11-23): on 2026-11-20 10:37-16:00 UTC PumpPortal (then the only source of new
+        # coins) was down; the recorder kept uploading every hour, but the files held candles only, no new coins and
+        # no trades. Upload-age alone can't see that. Alert when the 3 newest hourly files are all < 25% of the
+        # median size of the 48 before them.
+        msg = small_uploads(recent_asset_sizes("wahazzin/memecoin-trader"))
+        if msg:
+            out.append(("recorder_content", msg))
+    except Exception as e:
+        out.append(("recorder_content", f"Couldn't check recorder file sizes ({type(e).__name__})."))
     try:
         # silent-failure check: the bot judges ~5 coins/minute. If pump.fun changes its program and our decoder
         # stops understanding trades, everything keeps "running" but no coin is ever judged.

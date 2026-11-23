@@ -20,3 +20,13 @@ class TestAlertDue(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestSmallUploads(unittest.TestCase):
+    def test_alerts_only_when_newest_files_are_tiny(self):
+        from memebot.health import small_uploads
+        normal = [4_000_000 + i * 1000 for i in range(48)]
+        self.assertIsNone(small_uploads(normal + [3_900_000, 4_100_000, 4_000_000]))
+        self.assertIsNone(small_uploads(normal + [300_000, 4_100_000, 400_000]))     # one normal hour -> fine
+        self.assertIn("almost empty", small_uploads(normal + [563_200, 399_360, 174_080]))   # 2026-11-20 shape
+        self.assertIsNone(small_uploads([100] * 5))                                    # too little history

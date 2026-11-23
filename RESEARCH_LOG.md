@@ -245,3 +245,25 @@ PumpPortal was down (2026-11-20 10:37–16:00 UTC: hourly files with no coins/tr
 from the RPC log stream (memebot/decode.create), used by recorder and bot alongside PumpPortal (first source wins;
 recorder stats `creates_chain` / `creates_pumpportal`). New health alert for near-empty recorder files. M1/M2/W1 data
 window (to 2026-11-22) is unaffected: it uses what was recorded. Paper bot: covered by B2's restart (2026-11-24).
+
+## 2026-11-23 — M1 / M2 / W1 verdicts (each run once on its holdout, amendment B-data)
+
+Data: coins created 2026-10-07 20:45 → 2026-11-22; ~51% of coins excluded by the >30 s outage rule (1,060 curve
+outages, 54 h of holes in total). Full tables: research/results/*_2026-11-23.md (also branch research-out).
+M1's first run crashed on a code bug (UnboundLocalError in m1.outcomes when no trade follows the fill for 15 min)
+before printing anything; fixed (prev = fill state) and run again with identical settings.
+
+- **M1 (Setuh's scam checks): NO EVIDENCE — the checks point the wrong way.** PASS coins died MORE often than FAIL
+  coins (design 62.6% vs 59.0%, holdout 66.7% vs 60.2%) and the mechanical trade on PASS coins did worse than on all
+  coins (holdout −21.1% vs −15.4% per trade, t −5.7). Only C2 (dev holds ≤ 5%) is associated with fewer deaths
+  alone (59.6% vs 64.6%). Matches the paper bot (m1_pass slightly worse than m1_random for 6 weeks).
+- **M2 (buy the 40–50% dip): NO EVIDENCE.** The dip entry beats a random entry (holdout +8.1 pp, t 3.3) but still
+  loses heavily: −22.7% per trade after costs in the holdout (n 446). "Less bad than random" ≠ profitable.
+- **W1a (do top wallets stay good?): PASS.** The design-period top 50 wallets made +0.44 SOL per closed position in
+  the holdout (95% CI +0.28 … +0.63), far above other eligible wallets (−0.04); Spearman +0.44. Skill (or insider
+  access) persists.
+- **W1b (can we copy them?): NO EVIDENCE.** Copying them 2 s late at real reserves loses −14.9% per trade after costs
+  (n 23,406, t −34), although it beats copying random wallets by +6.8 pp. Per W1_PREREG §6: skill exists but can't
+  be copied at our speed and costs; their timing may be studied as a feature in a later pre-registered test.
+Caveats: November data has many holes and PumpPortal (the create source until today) delivered only ~1 in 4 new
+coins, so the recorded population may not be all coins. None of these verdicts can be re-run with other settings.

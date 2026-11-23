@@ -219,3 +219,10 @@ week and says there is nothing to do yet; outage alerts still repeat every 6 h. 
    failed upload keeps the hour folder and retries it on the next 5-min pass (final uploads retried 3×); double uploads
    are harmless (duplicates removed by transaction signature at analysis time). Test: tests/test_recorder_upload.py
    (fails on the old workflow).
+
+## 2026-11-23 — Amendment B2: exits from the price paid (approved by Yassin)
+
+See BOT_SPEC.md "Amendment B2". Up to 2026-11-16, 21% of take-profit exits lost money because +50%/−20% were
+measured from the stream price at entry rather than the 2 s-delayed price actually paid. Now measured from
+`paid_price` for both arms. Comparison clock restarts 2026-11-24 00:00 UTC (6-week minimum → ≈ 2027-01-05);
+pre-B2 trades reported separately. Test: test_exit_rules_use_paid_price_b2.

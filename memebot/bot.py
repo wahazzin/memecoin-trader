@@ -212,9 +212,13 @@ class Bot:
 
     def exit_reason(self, p, mint, now):
         pr = self.price.get(mint)
-        if pr is not None and pr >= 1.5 * p["entry_price"]:
+        # Amendment B2 (2026-11-23): +50% / -20% are measured from the price actually PAID (`paid_price`), not the
+        # stream price at entry. Before B2, 21% of "take-profit" exits lost money: in the first seconds the stream
+        # price can sit far below what the 2 s-delayed fill paid. Positions saved before B2 have paid_price too.
+        ref = p.get("paid_price") or p["entry_price"]
+        if pr is not None and pr >= 1.5 * ref:
             return "take_profit"
-        if pr is not None and pr <= 0.8 * p["entry_price"]:
+        if pr is not None and pr <= 0.8 * ref:
             return "stop_loss"
         if now - self.last_trade.get(mint, p["opened"]) > 900:
             return "no_volume_15m"
@@ -232,7 +236,7 @@ class Bot:
                 return (c["vsol"], c["vtok"], p.get("fee_frac", 0.0125), 0)
             return None
         rec = await asyncio.to_thread(paper.sell, mint, p["tokens"], True, time.sleep, curve_now)
-        rec.update(arm=arm, why=why)
+        rec.update(arm=arm, why=why, exit_ref="paid_price" if p.get("paid_price") else "entry_price")
         if rec["status"] == "FILLED":
             pnl = rec["proceeds_sol"] - p["cost"]
             rec.update(pnl_sol=pnl, ret=pnl / p["cost"], held_s=round(time.time() - p["opened"]))

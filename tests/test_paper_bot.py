@@ -90,6 +90,18 @@ class TestBot(unittest.TestCase):
         self.assertEqual(b.exit_reason({"entry_price": 1.0, "opened": now - 3601}, "M", now), "max_hold_60m")
         self.assertIsNone(b.exit_reason(p, "M", now))
 
+    def test_exit_rules_use_paid_price_b2(self):
+        # B2: stream said +60% vs the stream entry price, but we PAID 1.3 -> only +23% on what we paid: no TP
+        b = self.make()
+        now = time.time()
+        p = {"entry_price": 1.0, "paid_price": 1.3, "opened": now - 10}
+        b.price["M"], b.last_trade["M"] = 1.6, now
+        self.assertIsNone(b.exit_reason(p, "M", now))
+        b.price["M"] = 1.96
+        self.assertEqual(b.exit_reason(p, "M", now), "take_profit")
+        b.price["M"] = 1.03
+        self.assertEqual(b.exit_reason(p, "M", now), "stop_loss")     # 1.03 <= 0.8 * 1.3
+
     def test_circuit_breaker_halts_arm(self):
         b = self.make()
         self.assertTrue(b.day_ok("m1_pass"))

@@ -73,6 +73,11 @@ def build(state, since=0):
     return "\n".join(L)
 
 
+# Amendment B2 (BOT_SPEC): exits measured from the price paid. The m1_pass vs m1_random comparison restarts here
+# (first full UTC day on which every running bot has the B2 code). Older trades used the old exit rule.
+B2_TS = 1795478400   # 2026-11-24 00:00 UTC
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--state", default="paper_state")
@@ -80,6 +85,10 @@ if __name__ == "__main__":
     a = ap.parse_args()
     since = time.time() - a.days * 86400 if a.days else 0
     text = build(a.state, since)
+    if time.time() >= B2_TS and since < B2_TS:
+        b2 = build(a.state, B2_TS).split("\n")
+        text += ("\n\n## Since amendment B2 (2026-11-24 00:00 UTC, exits from the price paid) — the comparison that counts now\n\n"
+                 + "\n".join(b2[4:]))
     with open(os.path.join(a.state, "REPORT.md"), "w") as f:
         f.write(text + "\n")
     print(text)

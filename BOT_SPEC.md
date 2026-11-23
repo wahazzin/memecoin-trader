@@ -50,3 +50,21 @@ A top-up is added to the day's start equity, so a deposit never hides or trigger
 **Honesty:** every top-up is logged (`TOP_UP` in events.jsonl). The report shows total top-ups per arm and
 computes max drawdown with them removed. Total P&L comes from closed trades only, so top-ups can't
 flatter it. Real money would never be "topped up" to hide losses: at go-live the bankroll is fixed.
+
+## Amendment B2 (2026-11-23): exits measured from the price actually paid
+
+**Why:** the +50% / −20% exits were measured from the stream price at the moment of entry. At the checkpoint a
+coin's price moves ±50% within 2 s and our fill is the worse of two quotes 2 s apart, so the price paid is often far
+from the stream price. Result: 83 of 394 "take-profit" exits up to 2026-11-16 (21%) closed at a LOSS (median −28%,
+~8 s after entry), and stops fired relative to a price we never paid. Found in the weekly reviews (W46/W47);
+owner approved 2026-11-23, before any B2 result existed.
+
+**Rule:** take-profit when the stream price ≥ 1.5 × `paid_price`; stop-loss when ≤ 0.8 × `paid_price`
+(`paid_price` = SOL per token actually paid, before the 1.25% pump.fun fee, already stored since 2026-10-07).
+Identical for both arms. Entries, checks, sizes, costs, time exits, circuit breaker and B1 top-ups unchanged.
+Sell records carry `exit_ref`.
+
+**Honesty:** this changes the exit rule, so the m1_pass vs m1_random comparison **restarts at 2026-11-24 00:00
+UTC** (first full UTC day on which every running bot has the B2 code). The 6-week minimum (rule 1) counts again
+from that date → earliest judgement ≈ 2027-01-05. Trades before B2 stay in the log and are reported separately;
+they are never merged into the B2 numbers. `memebot/report.py` adds a "Since amendment B2" table.

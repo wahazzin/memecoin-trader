@@ -11,6 +11,7 @@ POSTBUY = bytes([111, 176, 109, 139, 49, 108, 213, 251])                # PostCo
 AMM_BUY = bytes([103, 244, 82, 31, 44, 245, 119, 119])
 AMM_SELL = bytes([62, 47, 55, 10, 165, 3, 220, 42])
 AMM_CREATE = bytes([177, 49, 12, 210, 160, 118, 167, 116])
+CREATE = bytes.fromhex("1b72a94ddeeb6376")    # sha256("event:CreateEvent")[:8] = a new coin (added 2026-11-23)
 SOL_MINTS = {"So11111111111111111111111111111111111111112", "11111111111111111111111111111111"}
 # Layouts: pump.fun official IDLs (github.com/pump-fun/pump-public-docs, idl/pump.json + pump_amm.json)
 
@@ -118,6 +119,38 @@ def amm_create(raw):
     return {"base_mint": b58.encode(d[42:74]), "quote_mint": b58.encode(d[74:106]), "pool": b58.encode(d[165:197])}
 
 
+def _str(raw, o):
+    n = struct.unpack_from("<I", raw, o)[0]
+    if n > 400:
+        raise ValueError("string too long")
+    return raw[o + 4:o + 4 + n].decode(errors="replace"), o + 4 + n
+
+
+def create(raw):
+    """CreateEvent (pump IDL): name, symbol, uri (strings), mint, bonding_curve, user, creator (pubkeys), timestamp,
+    virtual_token_reserves, virtual_sol_reserves, real_token_reserves, token_total_supply (u64). Added 2026-11-23 so
+    new coins are seen on-chain when PumpPortal (the only create source until then) is down."""
+    if len(raw) < 8 + 12 + 128 + 8 or raw[:8] != CREATE:
+        return None
+    try:
+        name, o = _str(raw, 8)
+        symbol, o = _str(raw, o)
+        uri, o = _str(raw, o)
+        mint = b58.encode(raw[o:o + 32]); o += 32
+        curve = b58.encode(raw[o:o + 32]); o += 32
+        user = b58.encode(raw[o:o + 32]); o += 32
+        creator = b58.encode(raw[o:o + 32]) if len(raw) >= o + 32 else None; o += 32
+        ts = struct.unpack_from("<q", raw, o)[0] if len(raw) >= o + 8 else None; o += 8
+        vtok, vsol = struct.unpack_from("<QQ", raw, o) if len(raw) >= o + 16 else (None, None)
+    except (ValueError, struct.error):
+        return None
+    if ts is not None and not (1.6e9 < ts < 2.2e9):
+        return None
+    return {"mint": mint, "name": name, "symbol": symbol, "uri": uri, "bonding_curve": curve, "user": user,
+            "creator": creator, "ts": ts, "vtok": None if vtok is None else vtok / 1e6,
+            "vsol": None if vsol is None else vsol / 1e9}
+
+
 def complete(raw):
     if len(raw) < 8 + 96 or raw[:8] != COMPLETE:
         return None
@@ -136,7 +169,7 @@ def events(logs):
         t = trade(raw)
         if t:
             out.append(("trade", t)); continue
-        for kind, fn in (("complete", complete), ("migrated", migrated), ("postbuy", postbuy),
+        for kind, fn in (("create", create), ("complete", complete), ("migrated", migrated), ("postbuy", postbuy),
                          ("amm_trade", amm_trade), ("amm_create", amm_create)):
             v = fn(raw)
             if v:

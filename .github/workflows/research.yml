@@ -9,7 +9,7 @@ on:
         required: true
         default: "probe"
         type: choice
-        options: [probe, probe_logs, probe_full, probe_jup, measure_costs, check_formula, m1, m2, w1, w1_synthetic, bot_smoke, watch, watch_list]
+        options: [probe, probe_create, probe_logs, probe_full, probe_jup, measure_costs, check_formula, m1, m2, w1, w1_synthetic, bot_smoke, watch, watch_list]
       url:
         description: "watch: YouTube video URL"
         required: false
@@ -47,6 +47,7 @@ jobs:
           case "${{ github.event.inputs.action }}" in
             probe) python -m research.probe ;;
             probe_logs) python -m research.probe_logs ;;
+            probe_create) python -m research.probe_create 180 ;;
             probe_jup) python -m research.probe_jup ;;
             probe_full) python -m research.probe_full ;;
             measure_costs) python -m research.measure_costs ;;

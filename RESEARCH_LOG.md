@@ -226,3 +226,12 @@ See BOT_SPEC.md "Amendment B2". Up to 2026-11-16, 21% of take-profit exits lost 
 measured from the stream price at entry rather than the 2 s-delayed price actually paid. Now measured from
 `paid_price` for both arms. Comparison clock restarts 2026-11-24 00:00 UTC (6-week minimum → ≈ 2027-01-05);
 pre-B2 trades reported separately. Test: test_exit_rules_use_paid_price_b2.
+
+## 2026-11-23 — M1/M2/W1: amendment B-data (option b, approved by Yassin), then each test run once
+
+See the "Amendment B-data" section at the bottom of research/M1_PREREG.md, M2_PREREG.md, W1_PREREG.md. Gaps measured
+from the data (> 30 s without any curve trade), day-by-day loader (research/stream.py), NaN → None fix in the loader,
+data window 2026-10-07 20:45 → 2026-11-22. Validated: tests/test_stream.py (streamed W1 = old W1 exactly on
+synthetic data; outage rule; missing values). Data-quality finding: November recordings have many holes, incl.
+~5.4 h with almost no curve trades on 2026-11-20 10:37–16:00 UTC and ~6 h on 2026-11-05, which the health check
+did not catch (it only checks that uploads happen, not what is in them).

@@ -294,6 +294,122 @@ def synthetic(effect, n_coins=3000, days=10):
     return coins
 
 
+# ---------- the same test, streamed day by day (amendment B-data, 2026-11-23) ----------
+def run_stream(day_source, days, label="", boot=BOOT, extra_lines=()):
+    """Identical rules to run(), but never holds more than one day of trades in memory.
+    day_source(only_days) -> iterator of (day, [coins]) in chronological order; days = the calendar days
+    (date objects or ints) used for the 60/40 split. Passes: (1) design days -> per-wallet totals; (2) holdout
+    days -> holdout P&L, top-group copies, control pool; (3) holdout days -> the drawn control copies."""
+    def day_ts(d):
+        return d * 86400 if isinstance(d, int) else int(__import__("calendar").timegm(d.timetuple()))
+    rng = random.Random(7)
+    k = int(len(days) * 0.6)
+    cut = day_ts(days[k])
+    design_days = set(days[:k])
+    hold_days = set(days[max(k - 1, 0):])                      # day before the cut can hold post-cut positions
+    agg = {}                                                   # wallet -> [positions, closed, closed pnl]
+    n_design = n_hold = 0
+    for _, coins in day_source(design_days):
+        for c in coins:
+            for p in positions([c]):
+                if p["ts"] >= cut:
+                    continue
+                n_design += 1
+                a = agg.setdefault(p["wallet"], [0, 0, 0.0])
+                a[0] += 1
+                if p["closed"]:
+                    a[1] += 1; a[2] += p["pnl"]
+    elig = {w: a[2] for w, a in agg.items() if a[1] >= MIN_CLOSED and 1 - a[1] / a[0] <= MAX_OPEN_SHARE}
+    del agg
+    if not n_design:
+        return f"# W1 results {label}\n\nNo positions.", False, False
+    top = [w for w, _ in sorted(elig.items(), key=lambda kv: -kv[1])[:TOP_N]]
+    topset, top10 = set(top), set(top[:10])
+    hb, pool, toplist = {}, defaultdict(list), []
+    for _, coins in day_source(hold_days):
+        for c in coins:
+            for p in positions([c]):
+                if p["ts"] < cut:
+                    continue
+                n_hold += 1
+                w = p["wallet"]
+                if w not in elig:
+                    continue
+                if p["closed"]:
+                    hb.setdefault(w, []).append(p["pnl"])
+                if w in topset:
+                    toplist.append((p["ts"], w, {dl: copy_trade(c["trades"], p, dl) for dl in (DELAY, 1.0, 5.0)}))
+                else:
+                    pool[int(p["ts"] // 3600)].append((c["mint"], w))
+    hmean = {w: sum(v) / len(v) for w, v in hb.items() if len(v) >= MIN_HOLDOUT}
+    top_h = [hmean[w] for w in top if w in hmean]
+    rest_h = [m for w, m in hmean.items() if w not in topset]
+    lo, hi = boot_ci(top_h, rng, boot)
+    dlo, dhi = boot_diff_ci(top_h, rest_h, rng, boot)
+    both = [w for w in hmean]
+    rho = spearman([elig[w] for w in both], [hmean[w] for w in both])
+    w1a = bool(top_h) and sum(top_h) / len(top_h) > 0 and lo > 0 and dlo > 0
+    # control draws (same order and seed logic as run()), then compute only the drawn copies in pass 3
+    plan, need = [], set()
+    for name, group in ((f"top {TOP_N}", topset), ("top 10", top10)):
+        for delay in (DELAY, 1.0, 5.0):
+            crng = random.Random(13)
+            rows, ctrl_keys = [], []
+            for ts, w, rs in toplist:
+                if w not in group or rs[delay] is None:
+                    continue
+                rows.append((ts, rs[delay]))
+                cands = pool.get(int(ts // 3600))
+                if cands:
+                    q = crng.choice(cands)
+                    ctrl_keys.append(q); need.add((q[0], q[1], delay))
+            plan.append((name, delay, rows, ctrl_keys))
+    got = {}
+    need_mints = {m for m, _, _ in need}
+    if need_mints:
+        for _, coins in day_source(hold_days):
+            for c in coins:
+                if c["mint"] not in need_mints:
+                    continue
+                for p in positions([c]):
+                    for dl in (DELAY, 1.0, 5.0):
+                        if (c["mint"], p["wallet"], dl) in need and p["ts"] >= cut:
+                            got[(c["mint"], p["wallet"], dl)] = (p["ts"], copy_trade(c["trades"], p, dl))
+    L = [f"# W1 results {label}", "", *extra_lines,
+         f"positions: {n_design + n_hold} (design {n_design}, holdout {n_hold}); eligible wallets: {len(elig)}; "
+         f"top group: {len(top)}; with ≥{MIN_HOLDOUT} holdout closed positions: top {len(top_h)}, others {len(rest_h)}", "",
+         "## W1a — do the design-period top wallets keep winning in the holdout?", "",
+         "| Group | Wallets | Mean holdout P&L / closed position (SOL) | 95% CI |", "|---|---|---|---|",
+         f"| Top {TOP_N} | {len(top_h)} | {(sum(top_h) / len(top_h)) if top_h else float('nan'):+.4f} | {lo:+.4f} … {hi:+.4f} |",
+         f"| Other eligible | {len(rest_h)} | {(sum(rest_h) / len(rest_h)) if rest_h else float('nan'):+.4f} | — |",
+         "", f"Top minus others: 95% CI {dlo:+.4f} … {dhi:+.4f}. Spearman design vs holdout (all eligible, reported only): {rho:+.3f}",
+         "", f"**W1a: {'PASS' if w1a else 'NO EVIDENCE'}**", "",
+         "## W1b — copying them (buy/sell after the wallet, real reserves, all costs, 0.5 SOL)", "",
+         "| Copy | Delay | n | Win rate | Expectancy/trade | t (hours) | vs random-wallet copy: diff | t |", "|---|---|---|---|---|---|---|---|"]
+    w1b = False
+    for name, delay, rows, ctrl_keys in plan:
+        ctrl = [got[(m, w, delay)] for m, w in ctrl_keys if got.get((m, w, delay)) and got[(m, w, delay)][1] is not None]
+        if not rows:
+            L.append(f"| {name} | {delay:g} s | 0 | — | — | — | — | — |")
+            continue
+        h, hc = hourly(rows), hourly(ctrl)
+        e = sum(r for _, r in rows) / len(rows)
+        t = tstat(list(h.values()))
+        d = [h[k2] - hc[k2] for k2 in h if k2 in hc]
+        dm = sum(d) / len(d) if d else float("nan")
+        dt = tstat(d)
+        primary = name == f"top {TOP_N}" and delay == DELAY
+        L.append(f"| {name}{' **(primary)**' if primary else ''} | {delay:g} s | {len(rows)} | "
+                 f"{sum(r > 0 for _, r in rows) / len(rows):.0%} | {e:+.2%} | {t:+.2f} | {dm:+.2%} | {dt:+.2f} |")
+        if primary:
+            w1b = e > 0 and t >= 2 and dm > 0 and dt >= 2 and len(rows) >= 300
+    L += ["", f"**W1b (primary: top {TOP_N}, {DELAY:g} s delay): {'PASS' if w1b else 'NO EVIDENCE'}**",
+          "", "Pre-registered: W1a = top group's holdout mean > 0 AND beats other eligible wallets (95% bootstrap CIs "
+          "above 0). W1b = copy expectancy > 0 with t ≥ 2 AND beats random-wallet copy with t ≥ 2, ≥ 300 copied trades. "
+          "Rows other than the primary are reported only. See research/W1_PREREG.md."]
+    return "\n".join(L), w1a, w1b
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     if "--synthetic" in sys.argv:
@@ -301,7 +417,10 @@ if __name__ == "__main__":
             text, a, b = run(synthetic(eff), f"(SYNTHETIC, planted effect={eff})", boot=2000)
             print(text, "\n")
     else:
-        text, a, b = run(from_recordings())
+        from research.stream import all_days, iter_days
+        stats = {}
+        text, a, b = run_stream(lambda only: iter_days(only_days=only, stats=stats), all_days())
+        text += f"\n\nData quality (amendment B-data, counted over all passes): {stats}\n"
         with open(os.path.join(OUT, "W1_results.md"), "w") as f:
             f.write(text + "\n")
         print(text)

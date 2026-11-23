@@ -190,30 +190,11 @@ def synthetic(effect):
     return coins
 
 
-def from_recordings():
-    from memebot.data import download, load
-    dest = os.path.join(os.path.dirname(__file__), "out", "raw")
-    download(os.environ.get("GITHUB_REPOSITORY", "wahazzin/memecoin-trader"), dest, os.environ.get("GITHUB_TOKEN"),
-             since=os.environ.get("M1_SINCE", "2026-10-07"))
-    d = load(dest)
-    tr, cr = d["trades"], d["creates"]
-    gaps = sorted(g["at"] for g in d["gaps"])
-    coins = []
-    if "quote_mint" in tr.columns:
-        from memebot.decode import SOL_MINTS
-        bad = set(tr.loc[tr.quote_mint.notna() & ~tr.quote_mint.isin(SOL_MINTS), "mint"])
-        tr = tr[~tr.mint.isin(bad)]                      # coins not priced in SOL are excluded (stated in prereg A2)
-    tr = tr[(tr.vsol > 0) & (tr.vtok > 0)]
-    for mint, g in tr.groupby("mint"):
-        c = cr[cr.mint == mint]
-        if c.empty:
-            continue                                   # born before recording: excluded
-        created = int(c.ts.iloc[0])
-        if any(created - 60 <= x <= created + 6000 for x in gaps):
-            continue                                   # life overlaps a recorder gap: excluded
-        coins.append({"mint": mint, "created": created, "creator": c.creator.iloc[0],
-                      "trades": g.sort_values(["slot", "ts"]).to_dict("records")})
-    return coins
+def from_recordings(stats=None):
+    """Coins from the recordings, streamed day by day (amendment B-data, 2026-11-23: the old all-at-once loader
+    could not fit a runner, and its gap rule used logged reconnects). Rules: research/stream.py + PREREG amendments."""
+    from research.stream import iter_coins
+    return iter_coins(stats=stats)
 
 
 if __name__ == "__main__":
@@ -223,7 +204,9 @@ if __name__ == "__main__":
             text, _ = report(evaluate(synthetic(eff)), f"(SYNTHETIC, planted effect={eff})")
             print(text, "\n")
     else:
-        text, _ = report(evaluate(from_recordings()))
+        stats = {}
+        text, _ = report(evaluate(from_recordings(stats)))
+        text += f"\n\nData quality (amendment B-data): {stats}\n"
         with open(os.path.join(OUT, "M1_results.md"), "w") as f:
             f.write(text + "\n")
         print(text)

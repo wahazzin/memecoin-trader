@@ -176,7 +176,9 @@ if __name__ == "__main__":
             text, _ = report(evaluate(synthetic(eff)), f"(SYNTHETIC, planted effect={eff})")
             print(text, "\n")
     else:
-        text, _ = report(evaluate(from_recordings()))
+        stats = {}
+        text, _ = report(evaluate(from_recordings(stats)))
+        text += f"\n\nData quality (amendment B-data): {stats}\n"
         with open(os.path.join(OUT, "M2_results.md"), "w") as f:
             f.write(text + "\n")
         print(text)

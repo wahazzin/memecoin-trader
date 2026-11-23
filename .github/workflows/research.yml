@@ -23,7 +23,7 @@ permissions:
 jobs:
   research:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 355   # W1 streams ~22 GB of recordings in three passes (amendment B-data)
     steps:
       - uses: actions/checkout@v5
         with:
@@ -78,4 +78,4 @@ jobs:
           cp -r code/research/out/* res/ && cd res
           git config user.name "memebot"; git config user.email "actions@github.com"
           git add -A && git commit -q -m "${{ github.event.inputs.action }} $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
-          git push -q origin research-out
+          for i in 1 2 3 4 5; do git push -q origin research-out && break; sleep $((i * 7)); git pull -q --rebase origin research-out; done   # parallel m1/m2/w1 runs

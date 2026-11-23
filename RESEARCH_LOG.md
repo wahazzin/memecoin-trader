@@ -267,3 +267,9 @@ before printing anything; fixed (prev = fill state) and run again with identical
   be copied at our speed and costs; their timing may be studied as a feature in a later pre-registered test.
 Caveats: November data has many holes and PumpPortal (the create source until today) delivered only ~1 in 4 new
 coins, so the recorded population may not be all coins. None of these verdicts can be re-run with other settings.
+
+## 2026-11-23 — Paper bot: quiet-feed alert (review W48 question 6, approved via "fix everything")
+
+The bot now sends one Discord alert if it judges no coin for 2 h, and one when coins flow again (memebot/bot.py
+`check_quiet`, test added). Alerting only. Together with the on-chain create feed and the recorder content alert,
+a repeat of the 2026-11-20 outage would now be caught within ~2 h and mostly not happen at all.

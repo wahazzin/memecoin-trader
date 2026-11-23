@@ -92,6 +92,8 @@ class Bot:
         self.last_trade = {}            # mint -> ts
         self.curve = {}                 # mint -> (vsol, vtok, fee_frac) from the latest on-chain trade event
         self.busy = set()
+        self.last_signal_ts = time.time()  # quiet-feed alert (2026-11-23): no coin judged for QUIET_ALERT_S -> one alert
+        self.quiet_alerted = False
         self.pools = {}                 # PumpSwap pool -> mint, for coins we hold that graduated
         self.rng = random.Random()
 
@@ -282,6 +284,7 @@ class Bot:
 
     async def handle_signal(self, sig):
         self.s.log("signals.jsonl", sig)
+        self.last_signal_ts = time.time()
         asyncio.create_task(self.record_funding(sig))
         arms = []
         if sig["pass"]:
@@ -301,6 +304,24 @@ class Bot:
                 self.s.log("equity.jsonl", {"ts": time.time(), "arm": arm, "equity": self.equity(arm),
                                             "cash": self.s.cash[arm], "open": len(self.s.pos[arm]), "rpc": dict(STATS)})
             self.s.save()
+            self.check_quiet(time.time())
+
+    def check_quiet(self, now):
+        """Alert once if no coin was judged for QUIET_ALERT_S (normally ~5 per minute), and once when it recovers.
+        Added 2026-11-23: on 2026-11-20 the new-coin feed was down ~6 h and the external health check (which GitHub
+        ran only twice that day) never noticed. Alerting only; trading is unchanged."""
+        from memebot import notify
+        quiet = now - self.last_signal_ts
+        if quiet > QUIET_ALERT_S and not self.quiet_alerted:
+            self.quiet_alerted = True
+            notify.send(f"⚠️ Memecoin paper bot: no coin judged for {quiet / 3600:.1f} h (normally ~5 per minute). "
+                        "A data feed is probably down. Paper only, no money at risk.")
+        elif quiet <= QUIET_ALERT_S and self.quiet_alerted:
+            self.quiet_alerted = False
+            notify.send("✅ Memecoin paper bot: coins are being judged again.")
+
+
+QUIET_ALERT_S = 2 * 3600
 
 
 async def stream(bot, stop):

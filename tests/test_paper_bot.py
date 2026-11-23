@@ -102,6 +102,19 @@ class TestBot(unittest.TestCase):
         b.price["M"] = 1.03
         self.assertEqual(b.exit_reason(p, "M", now), "stop_loss")     # 1.03 <= 0.8 * 1.3
 
+    def test_quiet_feed_alerts_once_and_recovers(self):
+        from unittest import mock
+        b = self.make()
+        now = time.time()
+        with mock.patch("memebot.notify.send") as send:
+            b.last_signal_ts = now - 3 * 3600
+            b.check_quiet(now); b.check_quiet(now + 300)
+            self.assertEqual(send.call_count, 1)                     # one alert, not one per 5 min
+            b.last_signal_ts = now + 400
+            b.check_quiet(now + 500)
+            self.assertEqual(send.call_count, 2)                     # recovered message
+            self.assertIn("again", send.call_args[0][0])
+
     def test_circuit_breaker_halts_arm(self):
         b = self.make()
         self.assertTrue(b.day_ok("m1_pass"))

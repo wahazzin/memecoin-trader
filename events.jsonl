@@ -130169,3 +130169,8 @@
 {"ts": 1795394164.5899746, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 361.4, "error": "ConnectionClosedError", "http": null}
 {"ts": 1795394256.4526727, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 89.9, "error": "ConnectionClosedError", "http": null}
 {"ts": 1795394849.3428164, "type": "TOP_UP", "arm": "m1_random", "week": "2026-W48", "added_sol": 14.182919832497067, "equity_after": 20.0}
+{"ts": 1795395584.3165276, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 2846.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795395586.4134696, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1795395588.5104103, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1795395592.6185155, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1795395600.718161, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 0.1, "error": "InvalidStatusCode", "http": 413}

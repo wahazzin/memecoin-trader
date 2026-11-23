@@ -61,6 +61,8 @@ def outcomes(after, p_cp, fee, cp_ts):
     cost_in = SIZE + PRIO + RENT + NET
     p_in = e["price"]
     exit_t, last_ts = None, e["ts"]
+    prev = e      # fixed 2026-11-23 (crash on real data, before any result): if the very first trade after the fill
+    #               is already > 15 min / 60 min later, "exit at the last state" = the fill's own state
     for t in after[1:]:
         if t["ts"] - last_ts > 900 or t["ts"] - e["ts"] > 3600:
             exit_t = prev; break                   # 15 min without a trade / 60 min: exit at the last state

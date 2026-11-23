@@ -107,3 +107,10 @@ class TestOutageRule(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestM1QuietCoin(unittest.TestCase):
+    def test_no_trade_for_15_min_after_fill_does_not_crash(self):
+        t = lambda ts, p: {"ts": ts, "price": p, "vsol": 40.0 * p / 1e-7, "vtok": 9e8, "fee_total_bps": None}
+        dead, ret = m1.outcomes([t(10, 1e-7), t(2000, 1.1e-7)], 1e-7, 0.0125, 0)
+        self.assertIsNotNone(ret)

@@ -273,3 +273,10 @@ coins, so the recorded population may not be all coins. None of these verdicts c
 The bot now sends one Discord alert if it judges no coin for 2 h, and one when coins flow again (memebot/bot.py
 `check_quiet`, test added). Alerting only. Together with the on-chain create feed and the recorder content alert,
 a repeat of the 2026-11-20 outage would now be caught within ~2 h and mostly not happen at all.
+
+## 2026-11-24 — Helius fallback finally configured
+
+Why the fallback was never used (0 Helius calls every week while ~7% of public-RPC calls failed): the secret had been
+saved as `HELIOS_API_KEY` (typo); the code reads `HELIUS_API_KEY`. Yassin added `HELIUS_API_KEY` today. The paper bot
+picks it up at its next run (secrets are read when a run starts); `rpc.helius_ok` in equity.jsonl should go above 0.
+Budget: fallback only on failed public calls (~4.5k/week) vs 1M free credits/month.

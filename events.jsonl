@@ -135013,3 +135013,18 @@
 {"ts": 1795510319.9027011, "type": "SKIP", "arm": "m1_pass", "mint": "7ZcoeMq5u29vjujGQQemFV2zYvy8sURwpNN9p9wGpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1795510329.5277057, "type": "SKIP", "arm": "m1_pass", "mint": "FKgcQAQ3XNq1TfLQkuEk18sGz7eMGr6SnfxqoVnGpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1795510392.5303528, "type": "STOP"}
+{"ts": 1795510464.7475562, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
+{"ts": 1795510526.6124303, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 61.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510529.4884787, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 64.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510537.3700535, "type": "SKIP", "arm": "m1_pass", "mint": "6usN2HNvsFGhGHCQHpgW2Jg3PRYy6XQ2v2fZ4iZrpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795510540.0474632, "type": "SKIP", "arm": "m1_pass", "mint": "39eShF3xvrX24h8bXorEQcTEnp1YFhq4MxVnd5uApump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795510651.2478602, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 119.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510656.2535489, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 127.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510665.6594682, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 12.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510680.0816941, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 21.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510684.4051628, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 16.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510710.0301785, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 23.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510724.0323532, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 41.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510734.0388086, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 22.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510745.6623542, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 19.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795510751.4429374, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 15.4, "error": "ConnectionClosedError", "http": null}

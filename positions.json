@@ -19,5 +19,35 @@
    "fee_frac": 0.0125
   }
  },
- "m1_random": {}
+ "m1_random": {
+  "79D6Cb219ccprEfAPfii92n7FXKgx9JwXt57Rt1jpump": {
+   "tokens": 2348368.497393,
+   "cost": 0.50354428,
+   "opened": 1795651746.5654483,
+   "entry_price": 2.102382556297944e-07,
+   "paid_price": 2.1028520908964703e-07,
+   "curve_key": "CXircWHpAKbTSmNFLCkHRThfwVzsSjUCt2eAtARETt6Q",
+   "fee_frac": 0.0125,
+   "stuck_since": 1795651940.8740804,
+   "last_try": 1795651940.8740807
+  },
+  "FstdtSnZkufrmpkUq8binQttX9uoEi4WKuPUovvEpump": {
+   "tokens": 6986298.768354,
+   "cost": 0.50354428,
+   "opened": 1795651894.1542146,
+   "entry_price": 7.062348207177466e-08,
+   "paid_price": 7.068509047032565e-08,
+   "curve_key": "GbBnTFxFAV6FeuMoU9R6PeXRp886r1vNtrTiv2hddKiF",
+   "fee_frac": 0.0125
+  },
+  "DSCKdSmS6fJXA9kaqDFDejtKkm6gAzxsDNdb4rJEpump": {
+   "tokens": 6257241.295593,
+   "cost": 0.50354428,
+   "opened": 1795651975.6891944,
+   "entry_price": 7.462317887669929e-08,
+   "paid_price": 7.892090734004962e-08,
+   "curve_key": "5ZeSAVSKHAWzYx4PeDLxDWA8T1Xj1rqbK6j14ewG2ZKX",
+   "fee_frac": 0.0125
+  }
+ }
 }

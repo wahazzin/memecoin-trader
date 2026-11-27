@@ -153356,3 +153356,19 @@
 {"ts": 1795786001.9766483, "type": "SKIP", "arm": "m1_random", "mint": "ALiPGfQUwPEqVjMt327ZTACqGy3prLZ33MXgj8z1pump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1795786011.6730309, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
 {"ts": 1795786052.1641934, "type": "STOP"}
+{"ts": 1795786364.5700853, "type": "START", "open": {"m1_pass": 0, "m1_random": 0}}
+{"ts": 1795786364.956682, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786368.2349603, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786374.512888, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786386.790832, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786411.0717707, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786441.3487504, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786461.5780935, "type": "SKIP", "arm": "m1_pass", "mint": "7TfL8uWe5ZPKLqkG9pkdjbHecgtJkiTi6zGc7JTju4be", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795786471.6262915, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786501.9036298, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786532.1828024, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786562.4607615, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786583.901206, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 219.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795786592.7378137, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786623.0200393, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}
+{"ts": 1795786653.2973387, "type": "GAP", "source": "pumpportal", "error": "InvalidStatusCode", "http": 502}

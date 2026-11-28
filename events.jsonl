@@ -156215,3 +156215,42 @@
 {"ts": 1795831665.2026556, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 19.2, "error": "ConnectionClosedError", "http": null}
 {"ts": 1795831676.1940067, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 18.8, "error": "ConnectionClosedError", "http": null}
 {"ts": 1795831683.3838906, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 16.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831689.8621244, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 11.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831701.635307, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 16.3, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831703.998844, "type": "SKIP", "arm": "m1_pass", "mint": "EmdDfD3wusNViHccEjkauGS5VuCoqRun9PdrJ14ppump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831703.9989154, "type": "SKIP", "arm": "m1_random", "mint": "EmdDfD3wusNViHccEjkauGS5VuCoqRun9PdrJ14ppump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831707.5478823, "type": "SKIP", "arm": "m1_pass", "mint": "23bff6CKQUDtsiwZYfza26RzReu3kNvNTPvc8S6mpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831715.0996568, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 23.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831726.24226, "type": "SKIP", "arm": "m1_pass", "mint": "9mqiTWYb2QSxZtSQUPgpYGbPtPU1XjE1aXVThmGupump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831729.1996653, "type": "SKIP", "arm": "m1_pass", "mint": "2qbMK4BVRGvdQgTdrnqc4ksdjTQdvzvrBJqsBBeSpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831729.3627403, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 25.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831743.1994085, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 26.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831765.4354596, "type": "SKIP", "arm": "m1_pass", "mint": "7WC7uVqqBTjtPFBLD4fY7czKdKsC4BGHgSZ2MZNQpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831776.8400335, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 45.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831778.6311698, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 33.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831794.4043481, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 15.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831795.653621, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 15.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831797.103205, "type": "SKIP", "arm": "m1_pass", "mint": "GkGwGCSRsUCfMhc7kxw4AzNPBSJqD8dF4ZLqLZpMpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831816.7267046, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 19.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831816.867639, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 20.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831829.7676857, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 11.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831829.8663, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 11.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831850.1676207, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 18.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831851.0528998, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 19.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831871.9515445, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 19.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831872.259973, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 19.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831891.8684537, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 17.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831893.0351067, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 18.8, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831904.8098762, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 10.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831905.5941696, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 10.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831910.4193816, "type": "SKIP", "arm": "m1_pass", "mint": "9WFu5QBUBq7BF4P9FJRiqV4BCQaGPtisgvWmZudHpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831924.1633, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 17.4, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831926.4958444, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 18.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831950.0144641, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 23.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831952.0788994, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 23.6, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831954.4137218, "type": "SKIP", "arm": "m1_pass", "mint": "ALjUJfxtBGc2JZMRkCF5SN3VkNBM4Cbe7fQdnZf2pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831964.198565, "type": "SKIP", "arm": "m1_pass", "mint": "ByZqSGtpnAskfAuFGJ7Y6wbMbUrwHnMzKiXfmEBZpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831979.5260892, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 27.5, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831983.150755, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 29.1, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795831985.4948833, "type": "SKIP", "arm": "m1_pass", "mint": "AYmNgNjZWfiMXZz8jQKsdGK9unt6F7ao6tQ53txspump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795831985.740085, "type": "SKIP", "arm": "m1_pass", "mint": "HVJUHS37Bkdv9nf6hub1Zm8nuJBByWPxVcEzWHERpump", "why": "max_open/cash/circuit_breaker"}

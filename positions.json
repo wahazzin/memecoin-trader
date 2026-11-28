@@ -1,14 +1,5 @@
 {
  "m1_pass": {
-  "8CQgjB95b1thBSYyXT1refYf8AFgFuqm3WaYA31Wpump": {
-   "tokens": 6780581.52795,
-   "cost": 0.50354428,
-   "opened": 1795824013.8447108,
-   "entry_price": 7.231358453154833e-08,
-   "paid_price": 7.282961770435756e-08,
-   "curve_key": "EY47PHmiFyws6paRKufXUDEuuv6qHWq4ucPCfbHQypbA",
-   "fee_frac": 0.0125
-  },
   "B6g7wNQ2paLtWijBBT94yaPgtuHyWPJkFgviqEFjpump": {
    "tokens": 6379352.001268,
    "cost": 0.50354428,
@@ -65,24 +56,6 @@
   }
  },
  "m1_random": {
-  "8CQgjB95b1thBSYyXT1refYf8AFgFuqm3WaYA31Wpump": {
-   "tokens": 6784106.716684,
-   "cost": 0.50354428,
-   "opened": 1795824016.0182593,
-   "entry_price": 7.231524136274655e-08,
-   "paid_price": 7.279177364344362e-08,
-   "curve_key": "EY47PHmiFyws6paRKufXUDEuuv6qHWq4ucPCfbHQypbA",
-   "fee_frac": 0.0125
-  },
-  "28FoSoMrpJNURGUwzpVJfJCiQvQdBZ8qQyk2UeRYpump": {
-   "tokens": 19149610.224607,
-   "cost": 0.50354428,
-   "opened": 1795824108.9014573,
-   "entry_price": 4.582494135332274e-08,
-   "paid_price": 2.5787843966623705e-08,
-   "curve_key": "6Jfh6nTNCwM5syiyvcNDhZkj8ZAbVXYYUbYkEYUVFMoq",
-   "fee_frac": 0.0125
-  },
   "Pvp5bRAQtvgPSbHjj22sBJEjGo2mNMFs9pqZyPkpump": {
    "tokens": 9768854.775779,
    "cost": 0.50354428,
@@ -90,6 +63,35 @@
    "entry_price": 5.008948467527866e-08,
    "paid_price": 5.0551182490523595e-08,
    "curve_key": "i9zFnFs2eCtMpaQRD45dLxxGPVbRbcohpyDpB3mAvsw",
+   "fee_frac": 0.0125
+  },
+  "Hj8W72TgALKsxEXMYfP8zbfVcuyCGt4ATwqTxLYPpump": {
+   "tokens": 3791122.075521,
+   "cost": 0.50354428,
+   "opened": 1795824856.7604,
+   "entry_price": 1.225004791885373e-07,
+   "paid_price": 1.3025883911320958e-07,
+   "curve_key": "6mxNg5BYxZX3ft6EjMzxfHDFcNbyH7LT7aQkUNt5Zcmz",
+   "fee_frac": 0.0125
+  },
+  "2xu3o3EfwwrPhmE7CCyfssfkNLjuHpnkFkHNwWRapump": {
+   "tokens": 2327882.480656,
+   "cost": 0.50354428,
+   "opened": 1795824928.6841774,
+   "entry_price": 2.0751565212677214e-07,
+   "paid_price": 2.121357777282065e-07,
+   "curve_key": "CjPweCsYq7R5VJqkRPWx13uyCvHv6mCUM6yTMey3dykh",
+   "fee_frac": 0.0125,
+   "stuck_since": 1795824987.2285228,
+   "last_try": 1795824987.228523
+  },
+  "A5ryZTEBL8Q8uL25uQZaA9KycsFuBqfhg9oUJxQQpump": {
+   "tokens": 7645546.590243,
+   "cost": 0.50354428,
+   "opened": 1795824985.1657825,
+   "entry_price": 4.533275484442856e-08,
+   "paid_price": 6.459017084848237e-08,
+   "curve_key": "GiQvyyNiv7CM9brW1gNCUfxJPNa3XfV7EEkCVL7P3zZh",
    "fee_frac": 0.0125
   }
  }

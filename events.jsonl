@@ -158869,3 +158869,14 @@
 {"ts": 1795878300.6038244, "type": "SKIP", "arm": "m1_random", "mint": "8vf5AvP7JpMTXwc3erxJGCs9J1sWhTgDdroA3YoLtDf2", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1795878306.1270895, "type": "SKIP", "arm": "m1_pass", "mint": "2y9M7PvyB9QuNEBUCGUpymTtZTMNMpjD7Z6YT8FBpump", "why": "max_open/cash/circuit_breaker"}
 {"ts": 1795878349.9339106, "type": "SKIP", "arm": "m1_pass", "mint": "25tRRocUwwxc1DWxwc25q1uChUiMLeuvu8aemcbTpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795878368.7333403, "type": "SKIP", "arm": "m1_pass", "mint": "82JsMTrgy4tTfzMtYuK6tgHWf4q5276R7WZhDD6kpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795878410.3290677, "type": "SKIP", "arm": "m1_pass", "mint": "FYfzGbefyZsrifadrV1wxaaYMUL3SKETc9i7ziBKpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795878441.7599478, "type": "SKIP", "arm": "m1_pass", "mint": "87BRT3VeNotA2zCYGQstg6AXXeDxW4wYjZe7Qj5wpump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795878493.599905, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 210.9, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795878510.618196, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 364.0, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795878512.7705998, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1795878514.9542723, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 0.2, "error": "InvalidStatusCode", "http": 413}
+{"ts": 1795878551.7666812, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 56.2, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795878626.7240548, "type": "SKIP", "arm": "m1_pass", "mint": "ARw5vbM5j6YMeV2BfJRMwMZPFmbnC9mvJicp4ox3pump", "why": "max_open/cash/circuit_breaker"}
+{"ts": 1795878629.4668374, "type": "GAP", "source": "rpc", "stream": "pump", "conn_s": 75.7, "error": "ConnectionClosedError", "http": null}
+{"ts": 1795878640.004984, "type": "GAP", "source": "rpc", "stream": "amm", "conn_s": 121.0, "error": "ConnectionClosedError", "http": null}
